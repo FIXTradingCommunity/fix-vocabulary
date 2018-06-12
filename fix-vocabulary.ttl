@@ -1,0 +1,1671 @@
+@prefix :      <https://fixprotocol.io/vocabulary#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+rdf:rest  a                 rdf:Property , rdfs:Resource ;
+        rdfs:domain         rdf:List ;
+        rdfs:range          rdf:List ;
+        rdfs:subPropertyOf  rdf:rest .
+
+rdf:List  a              rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf  rdfs:Resource , rdf:List .
+
+rdf:predicate  a            rdf:Property , rdfs:Resource ;
+        rdfs:domain         rdf:Statement ;
+        rdfs:subPropertyOf  rdf:predicate .
+
+rdf:Property  a          rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf  rdfs:Resource , rdf:Property .
+
+rdfs:label  a       rdf:Property , rdfs:Resource ;
+        rdfs:range  rdfs:Literal .
+
+rdf:Statement  a         rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf  rdfs:Resource , rdf:Statement .
+
+rdfs:Class  a            rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf  rdfs:Resource , rdfs:Class .
+
+rdf:type  a         rdf:Property , rdfs:Class , rdfs:Resource ;
+        rdfs:range  rdfs:Class .
+
+rdfs:Resource  a         rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf  rdfs:Resource .
+
+rdf:subject  a              rdf:Property , rdfs:Resource ;
+        rdfs:domain         rdf:Statement ;
+        rdfs:subPropertyOf  rdf:subject .
+
+rdf:XMLLiteral  a  rdfs:Datatype , rdfs:Resource , rdfs:Class .
+
+rdfs:comment  a     rdf:Property , rdfs:Resource ;
+        rdfs:range  rdfs:Literal .
+
+rdfs:range  a        rdf:Property , rdfs:Resource ;
+        rdfs:domain  rdf:Property ;
+        rdfs:range   rdfs:Class .
+
+rdfs:subPropertyOf  a  rdf:Property , rdfs:Resource ;
+        rdfs:domain  rdf:Property ;
+        rdfs:range   rdf:Property .
+
+rdf:object  a               rdf:Property , rdfs:Resource ;
+        rdfs:domain         rdf:Statement ;
+        rdfs:subPropertyOf  rdf:object .
+
+rdf:nil  a      rdf:List , rdfs:Resource .
+
+rdfs:domain  a       rdf:Property , rdfs:Resource ;
+        rdfs:domain  rdf:Property ;
+        rdfs:range   rdfs:Class .
+
+rdfs:Literal  a          rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf  rdfs:Resource , rdfs:Literal .
+
+rdf:first  a                rdf:Property , rdfs:Resource ;
+        rdfs:domain         rdf:List ;
+        rdfs:subPropertyOf  rdf:first .
+
+rdfs:subClassOf  a   rdf:Property , rdfs:Resource ;
+        rdfs:domain  rdfs:Class ;
+        rdfs:range   rdfs:Class .
+
+<>      a                skos:Concept , rdf:type ;
+        skos:definition  "[SecurityTradingEvent] " , "For CIV:\r\nAn Investor identifier such as a taxpayer reference (NINO, NPN, DSS, SSN number etc) for an individual investor \r\nor a registration number (EIN, etc.) for a company.\r\nMay contain alphanumeric and dashes." , "2)  Delivery quantity (DLV) is used on the target CDS position to represent the delivery of the underlying \r\nbonds." , "Specifies that the source matching mechanism for a trade is a Hit / Take.\r\n" ;
+        skos:prefLabel   "" .
+
+<Exhaust>  a             skos:Concept , rdf:type ;
+        skos:definition  "A reserve order refresh method where the displayed quantity is not refreshed until \r\nexhausted (filled)." ;
+        skos:prefLabel   "Exhaust" .
+
+<One-Party+Report+for+Matching>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A trade report \r\nfor one side of a privately negotiated trade. When both sides are reported the receiver matches and confirms the \r\ntrade." ;
+        skos:prefLabel   "One-Party Report for Matching" .
+
+<Immediate+or+Cancel>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A market or limit-price order that is to be executed in whole or in part as soon as it is \r\nrepresented in the Trading Crowd; any portion not so executed is to be canceled. Not to be confused with Fill or \r\nKill." ;
+        skos:prefLabel   "Immediate or Cancel" .
+
+<Full+Default+Curve>  a  skos:Concept , rdf:type ;
+        skos:definition  "Price calculation method that uses a complete credit curve to establish future probability \r\nof defaults for pricing a specific CDS contract." ;
+        skos:prefLabel   "Full Default Curve" .
+
+<Position+Account>  a    skos:Concept , rdf:type ;
+        skos:definition  "Account for positions resulting from derivatives trades. Each position account has a \r\nlong and short quantity. Position quantities stored in the long and short quantity fields can be kept net or gross. \r\nAccounts that are kept gross are usually omnibus accounts." ;
+        skos:prefLabel   "Position Account" .
+
+<Fill+or+Kill>  a        skos:Concept , rdf:type ;
+        skos:definition  "A market or limit-price order that is to be executed in its entirety as soon as it is \r\nrepresented in the Trading Crowd; if not so executed, the order is to be canceled.  Not to be confused with \r\nImmediate or Cancel." ;
+        skos:prefLabel   "Fill or Kill" .
+
+<Cancel+if+Not+Best>  a  skos:Concept , rdf:type ;
+        skos:definition  "Indicates that an order should be cancelled if it is no longer the best bid if buying, or \r\nthe best offer if selling. If the order is cancelled due to this instruction, the message cancelling it must carry \r\nExecRestatementReason=\"Canceled, Not Best\"." ;
+        skos:prefLabel   "Cancel if Not Best" .
+
+<URI+%28Uniform+Resource+Identifier%29>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "W3C standard \r\ndefined as \"the generic set of all names/addresses that are short strings that refer to resources\".  Note that \"URL\" \r\n(Uniform Resource Locator), commonly referred to by web browsers, is a subset of the URI standard.  The W3C " ;
+        skos:prefLabel   "URI (Uniform Resource Identifier)" .
+
+<Execution+Time>  a      skos:Concept , rdf:type ;
+        skos:definition  "According to US futures markets (CFTC):\r\nNon-qualified reporting time of order execution.\r\n" ;
+        skos:prefLabel   "Execution Time" .
+
+<Average+Price+Guarantee>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A limit order instruction that order allows fills against worse prices if this is \r\ncompensated with higher prices so the volume weighted average is at the limit price or better. Applies to each \r\nexecution round in automatic matching." ;
+        skos:prefLabel   "Average Price Guarantee" .
+
+<All+or+None>  a         skos:Concept , rdf:type ;
+        skos:definition  "A round-lot market or limit-price order that must be executed in its entirety or not at \r\nall; unlike Fill or Kill orders, AON orders are not treated as canceled if they are not executed as soon as represented \r\nin the Trading Crowd." ;
+        skos:prefLabel   "All or None" .
+
+<Limit>  a               skos:Concept , rdf:type ;
+        skos:definition  "An order to buy a security at or below a stated price, or to sell a security at or above a \r\nstated price." ;
+        skos:prefLabel   "Limit" .
+
+<Cross>  a               skos:Concept , rdf:type ;
+        skos:definition  "Client sends Broker a buy or sell order. Broker wishes to take the other side and cross \r\nwith the client. Broker sends an order with Side=Cross to an exchange." ;
+        skos:prefLabel   "Cross" .
+
+<Market+operations+Entered+Trade>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Identifies an \r\nOTC (privately negotiated) trade is entered by a marketplace official on behalf of the reporting party.\r\n" ;
+        skos:prefLabel   "Market operations Entered Trade" .
+
+<https://fixprotocol.io/vocabulary>
+        a            owl:Ontology ;
+        dct:date     "2018-06-04T18:40:35.584611500Z"^^xsd:dateTime ;
+        dct:license  "Apache License Version 2.0" ;
+        dct:rights   "Copyright 2018 FIX Trading Community" ;
+        dct:title    "FIX Vocabulary" .
+
+<Last+Peg>  a            skos:Concept , rdf:type ;
+        skos:definition  "A pegged order specifying that the order should be priced relative to the last sale price.\r\n" ;
+        skos:prefLabel   "Last Peg" .
+
+<Swap+Next+Start+Date>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Next starting date of an interest rate swap subsequent to the roll date" ;
+        skos:prefLabel   "Swap Next Start Date" .
+
+<Fixing+Price>  a        skos:Concept , rdf:type ;
+        dct:isPartOf     "EP84" ;
+        skos:definition  "Imputed price based on VWAP/TWAP algorithm.  Used especially to price FX futures." ;
+        skos:prefLabel   "Fixing Price" .
+
+<Good+Till+Crossing+%28GTX%29>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "An order to buy or sell that is canceled prior to the market entering into an auction, or \r\ncrossing phase. Typically, markets that support continuous trading will have an auction phase at the beginning and \r\nsometimes also at the end of trading to match up orders that have been entered into the exchange's order book during \r\nthe pre- or post-trading phase (i.e. where no continuous trading was available). A GTX order automatically expires \r\nimmediately prior to the commencement of a crossing session, i.e. the party originating the order wants to make sure \r\nit gets filled during the current continuous auction, and any remaining open quantity should be discarded at the end \r\nof the current continuous auction period." ;
+        skos:prefLabel   "Good Till Crossing (GTX)" .
+
+<Per+Unit>  a            skos:Concept , rdf:type ;
+        skos:definition  "The currency price per unit, e.g. per equity share or per contract." ;
+        skos:prefLabel   "Per Unit" .
+
+<Bermuda+style+option>
+        a                skos:Concept , rdf:type ;
+        dct:source       "www.investopedia.com" ;
+        skos:definition  "A type of option that can only be exercised on predetermined dates, usually every month." ;
+        skos:prefLabel   "Bermuda style option" .
+
+<3%29>  a                skos:Concept , rdf:type ;
+        skos:definition  "For a roll of a futures contract with a contract in the same commodity but having a different contract settlement \r\nmonth the \"spread\" price is the price difference between the contract being sold and the one being bought.  " ;
+        skos:prefLabel   "3)" .
+
+<Interest+Accrual+Date>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The start date used for calculating accrued interest on debt instruments which are being \r\nsold between interest payment dates. Often but not always the same as the \"Issue Date\" and the \"Dated Date\"." ;
+        skos:prefLabel   "Interest Accrual Date" .
+
+<Yield+At+Issue>  a      skos:Concept , rdf:type ;
+        skos:definition  "Municipals.  The yield of the bond offered on the issue date." ;
+        skos:prefLabel   "Yield At Issue" .
+
+<Fixing+Time>  a         skos:Concept , rdf:type ;
+        dct:isPartOf     "EP82" ;
+        skos:definition  "The time on the fixing date on which the rate is used for which the settlement amount is calculated \r\nfor NDFs.  See \"Fixing Date\".  Fixing time for NDFs typically follows market conventions and is set by the central \r\nbank of the currency's country." ;
+        skos:prefLabel   "Fixing Time" .
+
+<Government+Equivalent+Yield>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Ask yield based \r\non semi-annual coupons compounding in all periods and actual/actual calendar." ;
+        skos:prefLabel   "Government Equivalent Yield" .
+
+<Broker+of+Credit>  a    skos:Concept , rdf:type ;
+        skos:definition  "Broker to receive trade credit." ;
+        skos:prefLabel   "Broker of Credit" .
+
+<Limit+or+Better>  a     skos:Concept , rdf:type ;
+        skos:definition  "Indicates an order to\r\n - buy a security at the indicated limit price or lower, or to\r\n- sell a security at the indicated limit price or higher. " ;
+        skos:prefLabel   "Limit or Better" .
+
+<Previously+indicated>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "An order sent in response to an Indication of Interest message." ;
+        skos:prefLabel   "Previously indicated" .
+
+<Streetside+Trade+Capture+Reporting>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Reporting of \r\ncompleted trades for clearance and settlement or compliance purposes. Reports may be originated by Exchanges or \r\nby clearing firms and sent to clearing firms directly or via a clearing corporation or central counterparty such as " ;
+        skos:prefLabel   "Streetside Trade Capture Reporting" .
+
+<Uneven+swap>  a         skos:Concept , rdf:type ;
+        skos:definition  "An FX Swap where the given amount to be bought and sold is different on the near and \r\nfar legs." ;
+        skos:prefLabel   "Uneven swap" .
+
+<Last+Delivery+Date>  a  skos:Concept , rdf:type ;
+        skos:definition  "Specifies the last delivery date of the delivery period for a physically delivered \r\ninstrument." ;
+        skos:prefLabel   "Last Delivery Date" .
+
+<Internalized+Trade>  a  skos:Concept , rdf:type ;
+        skos:definition  "A trade done internally at a marketplace member. Often restricted to the inside of the \r\ncurrent spread. In cases where the trade must be offered to the market for price improvement it is often called Cross \r\nTrade." ;
+        skos:prefLabel   "Internalized Trade" .
+
+<Subscribe>  a           skos:Concept , rdf:type ;
+        skos:definition  "For CIV:\r\nA \"buy\" order for CIV units which must be forwarded to the fund manager (or their transfer agent) rather than being \r\nmatched / crossed with a \"sell\" order, e.g. by an intermediary  funds supermarket, broker/dealer etc. This would be \r\nused in markets where the originator requires specific tax treatment and/or dealing charges." ;
+        skos:prefLabel   "Subscribe" .
+
+<Outside+Spread>  a      skos:Concept , rdf:type ;
+        skos:definition  "A trade done outside the current spread of the book. Often allowed due to special \r\nconsiderations only." ;
+        skos:prefLabel   "Outside Spread" .
+
+<Redeem>  a              skos:Concept , rdf:type ;
+        skos:definition  "For CIV:\r\nA \"sell\" order for CIV units which must be forwarded to the fund manager (or their transfer agent) rather than being \r\nmatched / crossed with a \"buy\" order, e.g. by an intermediary, funds supermarket, broker/dealer etc. This would be \r\nused in markets where the originator requires specific tax treatment and/or dealing charges." ;
+        skos:prefLabel   "Redeem" .
+
+<American+style+option>
+        a                skos:Concept , rdf:type ;
+        dct:source       "www.investopedia.com" ;
+        skos:definition  "An option that can be exercised at anytime before its expiration date." ;
+        skos:prefLabel   "American style option" .
+
+<First+Intent+Date>  a   skos:Concept , rdf:type ;
+        skos:definition  "Specifies the first date of the delivery period on which intents may be submitted for a \r\nphysically delivered instrument." ;
+        skos:prefLabel   "First Intent Date" .
+
+<Fixed+Payout+Option>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "The payout amount is specified at inception. Associated with Binary options (Yes, it pays \r\nor No, it doesn't pay)." ;
+        skos:prefLabel   "Fixed Payout Option" .
+
+<similar.>  a            skos:Concept , rdf:type ;
+        skos:definition  "[PartyRole}" ;
+        skos:prefLabel   "similar." .
+
+<OK+to+Cross>  a         skos:Concept , rdf:type ;
+        skos:definition  "The broker executing this trade is allowed to take the other side of the trade.  Opposite \r\nof No Cross." ;
+        skos:prefLabel   "OK to Cross" .
+
+<Two-Party+Report>  a    skos:Concept , rdf:type ;
+        skos:definition  "A trade report requesting the receiver to register both sides of a privately negotiated \r\ntrade." ;
+        skos:prefLabel   "Two-Party Report" .
+
+<Position+Removal+Date>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Specifies the date the firm positions will be removed for a financially (cash settled) \r\ndelivered instrument." ;
+        skos:prefLabel   "Position Removal Date" .
+
+<Opening+Peg>  a         skos:Concept , rdf:type ;
+        skos:definition  "A pegged order specifying that the order should be priced relative to the opening price.\r\n" ;
+        skos:prefLabel   "Opening Peg" .
+
+<Giveup+Clearing+Firm>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Firm to which the trade is given up (carries the position that results from a trade).\r\n" ;
+        skos:prefLabel   "Giveup Clearing Firm" .
+
+<Open>  a                skos:Concept , rdf:type ;
+        skos:definition  "An instruction to position keeping that the trade should open a new position.\r\n" ;
+        skos:prefLabel   "Open" .
+
+<Market+Segment>  a      skos:Concept , rdf:type ;
+        skos:definition  "A subdivision of a market or marketplace that is setup and operates within that market.  A market \r\nsegment may be setup for a variety of reasons including (examples):\r\n- regulatory - e.g. separate derivatives trading from stock trading\r\n- membership - e.g. requiring separate membership or trading authorization\r\n- geographical - e.g. separate segments for various countries\r\n- separate venues - e.g. floor/pit trading vs. electronic\r\n- trading rules - e.g. different rules and behaviours that a market needs to support for the entities it offers to trade" ;
+        skos:prefLabel   "Market Segment" .
+
+<Recovery+Rate>  a       skos:Concept , rdf:type ;
+        dct:isPartOf     "EP83" ;
+        skos:definition  "The recovery rate for the underlying bond on a CDS in the case of a credit event." ;
+        skos:prefLabel   "Recovery Rate" .
+
+<Triggered+or+Activated+by+System>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "An execution \r\ninstruction that indicates that the sending system activated or updated the order. The triggering or activation is \r\nnormally based on instructions provided in the original order - e.g. Stop order instructions." ;
+        skos:prefLabel   "Triggered or Activated by System" .
+
+<One+Touch+Option>  a    skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "One Touch further defines the terms, usually specific dates and times, for when the \r\noption will pay out in the context of a trigger price." ;
+        skos:prefLabel   "One Touch Option" .
+
+<Exchange+granted+trade>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A trade done according to an individual or general authorisation, obtainedprior to \r\ntheconsumation ofthe trade, from the marketplace for the specific case and/or kind of trade." ;
+        skos:prefLabel   "Exchange granted trade" .
+
+<Volume+Weighted+Average+Price>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Volume \r\nWeighted Average Price is used for trades in which the price is set at a guaranteed VWAP." ;
+        skos:prefLabel   "Volume Weighted Average Price" .
+
+<Off+Hours+Trade>  a     skos:Concept , rdf:type ;
+        skos:definition  "A trade that occurs outside normal trading hours. Used to qualify privately negotiated \r\ntrades (subject to regulations)" ;
+        skos:prefLabel   "Off Hours Trade" .
+
+<Marked+To+Market+Yield>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "An adjustment in the valuation of a securities portfolio to reflect the current market \r\nvalues of the respective securities in the portfolio." ;
+        skos:prefLabel   "Marked To Market Yield" .
+
+<Binary+One+Touch+Option>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "Immediate fixed pay out if the underlying reaches the predefined trigger price at any \r\npoint during the life of the instrument." ;
+        skos:prefLabel   "Binary One Touch Option" .
+
+<Yield+Value+of+1%2F32>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The amount that the yield will change for a 1/32PndP change in price." ;
+        skos:prefLabel   "Yield Value of 1/32" .
+
+<Customer+Account>  a    skos:Concept , rdf:type ;
+        skos:definition  "Identifies the customer account associated with the message." ;
+        skos:prefLabel   "Customer Account" .
+
+<Contract+For+Difference+%28CFD%29>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A single stock \r\ntotal return swap, combining financing and synthetic equity exposure in one transaction." ;
+        skos:prefLabel   "Contract For Difference (CFD)" .
+
+<Reversed+Net+Price>  a  skos:Concept , rdf:type ;
+        skos:definition  "Relevant for multileg orders. This pricing convention is often used at commodities \r\nmarkets. The price is given as the sum of the Price * Ratio for all legs." ;
+        skos:prefLabel   "Reversed Net Price" .
+
+<Post-Close+>  a         skos:Concept , rdf:type ;
+        skos:definition  "Trading status which denotes trading outside of normal hours for the security." ;
+        skos:prefLabel   "Post-Close " .
+
+<Recovery+Rate+Long>  a  skos:Concept , rdf:type ;
+        dct:isPartOf     "EP83" ;
+        skos:definition  "In the case of a credit event the recovery rate on a long position for the bond underlying a \r\nCDS ." ;
+        skos:prefLabel   "Recovery Rate Long" .
+
+<Price+Band>  a          skos:Concept , rdf:type ;
+        skos:definition  "Range (from-to or high-low) within which a valid price needs to be specified." ;
+        skos:prefLabel   "Price Band" .
+
+<standards+body+considers+URL+an+%22informal+term+%28no+longer+used+in+technical+specifications%29%22.>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "See Appendix \r\n6-B" ;
+        skos:prefLabel   "standards body considers URL an \"informal term (no longer used in technical specifications)\"." .
+
+<Premium>  a             skos:Concept , rdf:type ;
+        skos:definition  "When a bond sells above its par value, it is said to be selling at a premium.  A price \r\nwith a PriceType of \"premium\" is the difference between the bond's percent-of-par price and 100." ;
+        skos:prefLabel   "Premium" .
+
+<Executing+Firm>  a      skos:Concept , rdf:type ;
+        skos:definition  "Identifies executing / give-up broker.\r\n" ;
+        skos:prefLabel   "Executing Firm" .
+
+<CEA>   a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP83" ;
+        skos:definition  "Credit Event Adjustment quantity (CEA) is used to represent the position movement associated with a \r\ncredit event on processing date." ;
+        skos:prefLabel   "CEA" .
+
+<Semi-annual+Yield>  a   skos:Concept , rdf:type ;
+        skos:definition  "The yield of a bond whose coupon payments are reinvested semi-annually.\r\n" ;
+        skos:prefLabel   "Semi-annual Yield" .
+
+<Buy+Minus>  a           skos:Concept , rdf:type ;
+        skos:definition  "A round-lot market order to buy \"minus\" is an order to buy a stated amount of a stock provided \r\nthat its price is:\r\n- not higher than the last sale if the last sale was a \"minus\" or \"zero minus\" tick and\r\n- not higher than the last sale minus the minimum fractional change in the stock if the last sale was a \"plus\" or \"zero \r\nplus\" tick.\r\nA limit price order to buy \"minus\" also states the highest price at which it can be executed. " ;
+        skos:prefLabel   "Buy Minus" .
+
+<Par>   a                skos:Concept , rdf:type ;
+        skos:definition  "Equal to the face value (nominal) of a security, e.g. A bond selling at par is worth an \r\nequivalent to its original issue value, typically $1000/bond." ;
+        skos:prefLabel   "Par" .
+
+<Stop+Limit>  a          skos:Concept , rdf:type ;
+        skos:definition  "A stop order to buy which becomes a limit order at the limit price when the security \r\ntrades at - or above - the stop price after the order is represented in the Trading Crowd.  A stop order to sell which \r\nbecomes a limit order at the limit price when the security trades at - or below- the stop price after the order is \r\nrepresented in the Trading Crowd." ;
+        skos:prefLabel   "Stop Limit" .
+
+<User+requested>  a      skos:Concept , rdf:type ;
+        skos:definition  "Instruments can be user requested as well as pre-listed." ;
+        skos:prefLabel   "User requested" .
+
+<Executing+System>  a    skos:Concept , rdf:type ;
+        skos:definition  "System Identifier where execution took place (some markets have multiple execution \r\nlocation such as an electronic book or automatic execution system)." ;
+        skos:prefLabel   "Executing System" .
+
+<Time+In>  a             skos:Concept , rdf:type ;
+        skos:definition  "According to US futures markets (CFTC):\r\nTimestamp of when order was received on the trading floor (booth).\r\n" ;
+        skos:prefLabel   "Time In" .
+
+<Contra+Clearing+Firm>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Clearing firm of the broker or other firm which is the contra side of the trade.\r\n" ;
+        skos:prefLabel   "Contra Clearing Firm" .
+
+<Not+Held>  a            skos:Concept , rdf:type ;
+        skos:definition  "The firm executing the order is not held to best execution requirements, and may be \r\nable to make some discretionary decisions.  Opposite of Held." ;
+        skos:prefLabel   "Not Held" .
+
+<Sponsoring+Firm>  a     skos:Concept , rdf:type ;
+        skos:definition  "A member of the exchange that is sponsoring an Entering Entity to send orders to the \r\nexchange. The Sponsoring Member Firm permits sponsorees (e.g. Entering Entities) to trade thereby allowing them \r\nto enter orders directly to the exchange via automated means.  (e.g. NYSE allowing direct access via Anonymous \r\nDOT service)." ;
+        skos:prefLabel   "Sponsoring Firm" .
+
+<Instrument+Numerator>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Specifies the denominator for the fractional portion of a numerator for a fractionally \r\nquoted price. For example, a price 5 31/4 / 32 has an Instrument Numerator of 4. Values are whole numbers.\r\n" ;
+        skos:prefLabel   "Instrument Numerator" .
+
+<Yield+Difference>  a    skos:Concept , rdf:type ;
+        skos:definition  "The price of a strategy (multileg) order is given as a spread between the two legs.\r\n" ;
+        skos:prefLabel   "Yield Difference" .
+
+<Swap+Start+Date>  a     skos:Concept , rdf:type ;
+        skos:definition  "Starting date of an interest rate swap. Corresponds to the roll date date.\r\n" ;
+        skos:prefLabel   "Swap Start Date" .
+
+<Entering+Firm>  a       skos:Concept , rdf:type ;
+        skos:definition  "Broker who has recorded or reported an execution. This field is particularly useful \r\nwhere the trade is entered into a trade recording system by a broker who is not a party to the trade, as it allows any \r\ninquiries or problem resolution to be directed to the appropriate source." ;
+        skos:prefLabel   "Entering Firm" .
+
+<Primary+Peg>  a         skos:Concept , rdf:type ;
+        skos:definition  "A pegged order specifying that the order should be priced relative to the bid price if \r\nbuying or offer price if selling." ;
+        skos:prefLabel   "Primary Peg" .
+
+<On+Hours+Trade>  a      skos:Concept , rdf:type ;
+        skos:definition  "A trade that occurs during normal trading hours. Used to qualify privately negotiated \r\ntrades (subject to regulations)" ;
+        skos:prefLabel   "On Hours Trade" .
+
+<Block+Lot>  a           skos:Concept , rdf:type ;
+        skos:definition  "A lot size that is larger than the Round Lot and associated with special block trading \r\nrules as bilaterally agreed between parties." ;
+        skos:prefLabel   "Block Lot" .
+
+<Market+On+Close>  a     skos:Concept , rdf:type ;
+        skos:definition  "Indicated price is held to the closing price (\"firm\" instruction)." ;
+        skos:prefLabel   "Market On Close" .
+
+<Yield+To+Tender+Date>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The yield on a Municipal bond to its mandatory tender date." ;
+        skos:prefLabel   "Yield To Tender Date" .
+
+<Previous+Fund+Valuation+Point>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "For CIV orders \r\n- indicates that the Investor prefers that the order be dealt at the unit price determined at the immediately preceding \r\nValuation Point, a.k.a. a Historic price. (This can be overridden by the constitution of the fund or, in certain \r\ncircumstances, by the Fund Manager.)" ;
+        skos:prefLabel   "Previous Fund Valuation Point" .
+
+<DLV>   a                skos:Concept , rdf:type ;
+        skos:definition  "1)  Delivery Amount (DLV) represents the amount paid or collected in association with a credit event." ;
+        skos:prefLabel   "DLV" .
+
+<Closing+Yield>  a       skos:Concept , rdf:type ;
+        skos:definition  "The yield of a bond based on the closing price." ;
+        skos:prefLabel   "Closing Yield" .
+
+<Open+Average+Yield>  a  skos:Concept , rdf:type ;
+        skos:definition  "The average yield of the respective securities in the portfolio." ;
+        skos:prefLabel   "Open Average Yield" .
+
+<Exchange+for+Physical>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP84" ;
+        skos:definition  "EFP trades involve a futures contract and a cash position. The parties involved agree \r\nprivately upon a price for a simultaneous exchange or transfer \"cash for futures\" and then report the terms of this \r\nagreement to the clearing house." ;
+        skos:prefLabel   "Exchange for Physical" .
+
+<Strict+Limit+%28No+Price+Improvement%29>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A limit order \r\nthat must be traded at the exact limit price specified without any price improvement.  Requires OrdType=Limit.\r\n" ;
+        skos:prefLabel   "Strict Limit (No Price Improvement)" .
+
+<Spread>  a              skos:Concept , rdf:type ;
+        skos:definition  "A \"spread\" price is one of four things all denominated in basis points:  " ;
+        skos:prefLabel   "Spread" .
+
+<Omnibus+Account>  a     skos:Concept , rdf:type ;
+        skos:definition  "An account where the positions for multiple entities (usually customers) are \r\nmaintained. The omnibus accounting is usually done on a gross basis where long and short positions are not netted \r\ntogether." ;
+        skos:prefLabel   "Omnibus Account" .
+
+<Do+Not+Reduce+%28DNR%29>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A limit order to buy, a stop order to sell, or a stop-limit order to sell that is not to be \r\nreduced in price by the amount of an ordinary cash dividend on the ex-dividend date.  A do-not-reduce order applies \r\nonly to ordinary cash dividends; it should be reduced for other distributions - such as when a stock goes \"ex\" stock \r\ndividend or \"ex\" rights." ;
+        skos:prefLabel   "Do Not Reduce (DNR)" .
+
+<Predefined+Multileg+Security>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "An order for a multileg security that is already defined at the marketplace or \r\nwith the receiver of the order.\r\n[Note: see Vol. 4's Multileg Order section on predefined multileg security models.]\r\n" ;
+        skos:prefLabel   "Predefined Multileg Security" .
+
+<Initiator>  a           skos:Concept , rdf:type ;
+        skos:definition  "An \"initiator\" may be one of the following:" ;
+        skos:prefLabel   "Initiator" .
+
+<2%29>  a                skos:Concept , rdf:type ;
+        skos:definition  "For a swap (or switch) of two issued securities the \"spread\" price is the difference in yield between the security \r\nbeing sold and the one being bought.  " ;
+        skos:prefLabel   "2)" .
+
+<Binary+Option>  a       skos:Concept , rdf:type ;
+        dct:source       "www.riskglossary.com" ;
+        skos:definition  "A binary option  is a cash settled option that has a discontinuous payoff. Binary options come in \r\nmany forms, but the two most basic are: cash-or-nothing and asset-or-nothing. Each can be European or American \r\nstyle and can be structured as a put or call.\r\nAlso called a \"digital option\" or \"all-or-nothing option\"." ;
+        skos:prefLabel   "Binary Option" .
+
+<Order+Origination+Trader>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Buyside trader id associated with Order Origination Firm which originates/submits the \r\norder." ;
+        skos:prefLabel   "Order Origination Trader" .
+
+<Trade+Confirmation>  a  skos:Concept , rdf:type ;
+        skos:definition  "A trade report confirming that a trade has been made.\r\n" ;
+        skos:prefLabel   "Trade Confirmation" .
+
+<%5Bfrom+EP84%5D>  a     skos:Concept , rdf:type ;
+        skos:definition  "[SecurityTrading Status]" ;
+        skos:prefLabel   "[from EP84]" .
+
+<Capped+Barrier+Option>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A capped option which becomes active or inactive based on the crossing of a barrier.\r\n[FROM EP92]" ;
+        skos:prefLabel   "Capped Barrier Option" .
+
+<Discount>  a            skos:Concept , rdf:type ;
+        skos:definition  "When a bond sells below its par value, it is said to be selling at a discount.  A price \r\nwith a PriceType of \"discount\" is the difference between 100 and the bond's percent-of-par price." ;
+        skos:prefLabel   "Discount" .
+
+<Sell+Short+Exempt>  a   skos:Concept , rdf:type ;
+        skos:definition  "Short sale exempt from short-sale rules." ;
+        skos:prefLabel   "Sell Short Exempt" .
+
+<OTC+Privately+Negotiated>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP84" ;
+        skos:definition  "A privately negotiated trade in a non-regulated product." ;
+        skos:prefLabel   "OTC Privately Negotiated" .
+
+<Yield+To+Next+Put>  a   skos:Concept , rdf:type ;
+        skos:definition  "The yield to the date at which the bond holder can next put the bond to the issuer.\r\n" ;
+        skos:prefLabel   "Yield To Next Put" .
+
+<Accrued+Interest+Rate>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The amount the buyer compensates the seller for the portion of the next coupon interest \r\npayment the seller has earned but will not receive from the issuer because the issuer will send the next coupon \r\npayment to the buyer.  Accrued Interest Rate is the annualized Accrued Interest amount divided by the purchase \r\nprice of the bond." ;
+        skos:prefLabel   "Accrued Interest Rate" .
+
+<OTC+Quote>  a           skos:Concept , rdf:type ;
+        skos:definition  "A OTC trade that occurs as the result of a Quote Negotiation. Used to qualify privately \r\nnegotiated trades (subject to regulations)" ;
+        skos:prefLabel   "OTC Quote" .
+
+<Ignore+Price+Validity+Checks>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Disables validity checking of price fields for an order or change request.\r\n" ;
+        skos:prefLabel   "Ignore Price Validity Checks" .
+
+<Execute+as+delta+neutral+using+volatility+provided>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Indicates that \r\nthe quantity of a strategy leg is to be (or was) calculated as delta neutral using provided volatility parameters\r\n" ;
+        skos:prefLabel   "Execute as delta neutral using volatility provided" .
+
+<Next+Fund+Valuation+Point>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "For CIV orders - indicates that the Investor wishes the order to be dealt at the unit price \r\ndetermined at the next Valuation Point, a.k.a. a Forward price." ;
+        skos:prefLabel   "Next Fund Valuation Point" .
+
+<Tax+Equivalent+Yield>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The after tax yield grossed up by the maximum federal tax rate of 39.6%.  For \r\ncomparison to taxable yields." ;
+        skos:prefLabel   "Tax Equivalent Yield" .
+
+<Funari>  a              skos:Concept , rdf:type ;
+        skos:definition  "Japanese term for an order to buy or sell a stated amount of a security at the specified \r\nlimit price with any unexecuted (leftover) quantity becoming a Market On Close order." ;
+        skos:prefLabel   "Funari" .
+
+<User-defined%2C+Non-Securitized%2C+Multileg>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A multileg order that does not involve securitization. The multileg is \r\nnot made available to other parties and the order is represented only as implied-out prices. The multileg expires with \r\nthe order.\r\n[Note: see Vol. 4's Multileg Order section on predefined multileg security models]\r\n" ;
+        skos:prefLabel   "User-defined, Non-Securitized, Multileg" .
+
+<Succession+Event>  a    skos:Concept , rdf:type ;
+        skos:definition  "An event in which one entity succeeds to the obligations of another entity due to a \r\ncorporate action (as a result of operation or law or pursuant to any agreement), which may include events such as a \r\nmerger, consolidation, an amalgamation, a transfer of assets or liabilities, a de-merger, a spin-off.\r\n" ;
+        skos:prefLabel   "Succession Event" .
+
+<Market+If+Touched>  a   skos:Concept , rdf:type ;
+        skos:definition  "Indicates an order to buy or sell a stated amount of a security or commodity as soon as \r\na preset market price is reached, at which point it becomes a Market order. " ;
+        skos:prefLabel   "Market If Touched" .
+
+<No+Cross>  a            skos:Concept , rdf:type ;
+        skos:definition  "The broker executing this trade is forbidden from taking the other side of the trade.  \r\nOpposite of OK to Cross." ;
+        skos:prefLabel   "No Cross" .
+
+<Allowances>  a          skos:Concept , rdf:type ;
+        dct:isPartOf     "EP89" ;
+        skos:definition  "Under an emissions cap and trade program, each allowance entitles the holder to emit some \r\namount of gas such as carbon.  Sources that emit less than their emissions cap can sell allowances to those sources \r\nneeding to purchase additional allowances to comply with the cap.  Emission sources can then decide whether to \r\ncontrol emissions through control technology or through allowance surrender to meet compliance." ;
+        skos:prefLabel   "Allowances" .
+
+<Current+Yield>  a       skos:Concept , rdf:type ;
+        skos:definition  "Annual interest on a bond divided by the market value. The actual income rate of \r\nreturn as opposed to the coupon rate expressed as a percentage." ;
+        skos:prefLabel   "Current Yield" .
+
+<Previously+quoted>  a   skos:Concept , rdf:type ;
+        skos:definition  "An order sent in response to a Quote message." ;
+        skos:prefLabel   "Previously quoted" .
+
+<Percent+of+Volume>  a   skos:Concept , rdf:type ;
+        skos:definition  "The sender does not want to be all of the volume on the floor." ;
+        skos:prefLabel   "Percent of Volume" .
+
+<Price+Volatility+Interruption>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "To ensure price continuity, continuous trading is interrupted by a volatility interruption \r\nwhenever the potential execution price of an order lies outside the dynamic and/or static price range around a \r\nreference price. A volatility interruption triggers a change of trading form: e.g. continuous trading is interrupted and \r\nan auction is initiated." ;
+        skos:prefLabel   "Price Volatility Interruption" .
+
+<Correspondent+Clearing+Firm>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "ClearingFirm that is going to carry the position on their books at another clearing \r\nhouse (exchanges)." ;
+        skos:prefLabel   "Correspondent Clearing Firm" .
+
+<Participate+Don%27t+Initiate>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "An order that may participate in a transaction initiated by another party, but may not \r\ninitiate a transaction.  For example, on US ECNs / Exchanges, this may represent an order that will be quoted to the \r\nmarketplace and will trade if another party initiates a trade (i.e. hits the posted quote), but cannot be routed to initiate \r\na trade with another market or market maker." ;
+        skos:prefLabel   "Participate Don't Initiate" .
+
+<Up+and+In+Option>  a    skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "The option becomes active if the underlying price exceeds the specified barrier." ;
+        skos:prefLabel   "Up and In Option" .
+
+<Binary+Barrier+Option>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "A digital option which becomes active or inactive based on the crossing of a barrier. \r\nEvents are linked through \"And\" condition." ;
+        skos:prefLabel   "Binary Barrier Option" .
+
+<Foreign+exchange+swap>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The transaction of exchanging two currencies at an agreed upon rate at an agreed upon \r\ntime.  The transaction is reversed at a future rate and time, with no payment streams between the points in time.\r\n\r\nhttp://joxo.co.uk/SummaryGuideToFXForFinancialandITProfessionals.html" ;
+        skos:prefLabel   "Foreign exchange swap" .
+
+<Pegged+Order>  a        skos:Concept , rdf:type ;
+        skos:definition  "An order that acts like a limit order except that the limit price is set relativeto another \r\nprice, such as the last sale price, midpoint price, opening price, bid, offer or VWAP (Volume Weighted Average \r\nPrice)." ;
+        skos:prefLabel   "Pegged Order" .
+
+<SEA>   a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP83" ;
+        skos:definition  "Succession Event Adjustment quantity (SEA) is used to represent the position transferred from the source \r\nCDS position to the target CDS position due to a succession event on processing date." ;
+        skos:prefLabel   "SEA" .
+
+<Flexible+Instrument>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "An exchange-listed instrument for which a set of pre-defined attributes such as strike \r\nprice, expiration date and underlying instrument may be provided by the user at the time of creation (creating a new \r\ninstrument).  Can be an option or future." ;
+        skos:prefLabel   "Flexible Instrument" .
+
+<Even+swap>  a           skos:Concept , rdf:type ;
+        skos:definition  "An FX Swap where the given amount to be bought and sold is the same on the near \r\nand far legs.  See \"uneven swap\"." ;
+        skos:prefLabel   "Even swap" .
+
+<Opposite>  a            skos:Concept , rdf:type ;
+        skos:definition  "Sides of the legs are the opposite of their definition in the multileg instrument." ;
+        skos:prefLabel   "Opposite" .
+
+<Swap+End+Date>  a       skos:Concept , rdf:type ;
+        skos:definition  "End date of an interest rate swap. Corresponds to the termination date " ;
+        skos:prefLabel   "Swap End Date" .
+
+<Default+Position+Effect>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "An instruction to use the default position keeping rules assigned to the account.  For \r\nOptions and Futures the default is normally \"net\" position, while for Forwards the deafault is usally \"open\" position.\r\n" ;
+        skos:prefLabel   "Default Position Effect" .
+
+<Two-Party+Trade+Report+%28privately+negotiated+trade%29>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Specifies that \r\nthe source for a trade report is a privately negotiated Two-Party Trade Report." ;
+        skos:prefLabel   "Two-Party Trade Report (privately negotiated trade)" .
+
+<Binary+Range+Option>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "Fixed pay out if the underlying settles between an upper and lower trigger price." ;
+        skos:prefLabel   "Binary Range Option" .
+
+<OTC>   a                skos:Concept , rdf:type ;
+        skos:definition  "Used to report into an exchange trades or prices that were agreed directly, outside of \r\nthe exchange rules, between the counterparties (\"over the counter\")" ;
+        skos:prefLabel   "OTC" .
+
+<Clearing+Organization>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Identifies the Clearing Organization where the position is maintained." ;
+        skos:prefLabel   "Clearing Organization" .
+
+<True+Yield>  a          skos:Concept , rdf:type ;
+        skos:definition  "The yield calculated with coupon dates moved from a weekend or holiday to the next \r\nvalid settlement date." ;
+        skos:prefLabel   "True Yield" .
+
+<Institutions+Only>  a   skos:Concept , rdf:type ;
+        skos:definition  "Broker is restricted to dealing with other buy side firms." ;
+        skos:prefLabel   "Institutions Only" .
+
+<Proceeds+Yield>  a      skos:Concept , rdf:type ;
+        skos:definition  "The CD equivalent yield when the remaining time to maturity is less than two years.\r\n" ;
+        skos:prefLabel   "Proceeds Yield" .
+
+<Portfolio+Trade>  a     skos:Concept , rdf:type ;
+        skos:definition  "The reporting of the portfolio trade should be executed when the final leg of the \r\ntransaction is completed.  Used for trading an index vs. a cash basket.  Certain market regulations require that \r\nparticipants repot a portfolio trade when the final leg of the transaction is completed." ;
+        skos:prefLabel   "Portfolio Trade" .
+
+<Individual+Prices>  a   skos:Concept , rdf:type ;
+        skos:definition  "The price of a multileg order strategy is given using individual prices for the legs.\r\n" ;
+        skos:prefLabel   "Individual Prices" .
+
+<First+Delivery+Date>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Specifies the first delivery date of the delivery period for a physically delivered \r\ninstrument." ;
+        skos:prefLabel   "First Delivery Date" .
+
+<Last+Intent+Date>  a    skos:Concept , rdf:type ;
+        skos:definition  "Specifies the last date of the delivery period on which intents may be submitted for a \r\nphysically delivered instrument." ;
+        skos:prefLabel   "Last Intent Date" .
+
+<Respondent>  a          skos:Concept , rdf:type ;
+        skos:definition  "A \"respondent\" may be one of the following:" ;
+        skos:prefLabel   "Respondent" .
+
+<Random>  a              skos:Concept , rdf:type ;
+        skos:definition  "A reserve order instruction to refresh using a randomized display quantity.\r\n" ;
+        skos:prefLabel   "Random" .
+
+<Initial>  a             skos:Concept , rdf:type ;
+        skos:definition  "A reserve order instruction to refresh using the initially displayed quantity.\r\n" ;
+        skos:prefLabel   "Initial" .
+
+<Round+Lot>  a           skos:Concept , rdf:type ;
+        dct:source       "www.investopedia.com" ;
+        skos:definition  "Also known as as \"Board Lot\" or \"Trade Lot\". A standardized number of shares defined by a stock \r\nexchange as a trading unit. In most cases, this means 100 shares." ;
+        skos:prefLabel   "Round Lot" .
+
+<Instrument+Price+Precision>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Specifies the number of decimal places that are provided in order to correctly format a \r\nprice. Generally, used for the formatting of fractional prices. Values are whole numbers.\r\n" ;
+        skos:prefLabel   "Instrument Price Precision" .
+
+<Yield+To+Maturity>  a   skos:Concept , rdf:type ;
+        skos:definition  "The yield of a bond to its maturity date." ;
+        skos:prefLabel   "Yield To Maturity" .
+
+<Trading+Session+VWAP+Price>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The volume \r\nweighted average price for a trading session.\r\n" ;
+        skos:prefLabel   "Trading Session VWAP Price" .
+
+<Derivative+Related+Transaction>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Exercise or \r\nexpiration of options, forwards or futures contracts that imply an exchange of securities or a trade that relates to a \r\nderivatives trade and that forms an unconditional part of a combination together with a derivative trade.\r\n" ;
+        skos:prefLabel   "Derivative Related Transaction" .
+
+<Multi+asset+class+Multileg+Trade>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Identifies that \r\nthe trade occurred due to an equity / derivatives (or other multi asset class) combination, either in the legs or in a \r\nmultileg order book." ;
+        skos:prefLabel   "Multi asset class Multileg Trade" .
+
+<Rolling%2FRatchet+Barrier+Option>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "The option is issued with a sequence of barriers either all below (roll-down \r\ncalls) or all above (roll-up puts) the current underlying price. Upon reaching each barrier the options strike is \r\nlowered for calls or raised for puts. The option is knocked-out at the last barrier." ;
+        skos:prefLabel   "Rolling/Ratchet Barrier Option" .
+
+<FIX+Connection>  a      skos:Concept , rdf:type ;
+        skos:definition  "A FIX Connection is comprised of three parts: logon, message exchange, and \r\nlogout." ;
+        skos:prefLabel   "FIX Connection" .
+
+<Capped+Call+Option>  a  skos:Concept , rdf:type ;
+        skos:definition  "The option has a linear payout (like a vanilla) up to a capped amount as specified by a \r\ncap price.\r\n[FROM EP92]" ;
+        skos:prefLabel   "Capped Call Option" .
+
+<External+Routing+Allowed>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Indicates that an order sent to one market may be routed by that market to other \r\nexternal markets, especially in cases where the order locks or crosses the market and it can be executed against \r\nanother market's superior price.  Note: The absence of this instruction does not imply that an order should not be \r\nrouted externally; rather, the order receiver's default will apply." ;
+        skos:prefLabel   "External Routing Allowed" .
+
+<Confirmed+Trade+Report+%28reporting+from+recognized+markets%29>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A trade that is \r\ncompleted (both sides are reported) and matched.  The receiver confirms the completed trade." ;
+        skos:prefLabel   "Confirmed Trade Report (reporting from recognized markets)" .
+
+<1%29>  a                skos:Concept , rdf:type ;
+        skos:definition  "For an outright security trade, the \"spread\" price is the difference in yield between the object security and its \r\nbenchmark - implied or explicit.  " ;
+        skos:prefLabel   "1)" .
+
+<FIX+Vocabulary>  a     skos:ConceptScheme ;
+        skos:prefLabel  "FIX Vocabulary" .
+
+<Repurchase+Agreement>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Used to report both the initial deal and the repurchase. Allows regulators to connect the \r\ntwo.\r\nNote that this \"definition\" is not for the standard business term.  See online resources below." ;
+        skos:prefLabel   "Repurchase Agreement" .
+
+<Percent+of+Par>  a      skos:Concept , rdf:type ;
+        skos:definition  "The ratio between the current price of a bond and its par value adjusted for \r\namortization or indexing and expressed as a percent.  For example if a EUR1,000 bond is trading at EUR1032.50 its \r\nprice is expressed as 103.25 or 1031/4.  In the US this is usually referred to as the \"dollar price\" even in scholarly \r\nmaterial and handbooks." ;
+        skos:prefLabel   "Percent of Par" .
+
+<Pre-listed+only>  a     skos:Concept , rdf:type ;
+        skos:definition  "Instruments must be pre-listed" ;
+        skos:prefLabel   "Pre-listed only" .
+
+<Yield+Change+Since+Close>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The change in the yield since the previous day's closing yield." ;
+        skos:prefLabel   "Yield Change Since Close" .
+
+<Intermarket+sweep>  a   skos:Concept , rdf:type ;
+        skos:definition  "An order that is an intermarket sweep as defined by the SEC in Regulation NMS.  This \r\nvalue is used on Immediate or Cancel limit orders (or other order type and time in force).  It indicates that the party \r\nsending the order has taken responsibility for price protection, and the recipient of the order should execute it, if \r\npossible, without regard to protection of other markets' prices.  While the term \"Intermarket sweep\" is specific to \r\nthe United States, the ExecInst value that represents it may be used in other markets, where appropriate, to indicate \r\nan order that should be executed without regard to price protection." ;
+        skos:prefLabel   "Intermarket sweep" .
+
+<Market+Or+Better>  a    skos:Concept , rdf:type ;
+        skos:definition  "Indicates an order to buy or sell a stated amount of a security at the quoted market or \r\nbetter. " ;
+        skos:prefLabel   "Market Or Better" .
+
+<Settlement+Location>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Identifies Settlement Depository or, if local settlement, the ISO Country Code.   \r\n" ;
+        skos:prefLabel   "Settlement Location" .
+
+<Fixed+Tick+Rule>  a     skos:Concept , rdf:type ;
+        skos:definition  "A fixed cabinet trade price set to a minimum tick amount." ;
+        skos:prefLabel   "Fixed Tick Rule" .
+
+<%5Bfrom+EP83%5D>  a     skos:Concept , rdf:type ;
+        skos:definition  "[Quote Condition]" , "2)  [PosType]" , "1)  [PosAmtTyp]" ;
+        skos:prefLabel   "[from EP83]" .
+
+<True+Gross+Yield>  a    skos:Concept , rdf:type ;
+        skos:definition  "Yield calculated using the price including accrued interest, where coupon dates are \r\nmoved from holidays and weekends to the next trading day." ;
+        skos:prefLabel   "True Gross Yield" .
+
+<Put+Date>  a            skos:Concept , rdf:type ;
+        skos:definition  "The date on which the buyer of a security has the right but not the obligation to sell the \r\nsecurity back to the issuer at a predetermined price." ;
+        skos:prefLabel   "Put Date" .
+
+<Liquidity+Provider>  a  skos:Concept , rdf:type ;
+        skos:definition  "Identifies the individual that provided liquidity, e.g. was the market maker (specialist) \r\ninvolved in a trade. Used to identify the liquidity provider involved in a block of EFP trade for listed futures \r\nmarkets." ;
+        skos:prefLabel   "Liquidity Provider" .
+
+<Central+Registration+Depository+%28CRD%29>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP79" ;
+        skos:definition  "\"The Central Registration Depository is a computerized database that \r\ncontains information about most brokers, their representatives, and the firms they work for.\"\r\nFrom SEC website: www.sec.gov/investor/brokers.htm" ;
+        skos:prefLabel   "Central Registration Depository (CRD)" .
+
+<User-defined+Multileg+Security>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "An order for a multileg security where the user defines the security together with \r\nthe order and that multileg security is made available to other actors. The lifetime of the multileg is bilaterally \r\nagreed between parties.\r\n[Note: see Vol. 4's Multileg Order section on predefined multileg security models]\r\n" ;
+        skos:prefLabel   "User-defined Multileg Security" .
+
+<Submission+to+Clearing>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP77" ;
+        skos:definition  "The timestamp when the trade was officially acknowledged by the Clearing House" ;
+        skos:prefLabel   "Submission to Clearing" .
+
+<Entering+Trader>  a     skos:Concept , rdf:type ;
+        skos:definition  "Individual usually identified by a trading badge number or initials that actually enters \r\nan order to a market (especially in open outcry markets). Usually the Entering Trader is the same as the Executing \r\nTrader. However, under some circumstances the Entering Trader will have the trade executed by another trader who \r\nis then identified as the Executing Trader." ;
+        skos:prefLabel   "Entering Trader" .
+
+<Imbalance+Only>  a      skos:Concept , rdf:type ;
+        skos:definition  "Indicates than order is an \"Imbalance\" order. Exchanges often use this type of (often \r\nunpriced) order to allow certain trading participants to remove imbalances in call auctions." ;
+        skos:prefLabel   "Imbalance Only" .
+
+<Book+Yield>  a          skos:Concept , rdf:type ;
+        skos:definition  "The yield of a security calculated by using its book value instead of the current market \r\nprice.  This term is typically used in the US domestic market." ;
+        skos:prefLabel   "Book Yield" .
+
+<Crossed>  a             skos:Concept , rdf:type ;
+        skos:definition  "Generally indicates that the current offer price is better than the bid one - a situation where a trade normally \r\nshould have occurred. The rules for crossed book situations are bilaterally agreed between counterparties.\r\n[See Vol. 3 Market Data for usage notes]\r\n" ;
+        skos:prefLabel   "Crossed" .
+
+<Time+Out>  a            skos:Concept , rdf:type ;
+        skos:definition  "According to US futures markets (CFTC):\r\nTimestamp when the trade was received from the pit.\r\n" ;
+        skos:prefLabel   "Time Out" .
+
+<One+Triggers+the+Other+%28OTO%29>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "An OTO orders \r\ninvolves two orders-a primary order and a secondary order. The primary order is a live marketplace order. The \r\nsecondary order, held in a separate order file, is not. If the primary order executes in full, the secondary order is \r\nreleased to the marketplace and becomes live. An OTO order can be made up of stock orders, option orders, or a \r\ncombination of both." ;
+        skos:prefLabel   "One Triggers the Other (OTO)" .
+
+<Vanilla+Payout+Option>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "The payout amount is determined by the difference between the strike and the underlying." ;
+        skos:prefLabel   "Vanilla Payout Option" .
+
+<Yield+with+Inflation+Assumption>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Based on price, \r\nthe return an investor would require on a normal bond that would make the real return equal to that of the inflation-\r\nindexed bond, assuming a constant inflation rate.\r\n" ;
+        skos:prefLabel   "Yield with Inflation Assumption" .
+
+<Swap+Value+Factor>  a   skos:Concept , rdf:type ;
+        skos:definition  "The daily change in Net Present Value of a swap trade or position.  Used in calculating \r\nthe mark-to-market amount." ;
+        skos:prefLabel   "Swap Value Factor" .
+
+<Market>  a              skos:Concept , rdf:type ;
+        skos:definition  "Indicates an order to buy or sell a stated amount of a security at the most advantageous \r\nprice obtainable after the order is represented in the Trading Crowd." ;
+        skos:prefLabel   "Market" .
+
+<Up+and+Out+Option>  a   skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "the option becomes inactive if the underlying price exceeds the specified barrier." ;
+        skos:prefLabel   "Up and Out Option" .
+
+<Dollar+Price>  a        skos:Concept , rdf:type ;
+        skos:definition  "See \"Percent of Par\"" ;
+        skos:prefLabel   "Dollar Price" .
+
+<Yield+To+Shortest+Average+Life>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The yield \r\nassuming that all sinks (mandatory and voluntary) are taken at par. This results in a faster paydown of debt; the yield \r\nis then calculated to the final payment date." ;
+        skos:prefLabel   "Yield To Shortest Average Life" .
+
+<Call+First>  a          skos:Concept , rdf:type ;
+        skos:definition  "Refer to client before trading." ;
+        skos:prefLabel   "Call First" .
+
+<Riskless+Principal>  a  skos:Concept , rdf:type ;
+        skos:definition  "\"Riskless\" principal transactions are generally described as trades in which, after receiving an \r\norder to buy (or sell) from a customer, the broker-dealer purchases (or sells) the security from (or to) another person \r\nin a contemporaneous offsetting transaction.\r\nAbove from the SEC web-site  HTUhttp://www.sec.gov/rules/final/34-44291.htmUUUTH\r\nSee Exchange Act Rule 10b-10(a)(2)(ii)(A) [17 CFR 240. 10b-10(a)(2)(ii)(A)]; Exchange Act Rel. No. 33743 (Mar. \r\n9, 1994) at n.11.  " ;
+        skos:prefLabel   "Riskless Principal" .
+
+<Cross+Short+Exempt>  a  skos:Concept , rdf:type ;
+        skos:definition  "Client wants to establish a short position, and is exempt from the uptick restriction. So \r\nClient sends Sell Short Exempt to Broker. Broker wants to cross with the Client, so Broker needs a way to send \r\n\"Cross Short Exempt\" to the exchange so that an audit trail traces back indicating that the party selling short was \r\nexempt from the uptick rule." ;
+        skos:prefLabel   "Cross Short Exempt" .
+
+<Compound+Yield>  a      skos:Concept , rdf:type ;
+        skos:definition  "The yield of certain Japanese bonds based on its price. Certain Japanese bonds have \r\nirregular first or last coupons, and the yield is calculated compound for these irregular periods." ;
+        skos:prefLabel   "Compound Yield" .
+
+<Execute+as+FX+neutral>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Indicates that the quantity of a strategy FX leg is to be (or was) calculated as neutral \r\nwith regards to the security traded for the other legs of the strategy" ;
+        skos:prefLabel   "Execute as FX neutral" .
+
+<Down+and+Out+Option>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "The option becomes inactive if the underlying price drops below the specified barrier." ;
+        skos:prefLabel   "Down and Out Option" .
+
+<Annual+Yield>  a        skos:Concept , rdf:type ;
+        skos:definition  "The annual interest or dividend income an investment earns, expressed as a percentage \r\nof the investment's total value." ;
+        skos:prefLabel   "Annual Yield" .
+
+<Odd+Lot>  a             skos:Concept , rdf:type ;
+        skos:definition  "An amount of a security that is less than the normal unit of trading for that particular \r\nsecurity. For stocks, any transaction less than 100 shares is usually considered to be an odd lot. (Source: \r\nInvestopedia)" ;
+        skos:prefLabel   "Odd Lot" .
+
+<Cancel+on+System+Failure>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "If a system failure interrupts trading or order routing, attempt to cancel this order. Note \r\nthat depending on the type and severity of the failure, this might not be possible." ;
+        skos:prefLabel   "Cancel on System Failure" .
+
+<ICPN>  a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP83" ;
+        skos:definition  "Initial coupon (ICPN) is an amount paid to the buyer as a pro-rated portion of the coupon from the prior \r\ncoupon through trade date. The buyer will be responsible for the full coupon on the next coupon date." ;
+        skos:prefLabel   "ICPN" .
+
+<BANK>  a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP83" ;
+        skos:definition  "Total Banked Amount (BANK) represents the summation of all banked amounts \r\n(ICPN+TVAR+IACPN+ICMTM+CPN+DLV)" ;
+        skos:prefLabel   "BANK" .
+
+<Auto-match>  a          skos:Concept , rdf:type ;
+        skos:definition  "Specifies that the source matching mechanism for a trade is automatic matching (of \r\norders and / or quotes)" ;
+        skos:prefLabel   "Auto-match" .
+
+<Fixed+Price+Cabinet+Trade>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Cabinet Trade executed at a price equal to the minimum tick size (or smallest possible \r\nprice) .  See \"Cabinet Trade\"." ;
+        skos:prefLabel   "Fixed Price Cabinet Trade" .
+
+<Dated+Date>  a          skos:Concept , rdf:type ;
+        skos:definition  "The effective date of a new securities issue determined by its underwriters.  Often but \r\nnot always the same as the \"Issue Date\" and the \"Interest Accrual Date\"" ;
+        skos:prefLabel   "Dated Date" .
+
+<At+Crossing>  a         skos:Concept , rdf:type ;
+        skos:definition  "An order that is valid only during crossing (auction) phases. The order is valid during \r\nthe day or up to and including a specified trading (sub) session. Also see Good  Till Crossing (GTX), Good Through \r\nCrossing,At the Opening and At the Close." ;
+        skos:prefLabel   "At Crossing" .
+
+<Limit+With+or+Without>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "An order to be executed at a limit price, with or without round-lot sales; valid only for \r\nodd lot orders. " ;
+        skos:prefLabel   "Limit With or Without" .
+
+<Contra+Firm>  a         skos:Concept , rdf:type ;
+        skos:definition  "The broker or other firm which is the contra side of the trade." ;
+        skos:prefLabel   "Contra Firm" .
+
+<Close>  a               skos:Concept , rdf:type ;
+        skos:definition  "An instruction to position keeping that the trade should bring the position towards zero, \r\ni.e. close as much as possible of any existing position and open an opposite position for any remainder.\r\n" ;
+        skos:prefLabel   "Close" .
+
+<Reinstate+on+System+Failure>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "If a system failure interrupts trading or order routing, attempt to reinstate this order, \r\nsubject to time in force limitations. Note that depending on the type and severity of the failure, this might not be \r\npossible." ;
+        skos:prefLabel   "Reinstate on System Failure" .
+
+<Variable+Tick+Rule>  a  skos:Concept , rdf:type ;
+        skos:definition  "A cabinet order can trade in even increments that can be significantly different than a \r\nconventional tick increment." ;
+        skos:prefLabel   "Variable Tick Rule" .
+
+<2.>    a                skos:Concept , rdf:type ;
+        skos:definition  "In the Absolute Quantity Reduction model, the quantity of the unfilled order is reduced with the fill size of the \r\norder that got filled. Example:" ;
+        skos:prefLabel   "2." .
+
+<Median+Price>  a        skos:Concept , rdf:type ;
+        skos:definition  "One type of average, found by arranging the values in order and then selecting the one \r\nin the middle. If the total number of values in the sample is even, then the median is the mean of the two middle \r\nnumbers. The median is a useful number in cases where the distribution has very large extreme values which would \r\n" ;
+        skos:prefLabel   "Median Price" .
+
+<Cross+Auction>  a       skos:Concept , rdf:type ;
+        skos:definition  "Crossing session, for example to open or close a market. Rules governing this type of session \r\nusually differ from those effective during continuous trading. For example, price determination could be subject to \r\nthe principle of most executable volume. Visibility of the order book is typically restricted (e.g. top-of-book only, \r\nindicative crossing price) compared to continuous trading. The session itself might be separated into different phases \r\ngoverned by different rules, all of which are defined by the marketplace offering this type of matching mechanism.\r\nSpecifies that the source matching mechanism for a trade report is Call Auction (a crossing session like the onnes \r\noften used to open or close a market)." ;
+        skos:prefLabel   "Cross Auction" .
+
+<At+the+close>  a        skos:Concept , rdf:type ;
+        skos:definition  "Indicated price is to be around the closing price, however, not held to the closing price.\r\n" ;
+        skos:prefLabel   "At the close" .
+
+<Call+Date>  a           skos:Concept , rdf:type ;
+        skos:definition  "The date on which the issuer of a security has the right but not the obligation to \r\nrepurchase the security at a predetermined price." ;
+        skos:prefLabel   "Call Date" .
+
+<Binary+All+or+None+Option>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "Fixed pay out if the underlying settles on a predefined trigger price." ;
+        skos:prefLabel   "Binary All or None Option" .
+
+<Next+Roll+Date>  a      skos:Concept , rdf:type ;
+        skos:definition  "Next roll date for a swap " ;
+        skos:prefLabel   "Next Roll Date" .
+
+<Non-standard+settlement>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A Trade that deviates from the standard settlement and delivery period.\r\n" ;
+        skos:prefLabel   "Non-standard settlement" .
+
+<New>   a                skos:Concept , rdf:type ;
+        skos:definition  "A reserve order instruction to refresh using a quantity defined separately from the \r\ninitial display quantity." ;
+        skos:prefLabel   "New" .
+
+<Day+Order>  a           skos:Concept , rdf:type ;
+        skos:definition  "A buy or sell order that, if not executed expires at the end of the trading day on which \r\nit was entered." ;
+        skos:prefLabel   "Day Order" .
+
+<Suspended>  a           skos:Concept , rdf:type ;
+        skos:definition  "The order is not eligible for trading. This usually happens as a result of a verbal or \r\notherwise out of band request to suspend the order, or because the order was submitted, or modified via a \r\nCancel/Replace Request, with ExecInst=Suspended." ;
+        skos:prefLabel   "Suspended" .
+
+<Coupon+Rate>  a         skos:Concept , rdf:type ;
+        skos:definition  "The rate of interest that, when multiplied by the principal, par value, or face value of a \r\nbond, provides the currency amount of the periodic interest payment.  The coupon is always cited, along with \r\nmaturity, in any quotation of a bond's price." ;
+        skos:prefLabel   "Coupon Rate" .
+
+<After+Tax+Yield>  a     skos:Concept , rdf:type ;
+        skos:definition  "Municipals.  The yield on the bond net of any tax consequences from holding the bond.  \r\nThe discount on municipal securities can be subject to both capital gains taxes and ordinary income taxes.  \r\nCalculated from dollar price." ;
+        skos:prefLabel   "After Tax Yield" .
+
+<Double+Barrier+Option>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "An option that has a combination of activation/inactivation conditions. Specifies multiple \r\nprice levels at which the option becomes active (knock-in) or inactive (knock-out)." ;
+        skos:prefLabel   "Double Barrier Option" .
+
+<CMTM>  a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP83" ;
+        skos:definition  "Collateralized mark-to-market (CMTM) is determined by marking from coupon rate to settlement price. \r\nThe resulting amount is collateralized meaning the holder of the position must post acceptable collateral to cover the \r\nobligation." ;
+        skos:prefLabel   "CMTM" .
+
+<Good+Through+Crossing>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "An order that is valid up till and including a crossing phase. Also see Good  Till \r\nCrossing (GTX), At Crossing, At the Opening and At the Close." ;
+        skos:prefLabel   "Good Through Crossing" .
+
+<Issue+Price+Stabilization>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "This indication must, according to certain regulation, be used when a broker is \r\ncontracted by the issuer to stabilize the price before an issue of new stock of a security that is already traded (or a \r\nbuy-back/buy-out)." ;
+        skos:prefLabel   "Issue Price Stabilization" .
+
+<CRES>  a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP83" ;
+        skos:definition  "Cash Residual Amount (CRES) is used to represent a residual amount  associated with migrated trades and \r\nsuccession events" ;
+        skos:prefLabel   "CRES" .
+
+<DTCC+in+the+US.>  a     skos:Concept , rdf:type ;
+        skos:definition  "A \"Section\" in \"Volume 5\"" ;
+        skos:prefLabel   "DTCC in the US." .
+
+<Closing+Yield+Most+Recent+Month>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The yield of a \r\nbond based on the closing price as of the most recent month's end." ;
+        skos:prefLabel   "Closing Yield Most Recent Month" .
+
+<Underlying+Contra+Firm>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The broker or other firm which is the contra side of the trade for the underlying \r\nsecurity." ;
+        skos:prefLabel   "Underlying Contra Firm" .
+
+<Automated+Floor+Order+Routing>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The use of \r\nelectronic devices or systems to capture orders and route the resulting trades to downstream system for matching and \r\npost-trade activities." ;
+        skos:prefLabel   "Automated Floor Order Routing" .
+
+<*>     a                rdf:type , skos:Concept ;
+        skos:definition  "Order A is for 100; Order B is for 50." , "matching system with limit orders entered by customers (dealers or institutions)" , "Order A is for 100; Order B is for 50.\r\nWhen order B is partially filled for 25, order A is restated to a quantity of 75." , "an institutional client" , "a retail broker representing a retail customer" , "If buying the strategy, the price of a bought leg (which is a buy-leg in the multileg definition) is added, and \r\nthe price of a sold leg is subtracted.\r\nIf selling the strategy, the price of a bought leg (which is a sell-leg in the multileg definition) is subtracted, and the \r\nprice of a sold leg is added." , "a broker/dealer" , "a financial planner" , "If buying the strategy, the price of a bought leg (which is a buy-leg in the multileg definition) is subtracted, \r\nand the price of a sold leg is added.\r\nIf selling the stategy, the price of a bought leg (which is a sell-leg in the multileg definition) is added, and the price \r\nof a sold leg is subtracted." , "an inter-dealer broker (or broker's broker)" , "bid or offer prices provided by an inter-dealer broker" , "When order B is partially filled for 25 (50 %), order A is restated to a quantity of 50 (50 %)." , "bid or offer prices provided by one or more market makers" , "an electronic service" ;
+        skos:prefLabel   "*" .
+
+<Sell+Short>  a          skos:Concept , rdf:type ;
+        skos:definition  "An order to sell a security that the seller does not own; a sale effected by delivering a \r\nsecurity borrowed by, or for the account of, the seller.  Can only be executed on a \"plus\" or \"zero plus\" tick.\r\n" ;
+        skos:prefLabel   "Sell Short" .
+
+<Instrument+Strike+Price+Precision>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Specifies the \r\nnumber of decimal places that are provided in order to correctly format a strike price. Generally, used for the \r\nformatting of fractional prices. Values are whole numbers.\r\n" ;
+        skos:prefLabel   "Instrument Strike Price Precision" .
+
+<ICMTM>  a               skos:Concept , rdf:type ;
+        dct:isPartOf     "EP83" ;
+        skos:definition  "Incremental Accrued Coupon (IACPN) represents the incremental accrued coupon which is banked each \r\nday." ;
+        skos:prefLabel   "ICMTM" .
+
+<Settlement+currency>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Commonly referred to as \"counter currency\" in FX nomenclature.\r\nFor non-NDF deals (FX swaps, spot and forward) the term \"settlement currency\" can only mean one thing:  the \r\ncurrency that is on the opposite from the dealt currency (expressed in FIX using Currency field (tag 15)).  For \r\nexample:  Symbol is EUR/USD, and the dealt is EUR then SettlCurrency is USD.\r\nFor NDF deals the term \"settlement currency\" could be either the dealt currency or the \"counter currency\" or a third \r\ncurrency.  For example:  In a USD/KRW NDF deal where the dealt currency is KRW, the settlement currency is \r\nUSD, if the dealt currency is USD then the settlement currency can also be USD.  In a GBP/KRW NDF deal where \r\nthe deal typically settles in a third currency, USD in this case, then the settlement currency is USD.  (NDFs will be \r\ndiscussed in detail in Phase 2 gap analysis).\r\nFor FX OTC Spot Options, the settlement currency can refer to either the counter currency or the currency of the \r\noption premium (or premia).  However, for the purposes of FIX usage, it will refer to the currency of the option \r\npremium." ;
+        skos:prefLabel   "Settlement currency" .
+
+<Reset+Barrier+Option>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "After hitting the barrier the next specified barrier goes into effect. The payoff depends on \r\nthe maximum or minimum of the underlying price over the look-back period. The option becomes active (knock-in) \r\nor inactive (knock-out) based on a predetermined price level." ;
+        skos:prefLabel   "Reset Barrier Option" .
+
+<Yield+To+Next+Refund>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Sinking Fund Bonds. Yield assuming all bonds are redeemed at the next refund date at \r\nthe redemption price." ;
+        skos:prefLabel   "Yield To Next Refund" .
+
+<Issuing%2FBuy-back+Auction>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A call auction with the purpose of issuing new or buying back stock, bonds or other \r\nsecurity." ;
+        skos:prefLabel   "Issuing/Buy-back Auction" .
+
+<Market+Peg>  a          skos:Concept , rdf:type ;
+        skos:definition  "A pegged order specifying that the order should be priced relative to the offer price if \r\nbuying or bid price if selling." ;
+        skos:prefLabel   "Market Peg" .
+
+<Stop>  a                skos:Concept , rdf:type ;
+        skos:definition  "A stop order to buy which becomes a market order when the security trades at - or \r\nabove - the stop price after the order is represented in the Trading Crowd.  A stop order to sell which becomes a \r\nmarket order when the security trades at - or below - the stop price after the order is represented in the Trading \r\nCrowd." ;
+        skos:prefLabel   "Stop" .
+
+<Peg+to+VWAP>  a         skos:Concept , rdf:type ;
+        skos:definition  "A pegged order specifying that the order should be priced relative to the VWAP price.\r\n" ;
+        skos:prefLabel   "Peg to VWAP" .
+
+<Sell+Plus>  a           skos:Concept , rdf:type ;
+        skos:definition  "A round-lot market order to sell \"plus\" is an order to sell a  stated amount of a stock provided that its price \r\nis:\r\n- not lower than the last sale if the last sale was a \"plus\" or \"zero plus\" tick and\r\n- not lower than the last sale minus the minimum fractional change in the stock if the last sale was a \"minus\" or \r\n\"zero minus\" tick.\r\nA limit-price order to sell \"plus\" also states the lowest price at which it can be executed." ;
+        skos:prefLabel   "Sell Plus" .
+
+<Investor+ID>  a         skos:Concept , rdf:type ;
+        skos:definition  "For Equities:\r\nIdentifies beneficiary or broker acting on behalf of beneficiary. This field is mandatory for various exchanges either \r\npre or post trade.\r\nNumerical entry containing no dashes. " ;
+        skos:prefLabel   "Investor ID" .
+
+<As+defined>  a          skos:Concept , rdf:type ;
+        skos:definition  "Sides of the legs are the same as defined in the multileg instrument." ;
+        skos:prefLabel   "As defined" .
+
+<One-Party+Report+for+Pass+Thru>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A trade report \r\nfor one side of a privately negotiated trade. The receiver forwards a request to the counterparty who declines or \r\naccepts the trade." ;
+        skos:prefLabel   "One-Party Report for Pass Thru" .
+
+<Counter-Order+Selection>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A model where the user selects which order to hit by providing the order ID in the \r\norder being submitted against it (also know as Hit/Take orders)." ;
+        skos:prefLabel   "Counter-Order Selection" .
+
+<Swap+Roll+date>  a      skos:Concept , rdf:type ;
+        skos:definition  "Date on which a swap contract is rolled to the next period or start date. Corresponds to \r\nthe Fixing Date on which the floating rate of the swap is set." ;
+        skos:prefLabel   "Swap Roll date" .
+
+<Simple+Yield>  a        skos:Concept , rdf:type ;
+        skos:definition  "The yield of a bond assuming no reinvestment of coupon payments. (Act/360 day \r\ncount)" ;
+        skos:prefLabel   "Simple Yield" .
+
+<Reinstate+on+Trading+Halt>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "If trading in this instrument is halted, reinstate this order when/if trading resumes, \r\nsubject to time in force limitations." ;
+        skos:prefLabel   "Reinstate on Trading Halt" .
+
+<Final+Inventory+Due+Date>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Specifies the last date on which purchase dates for a contract must be provided to the \r\nservice provider." ;
+        skos:prefLabel   "Final Inventory Due Date" .
+
+<Net+Price>  a           skos:Concept , rdf:type ;
+        skos:definition  "Relevant for multileg orders. The price is given as the sum of the Price * Ratio for all legs. " ;
+        skos:prefLabel   "Net Price" .
+
+<Capped+Payout+Option>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The payout amount is capped based on the difference between the strike and a cap price \r\nfor call options and a floor price for put options.\r\n[FROM EP92]" ;
+        skos:prefLabel   "Capped Payout Option" .
+
+<Mid+Price>  a           skos:Concept , rdf:type ;
+        skos:definition  "The average of a set of prices (not taking quantity into account). Also see \"Trading \r\nSession VWAP Price\"" ;
+        skos:prefLabel   "Mid Price" .
+
+<At+the+Opening>  a      skos:Concept , rdf:type ;
+        skos:definition  "A market or limit-price order to be executed at the opening of the stock or not at all; all \r\nor part of any order not executed at the opening is treated as canceled." ;
+        skos:prefLabel   "At the Opening" .
+
+<One+Cancels+the+Other+%28OCO%29>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "An OCO order \r\nis an order whose execution results in the immediate cancellation of another order linked to it. Cancellation of the \r\nContingent Order happens on a best efforts basis. In an OCO order, both orders are live in the marketplace at the \r\nsame time. The execution of either order triggers an attempt to cancel the unexecuted order. Partial executions will \r\nalso trigger an attempt to cancel the other order." ;
+        skos:prefLabel   "One Cancels the Other (OCO)" .
+
+<With+or+Without>  a     skos:Concept , rdf:type ;
+        skos:definition  "An odd lot order filled on an effective round lot transaction, or on an effective bid or \r\noffer, whichever occurs first after the specialist receives the order. (e.g. NYSE order type)" ;
+        skos:prefLabel   "With or Without" .
+
+<Yield+To+Worst>  a      skos:Concept , rdf:type ;
+        skos:definition  "The lowest yield to all possible redemption date scenarios." ;
+        skos:prefLabel   "Yield To Worst" .
+
+<TED+Price>  a           skos:Concept , rdf:type ;
+        skos:definition  "The price spread between the active 3 month treasury bill futures contract and the 3 \r\nmonth Eurodollar futures contract. Used as an indicator of investor confidence in the U.S. markets." ;
+        skos:prefLabel   "TED Price" .
+
+<Cross+Short>  a         skos:Concept , rdf:type ;
+        skos:definition  "Client wants to establish a short position, and so sends a Sell Short to Broker. Broker \r\nwants to cross with the Client, so Broker sends a Cross Short order to an exchange. Cross Short is crucial here \r\nbecause many exchanges have tick rules needing to be enforced, and the order getting converted from Sell Short to \r\nCross (instead of Cross Short) could result in an illegal short sell." ;
+        skos:prefLabel   "Cross Short" .
+
+<Currency+swap>  a       skos:Concept , rdf:type ;
+        dct:source       "UA" ;
+        skos:definition  "\"An agreement to exchange future cash flows.  There are two fundamental types: the cross-\r\ncurrency swap and the interest rate (single currency) swap.\"" ;
+        skos:prefLabel   "Currency swap" .
+
+<Executing+Trader>  a    skos:Concept , rdf:type ;
+        skos:definition  "Trader or broker id associated with Executing Firm who actually executes the trade.\r\n" ;
+        skos:prefLabel   "Executing Trader" .
+
+<Order+imbalance%2C+auction+is+extended>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Used when a \r\ncall auction (e.g. opening or closing a market) is extended due to an imbalance at the auction clearing price." ;
+        skos:prefLabel   "Order imbalance, auction is extended" .
+
+<Capped+Asian+Option>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A capped option which pays out based on the average price of the underlying.\r\n[FROM EP92]" ;
+        skos:prefLabel   "Capped Asian Option" .
+
+<ACPN>  a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP83" ;
+        skos:definition  "Accrued Coupon (ACPN) is a pro-rated amount from the prior coupon date to the current business date \r\nwhich is collateralized by the clearing house" ;
+        skos:prefLabel   "ACPN" .
+
+<Locked>  a              skos:Concept , rdf:type ;
+        skos:definition  "Generally indicates that the current bid and offer prices are the same, a situation where \r\na trade normally should have occurred. The rules for locked book situations are bilaterally agreed between \r\ncounterparties. Also see Crossed.\r\n" ;
+        skos:prefLabel   "Locked" .
+
+<Inverse+Floater+Bond+Yield>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Inverse floater semi-annual bond equivalent rate." ;
+        skos:prefLabel   "Inverse Floater Bond Yield" .
+
+<Look-back+Option>  a    skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "The underlying price is set to the optimal value of the daily settlement prices over a \r\nspecified period." ;
+        skos:prefLabel   "Look-back Option" .
+
+<Substitution+of+futures+for+forwards>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP84" ;
+        skos:definition  "An OTC deal where the participants have agreed that the OTC deal will \r\nimmediately be extinguished and replaced with a transaction in a regulated future." ;
+        skos:prefLabel   "Substitution of futures for forwards" .
+
+<Market+with+Leftover+as+Limit>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Indicates an \r\norder to buy or sell a stated amount of a security at the prevailing market price with any unexecuted (leftover) \r\nquantity becoming a Limit order at the last executed price." ;
+        skos:prefLabel   "Market with Leftover as Limit" .
+
+<Barrier+Option>  a      skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "The option becomes active (knock-in) or inactive (knock-out) based on a predetermined price \r\nlevel" ;
+        skos:prefLabel   "Barrier Option" .
+
+<Multileg-to-Multileg+Trade>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Identifies that a multileg order has executed against another multileg order in a \r\nmultileg order book (i.e. the legs were not involved).\r\n" ;
+        skos:prefLabel   "Multileg-to-Multileg Trade" .
+
+<Fixing+Date>  a         skos:Concept , rdf:type ;
+        dct:isPartOf     "EP82" ;
+        skos:definition  "The date on which the rate is used for which the settlement amount is calculated.  Every NDF has \r\na fixing date.  The fixing date is the day the comparison between the NDF rate and the prevailing spot rate is made.  \r\nDepending on the currencies dealt, there are variations.  For some currencies the fixing date is one good business \r\nday before the settlement date and for other currencies the fixing date is two good business days before the \r\nsettlement date." ;
+        skos:prefLabel   "Fixing Date" .
+
+<Stopped>  a             skos:Concept , rdf:type ;
+        skos:definition  "A trade is guaranteed for the order, usually at a stated price or better, but has not yet \r\noccurred. For example, a specialist on an exchange may \"stop\" an order while searching for a better price.\r\n" ;
+        skos:prefLabel   "Stopped" .
+
+<Forex+-+Swap>  a        skos:Concept , rdf:type ;
+        skos:definition  "A \"Swap\" order for Foreign Exchange (currency trading)." ;
+        skos:prefLabel   "Forex - Swap" .
+
+<Acceptable+Counterparty>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A counterparty eligible for trading with the order or quote Initiatior." ;
+        skos:prefLabel   "Acceptable Counterparty" .
+
+<Block+Trade>  a         skos:Concept , rdf:type ;
+        dct:isPartOf     "EP84" ;
+        skos:definition  "A Block Trade is a privately negotiated futures transaction executed apart from the public auction \r\nmarket, either on or off the exchange trading floor." ;
+        skos:prefLabel   "Block Trade" .
+
+<Floating+Price+Cabinet+Trade>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Cabinet Trade executed at a price that can be different than the minimal price.  See \r\n\"Cabinet Trade\"." ;
+        skos:prefLabel   "Floating Price Cabinet Trade" .
+
+<Basis+Price>  a         skos:Concept , rdf:type ;
+        skos:definition  "A price established by joint agreement of odd-lot dealers in 100-share-unit stocks when:\r\n- no round-lot has occurred during the trading session,\r\n- the spread between the closing bid and offer is two points or more, and\r\n- on odd-lot the dealer has been given a \"basis-price\" order." ;
+        skos:prefLabel   "Basis Price" .
+
+<IACPN>  a               skos:Concept , rdf:type ;
+        dct:isPartOf     "EP83" ;
+        skos:definition  "Incremental Accrued Coupon (IACPN) represents the incremental accrued coupon which is banked each \r\nday." ;
+        skos:prefLabel   "IACPN" .
+
+<Closing+Yield+Most+Recent+Year>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The yield of a \r\nbond based on the closing price as of the most recent year's end." ;
+        skos:prefLabel   "Closing Yield Most Recent Year" .
+
+<Execute+as+duration+neutral>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Indicates that the quantity of a strategy leg is to be (or was) calculated as duration \r\nneutral" ;
+        skos:prefLabel   "Execute as duration neutral" .
+
+<Mid-Price+Peg+%28Midprice+of+inside+quote%29>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A pegged order \r\nspecifying that the order should be priced relative to the mid-price of the inside quotes." ;
+        skos:prefLabel   "Mid-Price Peg (Midprice of inside quote)" .
+
+<Floored+Put+Option>  a  skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "The option has a linear payout (like a vanilla) up to a capped amount as specified by a \r\nfloor price." ;
+        skos:prefLabel   "Floored Put Option" .
+
+<Trailing+Stop+Peg>  a   skos:Concept , rdf:type ;
+        skos:definition  "A pegged order representing a stop order with a stop price pegged to trail a specified \r\ndistance behind the last sale price. The price of a trailing stop to buy can never increase, and the price of a trailing \r\nstop to sell can never decrease." ;
+        skos:prefLabel   "Trailing Stop Peg" .
+
+<Try+to+Stop>  a         skos:Concept , rdf:type ;
+        skos:definition  "Used in specialist-driven markets to direct the specialist to try and stop the order.\r\n" ;
+        skos:prefLabel   "Try to Stop" .
+
+<Immediate>  a           skos:Concept , rdf:type ;
+        skos:definition  "A reserve order refresh method where the displayed quantity stays the same until the \r\nremaining executable quantity of the order goes below." ;
+        skos:prefLabel   "Immediate" .
+
+<TED+Yield>  a           skos:Concept , rdf:type ;
+        skos:definition  "The difference in basis points between the yield-to-maturity of the bond / note and the \r\nyield-to-maturity of a Hypothetical Euromarket bond with identical coupon and maturity." ;
+        skos:prefLabel   "TED Yield" .
+
+<Trade+Along>  a         skos:Concept , rdf:type ;
+        skos:definition  "Clients who specify \"Trade Along\" give brokers permission to handle and place their \r\norder in the market even if  the broker already has its own proprietary orders for the same security placed in the \r\nmarket." ;
+        skos:prefLabel   "Trade Along" .
+
+<Close+but+Notify+on+Open>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "An instruction to position keeping that the trade should close an existing position. If \r\nthe position is closed out and an opposite position is opened a notification is sent out." ;
+        skos:prefLabel   "Close but Notify on Open" .
+
+<Request+to+Intermediary>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Used in a model where an intermediary, e.g. clearing house, is involved in \r\ncommunicating allocation details and actions between two parties" ;
+        skos:prefLabel   "Request to Intermediary" .
+
+<Correspondent+Clearing+Organization>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Identifies a \r\ncorrespondent clearing organization" ;
+        skos:prefLabel   "Correspondent Clearing Organization" .
+
+<Value+date>  a          skos:Concept , rdf:type ;
+        skos:definition  "The delivery or settlement date of a foreign exchange trade transaction." ;
+        skos:prefLabel   "Value date" .
+
+<CPN>   a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP83" ;
+        skos:definition  "Coupon (CPN) is the payment as determined by coupon rate paid on coupon date." ;
+        skos:prefLabel   "CPN" .
+
+<Issue+Date>  a          skos:Concept , rdf:type ;
+        skos:definition  "The date on which a bond or stock offering is issued.  It may or may not be the same as \r\nthe effective date (\"Dated Date\") or the date on which interest begins to accrue (\"Interest Accrual Date\")" ;
+        skos:prefLabel   "Issue Date" .
+
+<Initial+Inventory+Due+Date>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Specifies the first date on which purchase dates for a contract must be provided to the \r\nservice provider." ;
+        skos:prefLabel   "Initial Inventory Due Date" .
+
+<Executing+Unit>  a      skos:Concept , rdf:type ;
+        skos:definition  "Identifies executing unit within an Executing Firm, e.g. trading desk, branch office or " ;
+        skos:prefLabel   "Executing Unit" .
+
+<Yield+To+Average+Maturity>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The yield achieved by substituting a bond's average maturity for the issue's final \r\nmaturity date." ;
+        skos:prefLabel   "Yield To Average Maturity" .
+
+<Fund+manager+Client+ID>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "For CIV:\r\nAn identifier for an Investor or a broker or funds supermarket's  nominee/custodian company which is recognized \r\nby the Fund manager." ;
+        skos:prefLabel   "Fund manager Client ID" .
+
+<Instrument+Denominator>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Specifies the price denominator of a fractionally quoted instrument such as treasure \r\nnote futures or corn futures. Values are whole numbers. Examples are Quarters (4), Eights (8), Sixteenths (16), \r\nThirty-seconds (32), etc." ;
+        skos:prefLabel   "Instrument Denominator" .
+
+<Previous+Close+Yield>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The yield of a bond based on the closing price 1 day ago." ;
+        skos:prefLabel   "Previous Close Yield" .
+
+<Cabinet+Trade>  a       skos:Concept , rdf:type ;
+        skos:definition  "An off-market transaction to close out a nearly worthless out-of-the-money option \r\ncontract." ;
+        skos:prefLabel   "Cabinet Trade" .
+
+<Average+Strike>  a      skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "The strike price is an average of the daily settlement prices over a specified period" ;
+        skos:prefLabel   "Average Strike" .
+
+<Broker+Execution>  a    skos:Concept , rdf:type ;
+        skos:definition  "According to US futures markets (CFTC):\r\nTime at which a broker executed the order for another broker.\r\n" ;
+        skos:prefLabel   "Broker Execution" .
+
+<%EF%BB%BFTerm>  a       skos:Concept , rdf:type ;
+        skos:definition  "Definition\r\nused" ;
+        skos:prefLabel   "﻿Term" .
+
+<Held>  a                skos:Concept , rdf:type ;
+        skos:definition  "The firm executing the order is held to best execution requirements, and may not make \r\ndiscretionary decisions.  Opposite of Not Held" ;
+        skos:prefLabel   "Held" .
+
+<European+style+option>
+        a                skos:Concept , rdf:type ;
+        dct:source       "www.investopedia.com" ;
+        skos:definition  "An option that can only be exercised at the end of its life or for a short, specified period \r\nof time just prior to expiration (usually on a single day)." ;
+        skos:prefLabel   "European style option" .
+
+<4%29>  a                skos:Concept , rdf:type ;
+        skos:definition  "For a floating-rate Financing transaction the \"spread\" is the difference in yield extended above or below the \r\nyield of the stated benchmark.\r\nAll four types are expressed in basis points (the price or yield difference times 100) and may be negative.\r\n" ;
+        skos:prefLabel   "4)" .
+
+<Average+Price+%28Asian%29+Option>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "The underlying price is an average of the daily settlement prices over a specified \r\nperiod" ;
+        skos:prefLabel   "Average Price (Asian) Option" .
+
+<Do+Not+Increase+%28DNI%29>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A limit order to buy, a stop order to sell, or a stop-limit order to sell which is not to be \r\nincreased in shares on the ex-dividend date as a result of a stock dividend or distribution." ;
+        skos:prefLabel   "Do Not Increase (DNI)" .
+
+<FIX+Session>  a         skos:Concept , rdf:type ;
+        skos:definition  "A FIX Session is comprised of one or more FIX Connections, meaning that a FIX \r\nSession spans multiple logins." ;
+        skos:prefLabel   "FIX Session" .
+
+<Contract+Weighted+Average+Price>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Relevant for \r\nmultileg orders (Energy Specific). The price of the strategy is given as an average price of all legs in the multileg, \r\nincluding adjustment for differences in contract sizes between the legs. \r\n" ;
+        skos:prefLabel   "Contract Weighted Average Price" .
+
+<Flat+Default+Curve>  a  skos:Concept , rdf:type ;
+        skos:definition  "Price calculation method that uses a flat credit curve to establish future probability of \r\ndefaults for pricing a specific CDS contract." ;
+        skos:prefLabel   "Flat Default Curve" .
+
+<One+Updates+the+Other+%28OUO%29>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "An OUO order is an order whose execution results in the immediate reduction of \r\nquantity in another order linked to it. The quantity reduction happens on a best effort basis. In an OUO order both \r\norders are live in the marketplace at the same time. The execution of either order triggers an attempt to reduce the \r\nremaining quantity of the other order, partial executions included.\r\nThere are two sub-types of OUO orders:" ;
+        skos:prefLabel   "One Updates the Other (OUO)" .
+
+<Clearing+Firm>  a       skos:Concept , rdf:type ;
+        skos:definition  "Firm that will clear the trade.  Used if different from the executing firm.\r\n" ;
+        skos:prefLabel   "Clearing Firm" .
+
+<Entering+Unit>  a       skos:Concept , rdf:type ;
+        skos:definition  "Individual unit within an Entering Firm, e.g. trading desk, branch office or similar, that \r\nactually enters an order to a market. Usually the Entering Unit is the same as the Executing Unit that is responsible \r\nfor the transction. The Executing Unit can delegate the entry but not the responsibility to another unit who is then \r\nidentified as the Entering Unit." ;
+        skos:prefLabel   "Entering Unit" .
+
+<1.>    a                skos:Concept , rdf:type ;
+        skos:definition  "In the Proportional Quantity Reduction model, the quantity of the unfilled order is reduced proportionally to \r\nsize of the order that got filled. Example:" ;
+        skos:prefLabel   "1." .
+
+<Cancel+on+Trading+Halt>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "If trading in this instrument is halted, cancel this order and do not reinstate it when/if \r\ntrading resumes." ;
+        skos:prefLabel   "Cancel on Trading Halt" .
+
+<Good+Till+Canceled>  a  skos:Concept , rdf:type ;
+        skos:definition  "An order to buy or sell that remains in effect until it is either executed or canceled; \r\nsometimes called an \"open order\". " ;
+        skos:prefLabel   "Good Till Canceled" .
+
+<Correspondent+Broker>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Identifies a correspondent broker." ;
+        skos:prefLabel   "Correspondent Broker" .
+
+<an+issuer>  a           skos:Concept , rdf:type ;
+        skos:definition  "Quoting and other messages\r\n\r\nVolume 7" ;
+        skos:prefLabel   "an issuer" .
+
+<Contra+Trader>  a       skos:Concept , rdf:type ;
+        skos:definition  "Individual usually identified by a trading badge number or initials that takes the \r\nopposite side of a trade." ;
+        skos:prefLabel   "Contra Trader" .
+
+<Order+Origination+Firm>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Buyside firm associated with Order Origination Firm which originates/submits the \r\norder." ;
+        skos:prefLabel   "Order Origination Firm" .
+
+<On+Basis>  a            skos:Concept , rdf:type ;
+        skos:definition  "An order to buy or sell at the basis price. The basis price is established by joint \r\nagreement of odd lot dealers in 100 share unit stocks when no round lot sale has occurred during the trading session, \r\nthe spread between the closing bid and offer is two points or more, and an odd lot dealer has been given a basis price \r\norder. " ;
+        skos:prefLabel   "On Basis" .
+
+<Client+ID>  a           skos:Concept , rdf:type ;
+        skos:definition  "Firm identifier used in third party-transactions or for investor identification in \r\nintermediary transactions. (should not be a substitute for OnBehalfOfCompID/DeliverToCompID)." ;
+        skos:prefLabel   "Client ID" .
+
+<COLAT>  a               skos:Concept , rdf:type ;
+        dct:isPartOf     "EP83" ;
+        skos:definition  "Total Collateralized Amount (COLAT) represents the summation of all collateralized amounts \r\n(ACPN+CMTM)." ;
+        skos:prefLabel   "COLAT" .
+
+<External+Routing+Not+Allowed>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Indicates that an \r\norder sent to one market may never be routed by that market to other external markets.  Should the order lock or \r\ncross the market but be unable to execute due to price protection reasons, a market may have to take alternate action, \r\nwhich might include rejecting the order, depending on the market's rules.  Note: The absence of this instruction does \r\nnot imply that an order should be routed externally; rather, the order receiver's default will apply." ;
+        skos:prefLabel   "External Routing Not Allowed" .
+
+<Dealt+currency>  a      skos:Concept , rdf:type ;
+        skos:definition  "In a foreign exchange transaction, 'dealt currency' indicates which currency was \r\norginally specified. For example, An invesment manager may 'buy 100M USD against EUR'. This has USD as the \r\n'dealt currency' and EUR as the 'counter currency'. Note that when viewed from the sell-side's (or broker's) \r\nperspective, this is a 'Sell 100M USD against EUR' the 'dealt currency' remains the same." ;
+        skos:prefLabel   "Dealt currency" .
+
+<Recovery+Rate+Short>
+        a                skos:Concept , rdf:type ;
+        dct:isPartOf     "EP83" ;
+        skos:definition  "In the case of a credit event the recovery rate on a short position for the underlying bond \r\non a CDS." ;
+        skos:prefLabel   "Recovery Rate Short" .
+
+<Issuer+Holding>  a      skos:Concept , rdf:type ;
+        skos:definition  "Certain regulation requires this indicator to be attached when an issuer is buying back \r\nits own stock (or units of other instruments). It can also be used in cases when a new issue is auctioned out over the \r\nexchange." ;
+        skos:prefLabel   "Issuer Holding" .
+
+<Yield+To+Longest+Average+Life>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The yield \r\nassuming only mandatory sinks are taken.  This results in a lower paydown of debt; the yield is then calculated to \r\nthe final payment date." ;
+        skos:prefLabel   "Yield To Longest Average Life" .
+
+<Unacceptable+Counterparty>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "A counterparty not eligible for trading with the order or quote Initiatior.\r\n" ;
+        skos:prefLabel   "Unacceptable Counterparty" .
+
+<Tradable+Indicator>  a  skos:Concept , rdf:type ;
+        skos:definition  "Specifies whether an instrument can be traded or not.\r\n" ;
+        skos:prefLabel   "Tradable Indicator" .
+
+<Order+Originator>  a    skos:Concept , rdf:type ;
+        skos:definition  "ID of the party entering the trade into the system (data entry, userid, buy side trader, \r\netc.)." ;
+        skos:prefLabel   "Order Originator" .
+
+<Down+and+In+Option>  a  skos:Concept , rdf:type ;
+        dct:isPartOf     "EP92" ;
+        skos:definition  "the option becomes active if the underlying price drops below the specified barrier." ;
+        skos:prefLabel   "Down and In Option" .
+
+<Peg+Refresh>  a         skos:Concept , rdf:type ;
+        skos:definition  "An execution restatement reason indicating that the order is restated only because the \r\npegged price was refreshed." ;
+        skos:prefLabel   "Peg Refresh" .
+
+<Exchange+for+Risk>  a   skos:Concept , rdf:type ;
+        dct:isPartOf     "EP84" ;
+        skos:definition  " EFR trades involve a futures contract and a spot commodity. The parties involved agree \r\nprivately upon a price for a simultaneous exchange or transfer of \"spot for futures\" and then report the terms of this \r\nagreement to the clearing house." ;
+        skos:prefLabel   "Exchange for Risk" .
+
+<Broker+Receipt>  a      skos:Concept , rdf:type ;
+        skos:definition  "According to US futures markets (CFTC):\r\nTime at which broker received the order.\r\n" ;
+        skos:prefLabel   "Broker Receipt" .
+
+<Most+Recent+Closing+Yield>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The last available yield stored in history, computed using price." ;
+        skos:prefLabel   "Most Recent Closing Yield" .
+
+<Introducing+Firm>  a    skos:Concept , rdf:type ;
+        skos:definition  "The broker or other intermediary with the closest association with the investor.\r\n" ;
+        skos:prefLabel   "Introducing Firm" .
+
+<Closing+Yield+Most+Recent+Quarter>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "The yield of a \r\nbond based on the closing price as of the most recent quarter's end." ;
+        skos:prefLabel   "Closing Yield Most Recent Quarter" .
+
+<Yield+To+Next+Call>  a  skos:Concept , rdf:type ;
+        skos:definition  "The yield of a bond to the next possible call date." ;
+        skos:prefLabel   "Yield To Next Call" .
+
+<Exchange>  a            skos:Concept , rdf:type ;
+        skos:definition  "Exchange associated with the position." ;
+        skos:prefLabel   "Exchange" .
+
+<CIV+%28%22Collective+Investment+Vehicle%22%29>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Collective investment vehicle (\"CIV\") are set up for the purposes of \r\ncollecting and pooling investor funds and issuing shares (or their equivalent). \"Open-ended\" CIVs entitle the holder \r\nto receive, on demand, an amount in value which is proportionate to the whole net asset value of the vehicle. \r\nCoversely \"Closed-ended\" CIVs do not grant this right to investors.\r\nCIVs are more commonly known as Mutual Funds, Unit Trusts, OEICS (Open Ended Investment Companies), \r\nSICAVs etc.\r\nA CIV may be legally constituted as a Limited Company with variable capital, a Trust or a Limited Partnership - \r\ndepending on local legislation & tax regimes.\r\nCIVs typically invest in equities, bonds, derivatives etc. - as described in their prospectus. Other CIVs are Umbrella \r\nFund (made up of sub-funds investing in equities, gilts etc), Fund Of Funds (invests only in other funds), Master-\r\nFeeder Fund (marketed to a specific group for investment in a central master fund), Multi-Manager Fund (whose \r\nasset management is divied between several managers), Side By Side (onshore and offshore funds with the same \r\ninvestment strategy)\r\nand\r\na \"Product\" within Volume 7" ;
+        skos:prefLabel   "CIV (\"Collective Investment Vehicle\")" .
+
+<Locate%2FLending+Firm>
+        a                skos:Concept , rdf:type ;
+        skos:definition  "Identity of the firm  which is loaning the security in a short sale.  " ;
+        skos:prefLabel   "Locate/Lending Firm" .
+
+rdf:Bag  a               rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf  rdf:Bag , rdfs:Container .
+
+rdf:Seq  a               rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf  rdf:Seq , rdfs:Container .
+
+rdfs:Datatype  a         rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf  rdfs:Datatype , rdfs:Resource , rdfs:Class .
+
+rdf:Alt  a               rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf  rdf:Alt , rdfs:Container .
+
+rdfs:Container  a        rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf  rdfs:Container .
+
+rdfs:ContainerMembershipProperty
+        a                rdfs:Class , rdfs:Resource ;
+        rdfs:subClassOf  rdfs:ContainerMembershipProperty , rdfs:Resource , rdf:Property .
+
+rdfs:isDefinedBy  a         rdf:Property , rdfs:Resource ;
+        rdfs:subPropertyOf  rdfs:isDefinedBy , rdfs:seeAlso .
+
+rdfs:seeAlso  a             rdf:Property , rdfs:Resource ;
+        rdfs:subPropertyOf  rdfs:seeAlso .
+
+skos:ConceptScheme  a  rdfs:Class , rdfs:Resource .
+
+skos:Concept  a  rdfs:Class , rdfs:Resource .
+
+owl:Ontology  a  rdfs:Class , rdfs:Resource .
