@@ -30,7 +30,20 @@ The [Gastrodon](https://github.com/paulhoule/gastrodon) toolkit enables the note
 
 ## Initial implementation
 
-The initial vocabulary file was created by mechanical translation of FIX Glossary in FIX Protocol Version 5.0 Service Pack 2 Volume 1 with Errata 20110818. It has not yet been reviewed for quality.
+The initial vocabulary file was created by mechanical translation of FIX Glossary in FIX Protocol Version 5.0 Service Pack 2 Volume 1 with Errata 20110818.
+
+## Notation guideline
+
+Each vocabulary term is encoded as a SKOS Concept in the following format.
+
+```
+Average+Price+%28Asian%29+Option rdf:type owl:NamedIndividual ,
+rdf:type ,   skos:Concept ;
+dct:isPartOf "EP92" ;
+skos:altLabel "Asian Option" ;
+skos:definition "The underlying price is an average of the daily settlement prices over a specified  period" ;
+skos:prefLabel "Average Price Option" .
+```
 
 ## License
 © Copyright 2018 FIX Protocol Limited
