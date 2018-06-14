@@ -18,6 +18,8 @@ The vocabulary is encoding using semantic notations:
 
 [Simple Knowledge Organization System (SKOS)](https://www.w3.org/TR/skos-reference/)
 
+Some metadata is noted with [Dublin Core Terms](http://dublincore.org/documents/dcmi-terms/)
+
 The file is serialized using [Turtle](https://www.w3.org/TR/turtle/) notation.
 
 These notations may be read and edited using tools like [Protégé](https://protege.stanford.edu/).
@@ -35,14 +37,26 @@ The initial vocabulary file was created by mechanical translation of FIX Glossar
 ## Notation guideline
 
 Each vocabulary term is encoded as a SKOS Concept in the following format.
+We also use some notations from Dublin Core Terms, prefixed here as "dct".
+
+| Source       | Predicate      | Object       |
+|--------------|----------------|--------------|
+| skos:Concept | skos:prefLabel | (name)       |
+|              | skos:altLabel  | (synonym)    |
+|              | skos:definition| (description |
+|              | dct:isPartOf   | (spec name)  |
+|              | dct:source     | (reference)  |
+
+Example:
 
 ```
-Average+Price+%28Asian%29+Option rdf:type owl:NamedIndividual ,
-rdf:type ,   skos:Concept ;
-dct:isPartOf "EP92" ;
-skos:altLabel "Asian Option" ;
-skos:definition "The underlying price is an average of the daily settlement prices over a specified  period" ;
-skos:prefLabel "Average Price Option" .
+:AveragePriceOption rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    dct:isPartOf "EP92" ;
+                    skos:altLabel "Asian Option" ;
+                    skos:definition "The underlying price is an average of the daily settlement prices over a specified  period" ;
+                    skos:prefLabel "Average Price Option" .
 ```
 
 ## License
