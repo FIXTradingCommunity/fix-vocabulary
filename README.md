@@ -34,6 +34,12 @@ The [Gastrodon](https://github.com/paulhoule/gastrodon) toolkit enables the note
 
 The initial vocabulary file was created by mechanical translation of FIX Glossary in FIX Protocol Version 5.0 Service Pack 2 Volume 1 with Errata 20110818.
 
+## Contributions
+
+User contributions for additional or improved term definitions will be accepted as pull requests.
+
+Suggestions for format changes or enhancements may be entered as issues in this project.
+
 ## Notation guideline
 
 Each vocabulary term is encoded as a SKOS Concept in the following format.
