@@ -1,0 +1,3128 @@
+@prefix : <https://fixprotocol.io/vocabulary#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <https://fixprotocol.io/vocabulary> .
+
+<https://fixprotocol.io/vocabulary> rdf:type owl:Ontology ;
+                                     owl:imports <http://www.w3.org/2004/02/skos/core> ;
+                                     dct:license "Apache License Version 2.0" ;
+                                     dct:title "FIX Vocabulary" ;
+                                     dct:rights "Copyright 2018 FIX Trading Community" ;
+                                     dct:date "2018-06-14T13:30:36.633588Z"^^xsd:dateTime .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/isPartOf
+dct:isPartOf rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/source
+dct:source rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#first
+rdf:first rdf:type owl:AnnotationProperty ;
+          rdfs:subPropertyOf rdf:first ;
+          rdfs:domain rdf:List .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#object
+rdf:object rdf:type owl:AnnotationProperty ;
+           rdfs:subPropertyOf rdf:object ;
+           rdfs:domain rdf:Statement .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate
+rdf:predicate rdf:type owl:AnnotationProperty ;
+              rdfs:subPropertyOf rdf:predicate ;
+              rdfs:domain rdf:Statement .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#subject
+rdf:subject rdf:type owl:AnnotationProperty ;
+            rdfs:subPropertyOf rdf:subject ;
+            rdfs:domain rdf:Statement .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#comment
+rdfs:comment rdfs:range rdfs:Literal .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#isDefinedBy
+rdfs:isDefinedBy rdfs:subPropertyOf rdfs:isDefinedBy ,
+                                    rdfs:seeAlso .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#label
+rdfs:label rdfs:range rdfs:Literal .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#seeAlso
+rdfs:seeAlso rdfs:subPropertyOf rdfs:seeAlso .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral
+rdf:XMLLiteral rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#rest
+rdf:rest rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf rdf:rest ;
+         rdfs:domain rdf:List ;
+         rdfs:range rdf:List .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+rdf:type rdf:type owl:ObjectProperty ;
+         rdfs:range rdfs:Class .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#domain
+rdfs:domain rdf:type owl:ObjectProperty ;
+            rdfs:domain rdf:Property ;
+            rdfs:range rdfs:Class .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#range
+rdfs:range rdf:type owl:ObjectProperty ;
+           rdfs:domain rdf:Property ;
+           rdfs:range rdfs:Class .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#subClassOf
+rdfs:subClassOf rdf:type owl:ObjectProperty ;
+                rdfs:domain rdfs:Class ;
+                rdfs:range rdfs:Class .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#subPropertyOf
+rdfs:subPropertyOf rdf:type owl:ObjectProperty ;
+                   rdfs:domain rdf:Property ;
+                   rdfs:range rdf:Property .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Alt
+rdf:Alt rdf:type owl:Class ;
+        rdfs:subClassOf rdf:Alt ,
+                        rdfs:Container .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag
+rdf:Bag rdf:type owl:Class ;
+        rdfs:subClassOf rdf:Bag ,
+                        rdfs:Container .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#List
+rdf:List rdf:type owl:Class ;
+         rdfs:subClassOf rdf:List ,
+                         rdfs:Resource .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
+rdf:Property rdf:type owl:Class ;
+             rdfs:subClassOf rdf:Property ,
+                             rdfs:Resource .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq
+rdf:Seq rdf:type owl:Class ;
+        rdfs:subClassOf rdf:Seq ,
+                        rdfs:Container .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement
+rdf:Statement rdf:type owl:Class ;
+              rdfs:subClassOf rdf:Statement ,
+                              rdfs:Resource .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral
+rdf:XMLLiteral rdf:type owl:Class .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+rdf:type rdf:type owl:Class .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Class
+rdfs:Class rdf:type owl:Class ;
+           rdfs:subClassOf rdfs:Class ,
+                           rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Container
+rdfs:Container rdf:type owl:Class ;
+               rdfs:subClassOf rdfs:Container .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#ContainerMembershipProperty
+rdfs:ContainerMembershipProperty rdf:type owl:Class ;
+                                 rdfs:subClassOf rdf:Property ,
+                                                 rdfs:ContainerMembershipProperty ,
+                                                 rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Datatype
+rdfs:Datatype rdf:type owl:Class ;
+              rdfs:subClassOf rdfs:Class ,
+                              rdfs:Datatype ,
+                              rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Literal rdf:type owl:Class ;
+             rdfs:subClassOf rdfs:Literal ,
+                             rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Resource
+rdfs:Resource rdf:type owl:Class ;
+              rdfs:subClassOf rdfs:Resource .
+
+
+###  http://www.w3.org/2002/07/owl#Ontology
+owl:Ontology rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#ConceptScheme
+skos:ConceptScheme rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Alt
+rdf:Alt rdf:type owl:NamedIndividual ,
+                 rdfs:Resource .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag
+rdf:Bag rdf:type owl:NamedIndividual ,
+                 rdfs:Resource .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#List
+rdf:List rdf:type owl:NamedIndividual ,
+                  rdfs:Resource .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
+rdf:Property rdf:type owl:NamedIndividual ,
+                      rdfs:Resource .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq
+rdf:Seq rdf:type owl:NamedIndividual ,
+                 rdfs:Resource .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement
+rdf:Statement rdf:type owl:NamedIndividual ,
+                       rdfs:Resource .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral
+rdf:XMLLiteral rdf:type owl:NamedIndividual ,
+                        rdfs:Resource .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#first
+rdf:first rdf:type owl:NamedIndividual ,
+                   rdfs:Resource .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#nil
+rdf:nil rdf:type owl:NamedIndividual ,
+                 rdfs:Resource .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#object
+rdf:object rdf:type owl:NamedIndividual ,
+                    rdfs:Resource .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate
+rdf:predicate rdf:type owl:NamedIndividual ,
+                       rdfs:Resource .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#rest
+rdf:rest rdf:type owl:NamedIndividual ,
+                  rdfs:Resource .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#subject
+rdf:subject rdf:type owl:NamedIndividual ,
+                     rdfs:Resource .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+rdf:type rdf:type owl:NamedIndividual ,
+                  rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Class
+rdfs:Class rdf:type owl:NamedIndividual ,
+                    rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Container
+rdfs:Container rdf:type owl:NamedIndividual ,
+                        rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#ContainerMembershipProperty
+rdfs:ContainerMembershipProperty rdf:type owl:NamedIndividual ,
+                                          rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Datatype
+rdfs:Datatype rdf:type owl:NamedIndividual ,
+                       rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Literal
+rdfs:Literal rdf:type owl:NamedIndividual ,
+                      rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Resource
+rdfs:Resource rdf:type owl:NamedIndividual ,
+                       rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#comment
+rdfs:comment rdf:type owl:NamedIndividual ,
+                      rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#domain
+rdfs:domain rdf:type owl:NamedIndividual ,
+                     rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#isDefinedBy
+rdfs:isDefinedBy rdf:type owl:NamedIndividual ,
+                          rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#label
+rdfs:label rdf:type owl:NamedIndividual ,
+                    rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#range
+rdfs:range rdf:type owl:NamedIndividual ,
+                    rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#seeAlso
+rdfs:seeAlso rdf:type owl:NamedIndividual ,
+                      rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#subClassOf
+rdfs:subClassOf rdf:type owl:NamedIndividual ,
+                         rdfs:Resource .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#subPropertyOf
+rdfs:subPropertyOf rdf:type owl:NamedIndividual ,
+                            rdfs:Resource .
+
+
+###  http://www.w3.org/2002/07/owl#Ontology
+owl:Ontology rdf:type owl:NamedIndividual ,
+                      rdfs:Resource .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:NamedIndividual ,
+                      rdfs:Resource .
+
+
+###  http://www.w3.org/2004/02/skos/core#ConceptScheme
+skos:ConceptScheme rdf:type owl:NamedIndividual ,
+                            rdfs:Resource .
+
+
+###  https://fixprotocol.io/vocabulary#ACPN
+:ACPN rdf:type owl:NamedIndividual ,
+               rdf:type ,
+               skos:Concept ;
+      dct:isPartOf "EP83" ;
+      skos:definition "Accrued Coupon (ACPN) is a pro-rated amount from the prior coupon date to the current business date  which is collateralized by the clearing house" ;
+      skos:prefLabel "ACPN" .
+
+
+###  https://fixprotocol.io/vocabulary#AcceptableCounterparty
+:AcceptableCounterparty rdf:type owl:NamedIndividual ,
+                                 rdf:type ,
+                                 skos:Concept ;
+                        skos:definition "A counterparty eligible for trading with the order or quote Initiatior." ;
+                        skos:prefLabel "Acceptable Counterparty" .
+
+
+###  https://fixprotocol.io/vocabulary#AccruedInterestRate
+:AccruedInterestRate rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     skos:definition "The amount the buyer compensates the seller for the portion of the next coupon interest  payment the seller has earned but will not receive from the issuer because the issuer will send the next coupon  payment to the buyer.  Accrued Interest Rate is the annualized Accrued Interest amount divided by the purchase  price of the bond." ;
+                     skos:prefLabel "Accrued Interest Rate" .
+
+
+###  https://fixprotocol.io/vocabulary#AfterTaxYield
+:AfterTaxYield rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "Municipals.  The yield on the bond net of any tax consequences from holding the bond.   The discount on municipal securities can be subject to both capital gains taxes and ordinary income taxes.   Calculated from dollar price." ;
+               skos:prefLabel "After Tax Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#AllorNone
+:AllorNone rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "A round-lot market or limit-price order that must be executed in its entirety or not at  all; unlike Fill or Kill orders, AON orders are not treated as canceled if they are not executed as soon as represented  in the Trading Crowd." ;
+           skos:prefLabel "All or None" .
+
+
+###  https://fixprotocol.io/vocabulary#Allowances
+:Allowances rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            dct:isPartOf "EP89" ;
+            skos:definition "Under an emissions cap and trade program, each allowance entitles the holder to emit some  amount of gas such as carbon.  Sources that emit less than their emissions cap can sell allowances to those sources  needing to purchase additional allowances to comply with the cap.  Emission sources can then decide whether to  control emissions through control technology or through allowance surrender to meet compliance." ;
+            skos:prefLabel "Allowances" .
+
+
+###  https://fixprotocol.io/vocabulary#Americanstyleoption
+:Americanstyleoption rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     dct:source "www.investopedia.com" ,
+                                "www.investorwords.com" ;
+                     skos:definition "An option that can be exercised at anytime before its expiration date." ;
+                     skos:prefLabel "American style option" .
+
+
+###  https://fixprotocol.io/vocabulary#AnnualYield
+:AnnualYield rdf:type owl:NamedIndividual ,
+                      rdf:type ,
+                      skos:Concept ;
+             skos:definition "The annual interest or dividend income an investment earns, expressed as a percentage  of the investment's total value." ;
+             skos:prefLabel "Annual Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#Asdefined
+:Asdefined rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "Sides of the legs are the same as defined in the multileg instrument." ;
+           skos:prefLabel "As defined" .
+
+
+###  https://fixprotocol.io/vocabulary#AtCrossing
+:AtCrossing rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            skos:definition "An order that is valid only during crossing (auction) phases. The order is valid during  the day or up to and including a specified trading (sub) session. Also see Good  Till Crossing (GTX), Good Through  Crossing,At the Opening and At the Close." ;
+            skos:prefLabel "At Crossing" .
+
+
+###  https://fixprotocol.io/vocabulary#AttheOpening
+:AttheOpening rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              skos:definition "A market or limit-price order to be executed at the opening of the stock or not at all; all  or part of any order not executed at the opening is treated as canceled." ;
+              skos:prefLabel "At the Opening" .
+
+
+###  https://fixprotocol.io/vocabulary#Attheclose
+:Attheclose rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            skos:definition "Indicated price is to be around the closing price, however, not held to the closing price. " ;
+            skos:prefLabel "At the close" .
+
+
+###  https://fixprotocol.io/vocabulary#Auto-match
+:Auto-match rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            skos:definition "Specifies that the source matching mechanism for a trade is automatic matching (of  orders and / or quotes)" ;
+            skos:prefLabel "Auto-match" .
+
+
+###  https://fixprotocol.io/vocabulary#AutomatedFloorOrderRouting
+:AutomatedFloorOrderRouting rdf:type owl:NamedIndividual ,
+                                     rdf:type ,
+                                     skos:Concept ;
+                            skos:definition "The use of  electronic devices or systems to capture orders and route the resulting trades to downstream system for matching and  post-trade activities." ;
+                            skos:prefLabel "Automated Floor Order Routing" .
+
+
+###  https://fixprotocol.io/vocabulary#AveragePriceGuarantee
+:AveragePriceGuarantee rdf:type owl:NamedIndividual ,
+                                rdf:type ,
+                                skos:Concept ;
+                       skos:definition "A limit order instruction that order allows fills against worse prices if this is  compensated with higher prices so the volume weighted average is at the limit price or better. Applies to each  execution round in automatic matching." ;
+                       skos:prefLabel "Average Price Guarantee" .
+
+
+###  https://fixprotocol.io/vocabulary#AveragePriceOption
+:AveragePriceOption rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    dct:isPartOf "EP92" ;
+                    skos:altLabel "Asian Option" ;
+                    skos:definition "The underlying price is an average of the daily settlement prices over a specified  period" ;
+                    skos:prefLabel "Average Price Option" .
+
+
+###  https://fixprotocol.io/vocabulary#AverageStrike
+:AverageStrike rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               dct:isPartOf "EP92" ;
+               skos:definition "The strike price is an average of the daily settlement prices over a specified period" ;
+               skos:prefLabel "Average Strike" .
+
+
+###  https://fixprotocol.io/vocabulary#BANK
+:BANK rdf:type owl:NamedIndividual ,
+               rdf:type ,
+               skos:Concept ;
+      dct:isPartOf "EP83" ;
+      skos:definition "Total Banked Amount (BANK) represents the summation of all banked amounts  (ICPN+TVAR+IACPN+ICMTM+CPN+DLV)" ;
+      skos:prefLabel "BANK" .
+
+
+###  https://fixprotocol.io/vocabulary#BarrierOption
+:BarrierOption rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               dct:isPartOf "EP92" ;
+               skos:definition "The option becomes active (knock-in) or inactive (knock-out) based on a predetermined price  level" ;
+               skos:prefLabel "Barrier Option" .
+
+
+###  https://fixprotocol.io/vocabulary#BasisPrice
+:BasisPrice rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            skos:definition """A price established by joint agreement of odd-lot dealers in 100-share-unit stocks when:
+- no round-lot has occurred during the trading session,
+- the spread between the closing bid and offer is two points or more, and
+- on odd-lot the dealer has been given a \"basis-price\" order.""" ;
+            skos:prefLabel "Basis Price" .
+
+
+###  https://fixprotocol.io/vocabulary#Bermudastyleoption
+:Bermudastyleoption rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    dct:source "www.investopedia.com" ;
+                    skos:definition "A type of option that can only be exercised on predetermined dates, usually every month." ;
+                    skos:prefLabel "Bermuda style option" .
+
+
+###  https://fixprotocol.io/vocabulary#BinaryAllorNoneOption
+:BinaryAllorNoneOption rdf:type owl:NamedIndividual ,
+                                rdf:type ,
+                                skos:Concept ;
+                       dct:isPartOf "EP92" ;
+                       skos:definition "Fixed pay out if the underlying settles on a predefined trigger price." ;
+                       skos:prefLabel "Binary All or None Option" .
+
+
+###  https://fixprotocol.io/vocabulary#BinaryBarrierOption
+:BinaryBarrierOption rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     dct:isPartOf "EP92" ;
+                     skos:definition "A digital option which becomes active or inactive based on the crossing of a barrier.  Events are linked through \"And\" condition." ;
+                     skos:prefLabel "Binary Barrier Option" .
+
+
+###  https://fixprotocol.io/vocabulary#BinaryOneTouchOption
+:BinaryOneTouchOption rdf:type owl:NamedIndividual ,
+                               rdf:type ,
+                               skos:Concept ;
+                      dct:isPartOf "EP92" ;
+                      skos:definition "Immediate fixed pay out if the underlying reaches the predefined trigger price at any  point during the life of the instrument." ;
+                      skos:prefLabel "Binary One Touch Option" .
+
+
+###  https://fixprotocol.io/vocabulary#BinaryOption
+:BinaryOption rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              dct:source "www.riskglossary.com" ;
+              skos:definition "A binary option  is a cash settled option that has a discontinuous payoff. Binary options come in  many forms, but the two most basic are: cash-or-nothing and asset-or-nothing. Each can be European or American  style and can be structured as a put or call. Also called a \"digital option\" or \"all-or-nothing option\"." ;
+              skos:prefLabel "Binary Option" .
+
+
+###  https://fixprotocol.io/vocabulary#BinaryRangeOption
+:BinaryRangeOption rdf:type owl:NamedIndividual ,
+                            rdf:type ,
+                            skos:Concept ;
+                   dct:isPartOf "EP92" ;
+                   skos:definition "Fixed pay out if the underlying settles between an upper and lower trigger price." ;
+                   skos:prefLabel "Binary Range Option" .
+
+
+###  https://fixprotocol.io/vocabulary#BlockLot
+:BlockLot rdf:type owl:NamedIndividual ,
+                   rdf:type ,
+                   skos:Concept ;
+          skos:definition "A lot size that is larger than the Round Lot and associated with special block trading  rules as bilaterally agreed between parties." ;
+          skos:prefLabel "Block Lot" .
+
+
+###  https://fixprotocol.io/vocabulary#BlockTrade
+:BlockTrade rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            dct:isPartOf "EP84" ;
+            skos:definition "A Block Trade is a privately negotiated futures transaction executed apart from the public auction  market, either on or off the exchange trading floor." ;
+            skos:prefLabel "Block Trade" .
+
+
+###  https://fixprotocol.io/vocabulary#BookYield
+:BookYield rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "The yield of a security calculated by using its book value instead of the current market  price.  This term is typically used in the US domestic market." ;
+           skos:prefLabel "Book Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#BrokerExecution
+:BrokerExecution rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "According to US futures markets (CFTC): Time at which a broker executed the order for another broker. " ;
+                 skos:prefLabel "Broker Execution" .
+
+
+###  https://fixprotocol.io/vocabulary#BrokerReceipt
+:BrokerReceipt rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "According to US futures markets (CFTC): Time at which broker received the order. " ;
+               skos:prefLabel "Broker Receipt" .
+
+
+###  https://fixprotocol.io/vocabulary#BrokerofCredit
+:BrokerofCredit rdf:type owl:NamedIndividual ,
+                         rdf:type ,
+                         skos:Concept ;
+                skos:definition "Broker to receive trade credit." ;
+                skos:prefLabel "Broker of Credit" .
+
+
+###  https://fixprotocol.io/vocabulary#BuyMinus
+:BuyMinus rdf:type owl:NamedIndividual ,
+                   rdf:type ,
+                   skos:Concept ;
+          skos:definition """A round-lot market order to buy \"minus\" is an order to buy a stated amount of a stock provided  that its price is:
+- not higher than the last sale if the last sale was a \"minus\" or \"zero minus\" tick and
+- not higher than the last sale minus the minimum fractional change in the stock if the last sale was a \"plus\" or \"zero  plus\" tick. 
+A limit price order to buy \"minus\" also states the highest price at which it can be executed.""" ;
+          skos:prefLabel "Buy Minus" .
+
+
+###  https://fixprotocol.io/vocabulary#CEA
+:CEA rdf:type owl:NamedIndividual ,
+              rdf:type ,
+              skos:Concept ;
+     dct:isPartOf "EP83" ;
+     skos:definition "Credit Event Adjustment quantity (CEA) is used to represent the position movement associated with a  credit event on processing date." ;
+     skos:prefLabel "CEA" .
+
+
+###  https://fixprotocol.io/vocabulary#CIV
+:CIV rdf:type owl:NamedIndividual ,
+              rdf:type ,
+              skos:Concept ;
+     skos:altLabel "Collective Investment Vehicle" ;
+     skos:definition """Collective investment vehicle (\"CIV\") are set up for the purposes of  collecting and pooling investor funds and issuing shares (or their equivalent). \"Open-ended\" CIVs entitle the holder  to receive, on demand, an amount in value which is proportionate to the whole net asset value of the vehicle.  Coversely \"Closed-ended\" CIVs do not grant this right to investors. 
+CIVs are more commonly known as Mutual Funds, Unit Trusts, OEICS (Open Ended Investment Companies),  SICAVs etc. 
+A CIV may be legally constituted as a Limited Company with variable capital, a Trust or a Limited Partnership -  depending on local legislation & tax regimes. 
+CIVs typically invest in equities, bonds, derivatives etc. - as described in their prospectus. Other CIVs are Umbrella  Fund (made up of sub-funds investing in equities, gilts etc), Fund Of Funds (invests only in other funds), Master- Feeder Fund (marketed to a specific group for investment in a central master fund), Multi-Manager Fund (whose  asset management is divied between several managers), Side By Side (onshore and offshore funds with the same  investment strategy)""" ;
+     skos:prefLabel "CIV" .
+
+
+###  https://fixprotocol.io/vocabulary#CMTM
+:CMTM rdf:type owl:NamedIndividual ,
+               rdf:type ,
+               skos:Concept ;
+      dct:isPartOf "EP83" ;
+      skos:definition "Collateralized mark-to-market (CMTM) is determined by marking from coupon rate to settlement price.  The resulting amount is collateralized meaning the holder of the position must post acceptable collateral to cover the  obligation." ;
+      skos:prefLabel "CMTM" .
+
+
+###  https://fixprotocol.io/vocabulary#COLAT
+:COLAT rdf:type owl:NamedIndividual ,
+                rdf:type ,
+                skos:Concept ;
+       dct:isPartOf "EP83" ;
+       skos:definition "Total Collateralized Amount (COLAT) represents the summation of all collateralized amounts  (ACPN+CMTM)." ;
+       skos:prefLabel "COLAT" .
+
+
+###  https://fixprotocol.io/vocabulary#CPN
+:CPN rdf:type owl:NamedIndividual ,
+              rdf:type ,
+              skos:Concept ;
+     dct:isPartOf "EP83" ;
+     skos:definition "Coupon (CPN) is the payment as determined by coupon rate paid on coupon date." ;
+     skos:prefLabel "CPN" .
+
+
+###  https://fixprotocol.io/vocabulary#CRES
+:CRES rdf:type owl:NamedIndividual ,
+               rdf:type ,
+               skos:Concept ;
+      dct:isPartOf "EP83" ;
+      skos:definition "Cash Residual Amount (CRES) is used to represent a residual amount  associated with migrated trades and  succession events" ;
+      skos:prefLabel "CRES" .
+
+
+###  https://fixprotocol.io/vocabulary#CabinetTrade
+:CabinetTrade rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              skos:definition "An off-market transaction to close out a nearly worthless out-of-the-money option  contract." ;
+              skos:prefLabel "Cabinet Trade" .
+
+
+###  https://fixprotocol.io/vocabulary#CallDate
+:CallDate rdf:type owl:NamedIndividual ,
+                   rdf:type ,
+                   skos:Concept ;
+          skos:definition "The date on which the issuer of a security has the right but not the obligation to  repurchase the security at a predetermined price." ;
+          skos:prefLabel "Call Date" .
+
+
+###  https://fixprotocol.io/vocabulary#CallFirst
+:CallFirst rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "Refer to client before trading." ;
+           skos:prefLabel "Call First" .
+
+
+###  https://fixprotocol.io/vocabulary#CancelifNotBest
+:CancelifNotBest rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "Indicates that an order should be cancelled if it is no longer the best bid if buying, or  the best offer if selling. If the order is cancelled due to this instruction, the message cancelling it must carry  ExecRestatementReason=\"Canceled, Not Best\"." ;
+                 skos:prefLabel "Cancel if Not Best" .
+
+
+###  https://fixprotocol.io/vocabulary#CancelonSystemFailure
+:CancelonSystemFailure rdf:type owl:NamedIndividual ,
+                                rdf:type ,
+                                skos:Concept ;
+                       skos:definition "If a system failure interrupts trading or order routing, attempt to cancel this order. Note  that depending on the type and severity of the failure, this might not be possible." ;
+                       skos:prefLabel "Cancel on System Failure" .
+
+
+###  https://fixprotocol.io/vocabulary#CancelonTradingHalt
+:CancelonTradingHalt rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     skos:definition "If trading in this instrument is halted, cancel this order and do not reinstate it when/if  trading resumes." ;
+                     skos:prefLabel "Cancel on Trading Halt" .
+
+
+###  https://fixprotocol.io/vocabulary#CappedAsianOption
+:CappedAsianOption rdf:type owl:NamedIndividual ,
+                            rdf:type ,
+                            skos:Concept ;
+                   dct:isPartOf "EP92" ;
+                   skos:definition "A capped option which pays out based on the average price of the underlying." ;
+                   skos:prefLabel "Capped Asian Option" .
+
+
+###  https://fixprotocol.io/vocabulary#CappedBarrierOption
+:CappedBarrierOption rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     dct:isPartOf "EP92" ;
+                     skos:definition "A capped option which becomes active or inactive based on the crossing of a barrier." ;
+                     skos:prefLabel "Capped Barrier Option" .
+
+
+###  https://fixprotocol.io/vocabulary#CappedCallOption
+:CappedCallOption rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  dct:isPartOf "EP92" ;
+                  skos:definition "The option has a linear payout (like a vanilla) up to a capped amount as specified by a  cap price." ;
+                  skos:prefLabel "Capped Call Option" .
+
+
+###  https://fixprotocol.io/vocabulary#CappedPayoutOption
+:CappedPayoutOption rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    dct:isPartOf "EP92" ;
+                    skos:definition "The payout amount is capped based on the difference between the strike and a cap price  for call options and a floor price for put options." ;
+                    skos:prefLabel "Capped Payout Option" .
+
+
+###  https://fixprotocol.io/vocabulary#CentralRegistrationDepository
+:CentralRegistrationDepository rdf:type owl:NamedIndividual ,
+                                        rdf:type ,
+                                        skos:Concept ;
+                               dct:isPartOf "EP79" ;
+                               dct:source "www.sec.gov/investor/brokers.htm" ;
+                               skos:altLabel "CRD" ;
+                               skos:definition "\"The Central Registration Depository is a computerized database that  contains information about most brokers, their representatives, and the firms they work for.\"" ;
+                               skos:prefLabel "Central Registration Depository" .
+
+
+###  https://fixprotocol.io/vocabulary#ClearingFirm
+:ClearingFirm rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              skos:definition "Firm that will clear the trade.  Used if different from the executing firm. " ;
+              skos:prefLabel "Clearing Firm" .
+
+
+###  https://fixprotocol.io/vocabulary#ClearingOrganization
+:ClearingOrganization rdf:type owl:NamedIndividual ,
+                               rdf:type ,
+                               skos:Concept ;
+                      skos:definition "Identifies the Clearing Organization where the position is maintained." ;
+                      skos:prefLabel "Clearing Organization" .
+
+
+###  https://fixprotocol.io/vocabulary#ClientID
+:ClientID rdf:type owl:NamedIndividual ,
+                   rdf:type ,
+                   skos:Concept ;
+          skos:definition "Firm identifier used in third party-transactions or for investor identification in  intermediary transactions. (should not be a substitute for OnBehalfOfCompID/DeliverToCompID)." ;
+          skos:prefLabel "Client ID" .
+
+
+###  https://fixprotocol.io/vocabulary#Close
+:Close rdf:type owl:NamedIndividual ,
+                rdf:type ,
+                skos:Concept ;
+       skos:definition "An instruction to position keeping that the trade should bring the position towards zero,  i.e. close as much as possible of any existing position and open an opposite position for any remainder. " ;
+       skos:prefLabel "Close" .
+
+
+###  https://fixprotocol.io/vocabulary#ClosebutNotifyonOpen
+:ClosebutNotifyonOpen rdf:type owl:NamedIndividual ,
+                               rdf:type ,
+                               skos:Concept ;
+                      skos:definition "An instruction to position keeping that the trade should close an existing position. If  the position is closed out and an opposite position is opened a notification is sent out." ;
+                      skos:prefLabel "Close but Notify on Open" .
+
+
+###  https://fixprotocol.io/vocabulary#ClosingYield
+:ClosingYield rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              skos:definition "The yield of a bond based on the closing price." ;
+              skos:prefLabel "Closing Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#ClosingYieldMostRecentMonth
+:ClosingYieldMostRecentMonth rdf:type owl:NamedIndividual ,
+                                      rdf:type ,
+                                      skos:Concept ;
+                             skos:definition "The yield of a  bond based on the closing price as of the most recent month's end." ;
+                             skos:prefLabel "Closing Yield Most Recent Month" .
+
+
+###  https://fixprotocol.io/vocabulary#ClosingYieldMostRecentQuarter
+:ClosingYieldMostRecentQuarter rdf:type owl:NamedIndividual ,
+                                        rdf:type ,
+                                        skos:Concept ;
+                               skos:definition "The yield of a  bond based on the closing price as of the most recent quarter's end." ;
+                               skos:prefLabel "Closing Yield Most Recent Quarter" .
+
+
+###  https://fixprotocol.io/vocabulary#ClosingYieldMostRecentYear
+:ClosingYieldMostRecentYear rdf:type owl:NamedIndividual ,
+                                     rdf:type ,
+                                     skos:Concept ;
+                            skos:definition "The yield of a  bond based on the closing price as of the most recent year's end." ;
+                            skos:prefLabel "Closing Yield Most Recent Year" .
+
+
+###  https://fixprotocol.io/vocabulary#CompoundYield
+:CompoundYield rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "The yield of certain Japanese bonds based on its price. Certain Japanese bonds have  irregular first or last coupons, and the yield is calculated compound for these irregular periods." ;
+               skos:prefLabel "Compound Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#ConfirmedTradeReport
+:ConfirmedTradeReport rdf:type owl:NamedIndividual ,
+                               rdf:type ,
+                               skos:Concept ;
+                      skos:definition "A trade that is  completed (both sides are reported) and matched.  The receiver confirms the completed trade." ;
+                      skos:prefLabel "Confirmed Trade Report" ;
+                      skos:scopeNote "reporting from recognized markets" .
+
+
+###  https://fixprotocol.io/vocabulary#ContraClearingFirm
+:ContraClearingFirm rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    skos:definition "Clearing firm of the broker or other firm which is the contra side of the trade. " ;
+                    skos:prefLabel "Contra Clearing Firm" .
+
+
+###  https://fixprotocol.io/vocabulary#ContraFirm
+:ContraFirm rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            skos:definition "The broker or other firm which is the contra side of the trade." ;
+            skos:prefLabel "Contra Firm" .
+
+
+###  https://fixprotocol.io/vocabulary#ContraTrader
+:ContraTrader rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              skos:definition "Individual usually identified by a trading badge number or initials that takes the  opposite side of a trade." ;
+              skos:prefLabel "Contra Trader" .
+
+
+###  https://fixprotocol.io/vocabulary#ContractForDifference
+:ContractForDifference rdf:type owl:NamedIndividual ,
+                                rdf:type ,
+                                skos:Concept ;
+                       skos:altLabel "CFD" ;
+                       skos:definition "A single stock  total return swap, combining financing and synthetic equity exposure in one transaction." ;
+                       skos:prefLabel "Contract For Difference" .
+
+
+###  https://fixprotocol.io/vocabulary#ContractWeightedAveragePrice
+:ContractWeightedAveragePrice rdf:type owl:NamedIndividual ,
+                                       rdf:type ,
+                                       skos:Concept ;
+                              skos:definition "Relevant for  multileg orders (Energy Specific). The price of the strategy is given as an average price of all legs in the multileg,  including adjustment for differences in contract sizes between the legs.  " ;
+                              skos:prefLabel "Contract Weighted Average Price" .
+
+
+###  https://fixprotocol.io/vocabulary#CorrespondentBroker
+:CorrespondentBroker rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     skos:definition "Identifies a correspondent broker." ;
+                     skos:prefLabel "Correspondent Broker" .
+
+
+###  https://fixprotocol.io/vocabulary#CorrespondentClearingFirm
+:CorrespondentClearingFirm rdf:type owl:NamedIndividual ,
+                                    rdf:type ,
+                                    skos:Concept ;
+                           skos:definition "ClearingFirm that is going to carry the position on their books at another clearing  house (exchanges)." ;
+                           skos:prefLabel "Correspondent Clearing Firm" .
+
+
+###  https://fixprotocol.io/vocabulary#CorrespondentClearingOrganization
+:CorrespondentClearingOrganization rdf:type owl:NamedIndividual ,
+                                            rdf:type ,
+                                            skos:Concept ;
+                                   skos:definition "Identifies a  correspondent clearing organization" ;
+                                   skos:prefLabel "Correspondent Clearing Organization" .
+
+
+###  https://fixprotocol.io/vocabulary#Counter-OrderSelection
+:Counter-OrderSelection rdf:type owl:NamedIndividual ,
+                                 rdf:type ,
+                                 skos:Concept ;
+                        skos:definition "A model where the user selects which order to hit by providing the order ID in the  order being submitted against it (also know as Hit/Take orders)." ;
+                        skos:prefLabel "Counter-Order Selection" .
+
+
+###  https://fixprotocol.io/vocabulary#Counter-OrderSelection2
+:Counter-OrderSelection2 rdf:type owl:NamedIndividual ;
+                         skos:definition "Specifies that the source matching mechanism for a trade is a Hit / Take." ;
+                         skos:prefLabel "Counter-Order Selection" .
+
+
+###  https://fixprotocol.io/vocabulary#CouponRate
+:CouponRate rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            skos:definition "The rate of interest that, when multiplied by the principal, par value, or face value of a  bond, provides the currency amount of the periodic interest payment.  The coupon is always cited, along with  maturity, in any quotation of a bond's price." ;
+            skos:prefLabel "Coupon Rate" .
+
+
+###  https://fixprotocol.io/vocabulary#Cross
+:Cross rdf:type owl:NamedIndividual ,
+                rdf:type ,
+                skos:Concept ;
+       skos:definition "Client sends Broker a buy or sell order. Broker wishes to take the other side and cross  with the client. Broker sends an order with Side=Cross to an exchange." ;
+       skos:prefLabel "Cross" .
+
+
+###  https://fixprotocol.io/vocabulary#CrossAuction
+:CrossAuction rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              skos:definition """Crossing session, for example to open or close a market. Rules governing this type of session  usually differ from those effective during continuous trading. For example, price determination could be subject to  the principle of most executable volume. Visibility of the order book is typically restricted (e.g. top-of-book only,  indicative crossing price) compared to continuous trading. The session itself might be separated into different phases  governed by different rules, all of which are defined by the marketplace offering this type of matching mechanism. 
+Specifies that the source matching mechanism for a trade report is Call Auction (a crossing session like the onnes  often used to open or close a market).""" ;
+              skos:prefLabel "Cross Auction" .
+
+
+###  https://fixprotocol.io/vocabulary#CrossShort
+:CrossShort rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            skos:definition "Client wants to establish a short position, and so sends a Sell Short to Broker. Broker  wants to cross with the Client, so Broker sends a Cross Short order to an exchange. Cross Short is crucial here  because many exchanges have tick rules needing to be enforced, and the order getting converted from Sell Short to  Cross (instead of Cross Short) could result in an illegal short sell." ;
+            skos:prefLabel "Cross Short" .
+
+
+###  https://fixprotocol.io/vocabulary#CrossShortExempt
+:CrossShortExempt rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  skos:definition "Client wants to establish a short position, and is exempt from the uptick restriction. So  Client sends Sell Short Exempt to Broker. Broker wants to cross with the Client, so Broker needs a way to send  \"Cross Short Exempt\" to the exchange so that an audit trail traces back indicating that the party selling short was  exempt from the uptick rule." ;
+                  skos:prefLabel "Cross Short Exempt" .
+
+
+###  https://fixprotocol.io/vocabulary#Crossed
+:Crossed rdf:type owl:NamedIndividual ,
+                  rdf:type ,
+                  skos:Concept ;
+         skos:definition "Generally indicates that the current offer price is better than the bid one - a situation where a trade normally  should have occurred. The rules for crossed book situations are bilaterally agreed between counterparties." ;
+         skos:prefLabel "Crossed" ;
+         skos:scopeNote "See Vol. 3 Market Data for usage notes" .
+
+
+###  https://fixprotocol.io/vocabulary#Currencyswap
+:Currencyswap rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              dct:source "Foreign Exchange Primer by Shani Shamah" ;
+              skos:definition "\"An agreement to exchange future cash flows.  There are two fundamental types: the cross- currency swap and the interest rate (single currency) swap.\"" ;
+              skos:prefLabel "Currency swap" .
+
+
+###  https://fixprotocol.io/vocabulary#CurrentYield
+:CurrentYield rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              skos:definition "Annual interest on a bond divided by the market value. The actual income rate of  return as opposed to the coupon rate expressed as a percentage." ;
+              skos:prefLabel "Current Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#CustomerAccount
+:CustomerAccount rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "Identifies the customer account associated with the message." ;
+                 skos:prefLabel "Customer Account" .
+
+
+###  https://fixprotocol.io/vocabulary#DLV
+:DLV rdf:type owl:NamedIndividual ,
+              rdf:type ,
+              skos:Concept ;
+     dct:isPartOf "EP83" ;
+     skos:definition "Delivery Amount (DLV) represents the amount paid or collected in association with a credit event." ;
+     skos:prefLabel "DLV" .
+
+
+###  https://fixprotocol.io/vocabulary#DLV2
+:DLV2 rdf:type owl:NamedIndividual ;
+      dct:isPartOf "EP83" ;
+      skos:definition "Delivery quantity (DLV) is used on the target CDS position to represent the delivery of the underlying bonds." ;
+      skos:prefLabel "DLV" .
+
+
+###  https://fixprotocol.io/vocabulary#DatedDate
+:DatedDate rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "The effective date of a new securities issue determined by its underwriters.  Often but  not always the same as the \"Issue Date\" and the \"Interest Accrual Date\"" ;
+           skos:prefLabel "Dated Date" .
+
+
+###  https://fixprotocol.io/vocabulary#DayOrder
+:DayOrder rdf:type owl:NamedIndividual ,
+                   rdf:type ,
+                   skos:Concept ;
+          skos:definition "A buy or sell order that, if not executed expires at the end of the trading day on which  it was entered." ;
+          skos:prefLabel "Day Order" .
+
+
+###  https://fixprotocol.io/vocabulary#Dealtcurrency
+:Dealtcurrency rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "In a foreign exchange transaction, 'dealt currency' indicates which currency was  orginally specified. For example, An invesment manager may 'buy 100M USD against EUR'. This has USD as the  'dealt currency' and EUR as the 'counter currency'. Note that when viewed from the sell-side's (or broker's)  perspective, this is a 'Sell 100M USD against EUR' the 'dealt currency' remains the same." ;
+               skos:prefLabel "Dealt currency" .
+
+
+###  https://fixprotocol.io/vocabulary#DefaultPositionEffect
+:DefaultPositionEffect rdf:type owl:NamedIndividual ,
+                                rdf:type ,
+                                skos:Concept ;
+                       skos:definition "An instruction to use the default position keeping rules assigned to the account.  For  Options and Futures the default is normally \"net\" position, while for Forwards the deafault is usally \"open\" position. " ;
+                       skos:prefLabel "Default Position Effect" .
+
+
+###  https://fixprotocol.io/vocabulary#DerivativeRelatedTransaction
+:DerivativeRelatedTransaction rdf:type owl:NamedIndividual ,
+                                       rdf:type ,
+                                       skos:Concept ;
+                              skos:definition "Exercise or  expiration of options, forwards or futures contracts that imply an exchange of securities or a trade that relates to a  derivatives trade and that forms an unconditional part of a combination together with a derivative trade. " ;
+                              skos:prefLabel "Derivative Related Transaction" .
+
+
+###  https://fixprotocol.io/vocabulary#Discount
+:Discount rdf:type owl:NamedIndividual ,
+                   rdf:type ,
+                   skos:Concept ;
+          skos:definition "When a bond sells below its par value, it is said to be selling at a discount.  A price  with a PriceType of \"discount\" is the difference between 100 and the bond's percent-of-par price." ;
+          skos:prefLabel "Discount" .
+
+
+###  https://fixprotocol.io/vocabulary#DoNotIncrease
+:DoNotIncrease rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:altLabel "DNI" ;
+               skos:definition "A limit order to buy, a stop order to sell, or a stop-limit order to sell which is not to be  increased in shares on the ex-dividend date as a result of a stock dividend or distribution." ;
+               skos:prefLabel "Do Not Increase" .
+
+
+###  https://fixprotocol.io/vocabulary#DoNotReduce
+:DoNotReduce rdf:type owl:NamedIndividual ,
+                      rdf:type ,
+                      skos:Concept ;
+             skos:altLabel "DNR" ;
+             skos:definition "A limit order to buy, a stop order to sell, or a stop-limit order to sell that is not to be  reduced in price by the amount of an ordinary cash dividend on the ex-dividend date.  A do-not-reduce order applies  only to ordinary cash dividends; it should be reduced for other distributions - such as when a stock goes \"ex\" stock  dividend or \"ex\" rights." ;
+             skos:prefLabel "Do Not Reduce" .
+
+
+###  https://fixprotocol.io/vocabulary#DoubleBarrierOption
+:DoubleBarrierOption rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     dct:isPartOf "EP92" ;
+                     skos:definition "An option that has a combination of activation/inactivation conditions. Specifies multiple  price levels at which the option becomes active (knock-in) or inactive (knock-out)." ;
+                     skos:prefLabel "Double Barrier Option" .
+
+
+###  https://fixprotocol.io/vocabulary#DownandInOption
+:DownandInOption rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 dct:isPartOf "EP92" ;
+                 skos:definition "the option becomes active if the underlying price drops below the specified barrier." ;
+                 skos:prefLabel "Down and In Option" .
+
+
+###  https://fixprotocol.io/vocabulary#DownandOutOption
+:DownandOutOption rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  dct:isPartOf "EP92" ;
+                  skos:definition "The option becomes inactive if the underlying price drops below the specified barrier." ;
+                  skos:prefLabel "Down and Out Option" .
+
+
+###  https://fixprotocol.io/vocabulary#EnteringFirm
+:EnteringFirm rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              skos:definition "Broker who has recorded or reported an execution. This field is particularly useful  where the trade is entered into a trade recording system by a broker who is not a party to the trade, as it allows any  inquiries or problem resolution to be directed to the appropriate source." ;
+              skos:prefLabel "Entering Firm" .
+
+
+###  https://fixprotocol.io/vocabulary#EnteringTrader
+:EnteringTrader rdf:type owl:NamedIndividual ,
+                         rdf:type ,
+                         skos:Concept ;
+                skos:definition "Individual usually identified by a trading badge number or initials that actually enters  an order to a market (especially in open outcry markets). Usually the Entering Trader is the same as the Executing  Trader. However, under some circumstances the Entering Trader will have the trade executed by another trader who  is then identified as the Executing Trader." ;
+                skos:prefLabel "Entering Trader" .
+
+
+###  https://fixprotocol.io/vocabulary#EnteringUnit
+:EnteringUnit rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              skos:definition "Individual unit within an Entering Firm, e.g. trading desk, branch office or similar, that  actually enters an order to a market. Usually the Entering Unit is the same as the Executing Unit that is responsible  for the transction. The Executing Unit can delegate the entry but not the responsibility to another unit who is then  identified as the Entering Unit." ;
+              skos:prefLabel "Entering Unit" .
+
+
+###  https://fixprotocol.io/vocabulary#Europeanstyleoption
+:Europeanstyleoption rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     dct:source "www.investopedia.com" ,
+                                "www.investorwords.com" ;
+                     skos:definition "An option that can only be exercised at the end of its life or for a short, specified period  of time just prior to expiration (usually on a single day)." ;
+                     skos:prefLabel "European style option" .
+
+
+###  https://fixprotocol.io/vocabulary#Evenswap
+:Evenswap rdf:type owl:NamedIndividual ,
+                   rdf:type ,
+                   skos:Concept ;
+          skos:definition "An FX Swap where the given amount to be bought and sold is the same on the near  and far legs.  See \"uneven swap\"." ;
+          skos:prefLabel "Even swap" .
+
+
+###  https://fixprotocol.io/vocabulary#Exchange
+:Exchange rdf:type owl:NamedIndividual ,
+                   rdf:type ,
+                   skos:Concept ;
+          skos:definition "Exchange associated with the position." ;
+          skos:prefLabel "Exchange" .
+
+
+###  https://fixprotocol.io/vocabulary#ExchangeforPhysical
+:ExchangeforPhysical rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     dct:isPartOf "EP84" ;
+                     skos:definition "EFP trades involve a futures contract and a cash position. The parties involved agree  privately upon a price for a simultaneous exchange or transfer \"cash for futures\" and then report the terms of this  agreement to the clearing house." ;
+                     skos:prefLabel "Exchange for Physical" .
+
+
+###  https://fixprotocol.io/vocabulary#ExchangeforRisk
+:ExchangeforRisk rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 dct:isPartOf "EP84" ;
+                 skos:definition " EFR trades involve a futures contract and a spot commodity. The parties involved agree  privately upon a price for a simultaneous exchange or transfer of \"spot for futures\" and then report the terms of this  agreement to the clearing house." ;
+                 skos:prefLabel "Exchange for Risk" .
+
+
+###  https://fixprotocol.io/vocabulary#Exchangegrantedtrade
+:Exchangegrantedtrade rdf:type owl:NamedIndividual ,
+                               rdf:type ,
+                               skos:Concept ;
+                      skos:definition "A trade done according to an individual or general authorisation, obtainedprior to  theconsumation ofthe trade, from the marketplace for the specific case and/or kind of trade." ;
+                      skos:prefLabel "Exchange granted trade" .
+
+
+###  https://fixprotocol.io/vocabulary#ExecuteasFXneutral
+:ExecuteasFXneutral rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    skos:definition "Indicates that the quantity of a strategy FX leg is to be (or was) calculated as neutral  with regards to the security traded for the other legs of the strategy" ;
+                    skos:prefLabel "Execute as FX neutral" .
+
+
+###  https://fixprotocol.io/vocabulary#Executeasdeltaneutralusingvolatilityprovided
+:Executeasdeltaneutralusingvolatilityprovided rdf:type owl:NamedIndividual ,
+                                                       rdf:type ,
+                                                       skos:Concept ;
+                                              skos:definition "Indicates that  the quantity of a strategy leg is to be (or was) calculated as delta neutral using provided volatility parameters " ;
+                                              skos:prefLabel "Execute as delta neutral using volatility provided" .
+
+
+###  https://fixprotocol.io/vocabulary#Executeasdurationneutral
+:Executeasdurationneutral rdf:type owl:NamedIndividual ,
+                                   rdf:type ,
+                                   skos:Concept ;
+                          skos:definition "Indicates that the quantity of a strategy leg is to be (or was) calculated as duration  neutral" ;
+                          skos:prefLabel "Execute as duration neutral" .
+
+
+###  https://fixprotocol.io/vocabulary#ExecutingFirm
+:ExecutingFirm rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "Identifies executing / give-up broker. " ;
+               skos:prefLabel "Executing Firm" .
+
+
+###  https://fixprotocol.io/vocabulary#ExecutingSystem
+:ExecutingSystem rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "System Identifier where execution took place (some markets have multiple execution  location such as an electronic book or automatic execution system)." ;
+                 skos:prefLabel "Executing System" .
+
+
+###  https://fixprotocol.io/vocabulary#ExecutingTrader
+:ExecutingTrader rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "Trader or broker id associated with Executing Firm who actually executes the trade. " ;
+                 skos:prefLabel "Executing Trader" .
+
+
+###  https://fixprotocol.io/vocabulary#ExecutingUnit
+:ExecutingUnit rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "Identifies executing unit within an Executing Firm, e.g. trading desk, branch office or similar" ;
+               skos:prefLabel "Executing Unit" .
+
+
+###  https://fixprotocol.io/vocabulary#ExecutionTime
+:ExecutionTime rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "According to US futures markets (CFTC): Non-qualified reporting time of order execution. " ;
+               skos:prefLabel "Execution Time" .
+
+
+###  https://fixprotocol.io/vocabulary#Exhaust
+:Exhaust rdf:type owl:NamedIndividual ,
+                  rdf:type ,
+                  skos:Concept ;
+         skos:definition "A reserve order refresh method where the displayed quantity is not refreshed until  exhausted (filled)." ;
+         skos:prefLabel "Exhaust" .
+
+
+###  https://fixprotocol.io/vocabulary#ExternalRoutingAllowed
+:ExternalRoutingAllowed rdf:type owl:NamedIndividual ,
+                                 rdf:type ,
+                                 skos:Concept ;
+                        skos:definition "Indicates that an order sent to one market may be routed by that market to other  external markets, especially in cases where the order locks or crosses the market and it can be executed against  another market's superior price.  Note: The absence of this instruction does not imply that an order should not be  routed externally; rather, the order receiver's default will apply." ;
+                        skos:prefLabel "External Routing Allowed" .
+
+
+###  https://fixprotocol.io/vocabulary#ExternalRoutingNotAllowed
+:ExternalRoutingNotAllowed rdf:type owl:NamedIndividual ,
+                                    rdf:type ,
+                                    skos:Concept ;
+                           skos:definition "Indicates that an  order sent to one market may never be routed by that market to other external markets.  Should the order lock or  cross the market but be unable to execute due to price protection reasons, a market may have to take alternate action,  which might include rejecting the order, depending on the market's rules.  Note: The absence of this instruction does  not imply that an order should be routed externally; rather, the order receiver's default will apply." ;
+                           skos:prefLabel "External Routing Not Allowed" .
+
+
+###  https://fixprotocol.io/vocabulary#FillorKill
+:FillorKill rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            skos:definition "A market or limit-price order that is to be executed in its entirety as soon as it is  represented in the Trading Crowd; if not so executed, the order is to be canceled.  Not to be confused with  Immediate or Cancel." ;
+            skos:prefLabel "Fill or Kill" .
+
+
+###  https://fixprotocol.io/vocabulary#FinalInventoryDueDate
+:FinalInventoryDueDate rdf:type owl:NamedIndividual ,
+                                rdf:type ,
+                                skos:Concept ;
+                       skos:definition "Specifies the last date on which purchase dates for a contract must be provided to the  service provider." ;
+                       skos:prefLabel "Final Inventory Due Date" .
+
+
+###  https://fixprotocol.io/vocabulary#FirstDeliveryDate
+:FirstDeliveryDate rdf:type owl:NamedIndividual ,
+                            rdf:type ,
+                            skos:Concept ;
+                   skos:definition "Specifies the first delivery date of the delivery period for a physically delivered  instrument." ;
+                   skos:prefLabel "First Delivery Date" .
+
+
+###  https://fixprotocol.io/vocabulary#FirstIntentDate
+:FirstIntentDate rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "Specifies the first date of the delivery period on which intents may be submitted for a  physically delivered instrument." ;
+                 skos:prefLabel "First Intent Date" .
+
+
+###  https://fixprotocol.io/vocabulary#FixedPayoutOption
+:FixedPayoutOption rdf:type owl:NamedIndividual ,
+                            rdf:type ,
+                            skos:Concept ;
+                   dct:isPartOf "EP92" ;
+                   skos:definition "The payout amount is specified at inception. Associated with Binary options (Yes, it pays  or No, it doesn't pay)." ;
+                   skos:prefLabel "Fixed Payout Option" .
+
+
+###  https://fixprotocol.io/vocabulary#FixedPriceCabinetTrade
+:FixedPriceCabinetTrade rdf:type owl:NamedIndividual ,
+                                 rdf:type ,
+                                 skos:Concept ;
+                        skos:definition "Cabinet Trade executed at a price equal to the minimum tick size (or smallest possible  price) .  See \"Cabinet Trade\"." ;
+                        skos:prefLabel "Fixed Price Cabinet Trade" .
+
+
+###  https://fixprotocol.io/vocabulary#FixedTickRule
+:FixedTickRule rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "A fixed cabinet trade price set to a minimum tick amount." ;
+               skos:prefLabel "Fixed Tick Rule" .
+
+
+###  https://fixprotocol.io/vocabulary#FixingDate
+:FixingDate rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            dct:isPartOf "EP82" ;
+            skos:definition "The date on which the rate is used for which the settlement amount is calculated.  Every NDF has  a fixing date.  The fixing date is the day the comparison between the NDF rate and the prevailing spot rate is made.   Depending on the currencies dealt, there are variations.  For some currencies the fixing date is one good business  day before the settlement date and for other currencies the fixing date is two good business days before the  settlement date." ;
+            skos:prefLabel "Fixing Date" .
+
+
+###  https://fixprotocol.io/vocabulary#FixingPrice
+:FixingPrice rdf:type owl:NamedIndividual ,
+                      rdf:type ,
+                      skos:Concept ;
+             dct:isPartOf "EP84" ;
+             skos:definition "Imputed price based on VWAP/TWAP algorithm.  Used especially to price FX futures." ;
+             skos:prefLabel "Fixing Price" .
+
+
+###  https://fixprotocol.io/vocabulary#FixingTime
+:FixingTime rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            dct:isPartOf "EP82" ;
+            skos:definition "The time on the fixing date on which the rate is used for which the settlement amount is calculated  for NDFs.  See \"Fixing Date\".  Fixing time for NDFs typically follows market conventions and is set by the central  bank of the currency's country." ;
+            skos:prefLabel "Fixing Time" .
+
+
+###  https://fixprotocol.io/vocabulary#FlatDefaultCurve
+:FlatDefaultCurve rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  skos:definition "Price calculation method that uses a flat credit curve to establish future probability of  defaults for pricing a specific CDS contract." ;
+                  skos:prefLabel "Flat Default Curve" .
+
+
+###  https://fixprotocol.io/vocabulary#FlexibleInstrument
+:FlexibleInstrument rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    skos:definition "An exchange-listed instrument for which a set of pre-defined attributes such as strike  price, expiration date and underlying instrument may be provided by the user at the time of creation (creating a new  instrument).  Can be an option or future." ;
+                    skos:prefLabel "Flexible Instrument" .
+
+
+###  https://fixprotocol.io/vocabulary#FloatingPriceCabinetTrade
+:FloatingPriceCabinetTrade rdf:type owl:NamedIndividual ,
+                                    rdf:type ,
+                                    skos:Concept ;
+                           skos:definition "Cabinet Trade executed at a price that can be different than the minimal price.  See  \"Cabinet Trade\"." ;
+                           skos:prefLabel "Floating Price Cabinet Trade" .
+
+
+###  https://fixprotocol.io/vocabulary#FlooredPutOption
+:FlooredPutOption rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  dct:isPartOf "EP92" ;
+                  skos:definition "The option has a linear payout (like a vanilla) up to a capped amount as specified by a  floor price." ;
+                  skos:prefLabel "Floored Put Option" .
+
+
+###  https://fixprotocol.io/vocabulary#Foreignexchangeswap
+:Foreignexchangeswap rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     dct:source "http://joxo.co.uk/SummaryGuideToFXForFinancialandITProfessionals.html" ;
+                     skos:definition "The transaction of exchanging two currencies at an agreed upon rate at an agreed upon  time.  The transaction is reversed at a future rate and time, with no payment streams between the points in time." ;
+                     skos:prefLabel "Foreign exchange swap" .
+
+
+###  https://fixprotocol.io/vocabulary#Forex-Swap
+:Forex-Swap rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            skos:definition "A \"Swap\" order for Foreign Exchange (currency trading)." ;
+            skos:prefLabel "Forex - Swap" .
+
+
+###  https://fixprotocol.io/vocabulary#FullDefaultCurve
+:FullDefaultCurve rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  skos:definition "Price calculation method that uses a complete credit curve to establish future probability  of defaults for pricing a specific CDS contract." ;
+                  skos:prefLabel "Full Default Curve" .
+
+
+###  https://fixprotocol.io/vocabulary#Funari
+:Funari rdf:type owl:NamedIndividual ,
+                 rdf:type ,
+                 skos:Concept ;
+        skos:definition "Japanese term for an order to buy or sell a stated amount of a security at the specified  limit price with any unexecuted (leftover) quantity becoming a Market On Close order." ;
+        skos:prefLabel "Funari" .
+
+
+###  https://fixprotocol.io/vocabulary#FundmanagerClientID
+:FundmanagerClientID rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     skos:definition "An identifier for an Investor or a broker or funds supermarket's  nominee/custodian company which is recognized  by the Fund manager." ;
+                     skos:prefLabel "Fund manager Client ID" ;
+                     skos:scopeNote "For CIV" .
+
+
+###  https://fixprotocol.io/vocabulary#GiveupClearingFirm
+:GiveupClearingFirm rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    skos:definition "Firm to which the trade is given up (carries the position that results from a trade). " ;
+                    skos:prefLabel "Giveup Clearing Firm" .
+
+
+###  https://fixprotocol.io/vocabulary#GoodThroughCrossing
+:GoodThroughCrossing rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     skos:definition "An order that is valid up till and including a crossing phase. Also see Good  Till  Crossing (GTX), At Crossing, At the Opening and At the Close." ;
+                     skos:prefLabel "Good Through Crossing" .
+
+
+###  https://fixprotocol.io/vocabulary#GoodTillCanceled
+:GoodTillCanceled rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  skos:definition "An order to buy or sell that remains in effect until it is either executed or canceled;  sometimes called an \"open order\". " ;
+                  skos:prefLabel "Good Till Canceled" .
+
+
+###  https://fixprotocol.io/vocabulary#GoodTillCrossing
+:GoodTillCrossing rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  skos:altLabel "GTX" ;
+                  skos:definition "An order to buy or sell that is canceled prior to the market entering into an auction, or  crossing phase. Typically, markets that support continuous trading will have an auction phase at the beginning and  sometimes also at the end of trading to match up orders that have been entered into the exchange's order book during  the pre- or post-trading phase (i.e. where no continuous trading was available). A GTX order automatically expires  immediately prior to the commencement of a crossing session, i.e. the party originating the order wants to make sure  it gets filled during the current continuous auction, and any remaining open quantity should be discarded at the end  of the current continuous auction period." ;
+                  skos:prefLabel "Good Till Crossing" .
+
+
+###  https://fixprotocol.io/vocabulary#GovernmentEquivalentYield
+:GovernmentEquivalentYield rdf:type owl:NamedIndividual ,
+                                    rdf:type ,
+                                    skos:Concept ;
+                           skos:definition "Ask yield based  on semi-annual coupons compounding in all periods and actual/actual calendar." ;
+                           skos:prefLabel "Government Equivalent Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#Held
+:Held rdf:type owl:NamedIndividual ,
+               rdf:type ,
+               skos:Concept ;
+      skos:definition "The firm executing the order is held to best execution requirements, and may not make  discretionary decisions.  Opposite of Not Held" ;
+      skos:prefLabel "Held" .
+
+
+###  https://fixprotocol.io/vocabulary#IACPN
+:IACPN rdf:type owl:NamedIndividual ,
+                rdf:type ,
+                skos:Concept ;
+       dct:isPartOf "EP83" ;
+       skos:definition "Incremental Accrued Coupon (IACPN) represents the incremental accrued coupon which is banked each  day." ;
+       skos:prefLabel "IACPN" .
+
+
+###  https://fixprotocol.io/vocabulary#ICMTM
+:ICMTM rdf:type owl:NamedIndividual ,
+                rdf:type ,
+                skos:Concept ;
+       dct:isPartOf "EP83" ;
+       skos:definition "Incremental Accrued Coupon (IACPN) represents the incremental accrued coupon which is banked each  day." ;
+       skos:prefLabel "ICMTM" .
+
+
+###  https://fixprotocol.io/vocabulary#ICPN
+:ICPN rdf:type owl:NamedIndividual ,
+               rdf:type ,
+               skos:Concept ;
+      dct:isPartOf "EP83" ;
+      skos:definition "Initial coupon (ICPN) is an amount paid to the buyer as a pro-rated portion of the coupon from the prior  coupon through trade date. The buyer will be responsible for the full coupon on the next coupon date." ;
+      skos:prefLabel "ICPN" .
+
+
+###  https://fixprotocol.io/vocabulary#IgnorePriceValidityChecks
+:IgnorePriceValidityChecks rdf:type owl:NamedIndividual ,
+                                    rdf:type ,
+                                    skos:Concept ;
+                           skos:definition "Disables validity checking of price fields for an order or change request. " ;
+                           skos:prefLabel "Ignore Price Validity Checks" .
+
+
+###  https://fixprotocol.io/vocabulary#ImbalanceOnly
+:ImbalanceOnly rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "Indicates than order is an \"Imbalance\" order. Exchanges often use this type of (often  unpriced) order to allow certain trading participants to remove imbalances in call auctions." ;
+               skos:prefLabel "Imbalance Only" .
+
+
+###  https://fixprotocol.io/vocabulary#Immediate
+:Immediate rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "A reserve order refresh method where the displayed quantity stays the same until the  remaining executable quantity of the order goes below." ;
+           skos:prefLabel "Immediate" .
+
+
+###  https://fixprotocol.io/vocabulary#ImmediateorCancel
+:ImmediateorCancel rdf:type owl:NamedIndividual ,
+                            rdf:type ,
+                            skos:Concept ;
+                   skos:definition "A market or limit-price order that is to be executed in whole or in part as soon as it is  represented in the Trading Crowd; any portion not so executed is to be canceled. Not to be confused with Fill or  Kill." ;
+                   skos:prefLabel "Immediate or Cancel" .
+
+
+###  https://fixprotocol.io/vocabulary#IndividualPrices
+:IndividualPrices rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  skos:definition "The price of a multileg order strategy is given using individual prices for the legs. " ;
+                  skos:prefLabel "Individual Prices" .
+
+
+###  https://fixprotocol.io/vocabulary#Initial
+:Initial rdf:type owl:NamedIndividual ,
+                  rdf:type ,
+                  skos:Concept ;
+         skos:definition "A reserve order instruction to refresh using the initially displayed quantity. " ;
+         skos:prefLabel "Initial" .
+
+
+###  https://fixprotocol.io/vocabulary#InitialInventoryDueDate
+:InitialInventoryDueDate rdf:type owl:NamedIndividual ,
+                                  rdf:type ,
+                                  skos:Concept ;
+                         skos:definition "Specifies the first date on which purchase dates for a contract must be provided to the  service provider." ;
+                         skos:prefLabel "Initial Inventory Due Date" .
+
+
+###  https://fixprotocol.io/vocabulary#Initiator
+:Initiator rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition """An \"initiator\" may be one of the following:
+•	an institutional client
+•	a financial planner
+•	a retail broker representing a retail customer
+•	a broker/dealer
+•	an inter-dealer broker (or broker’s broker)
+•	an issuer""" ;
+           skos:prefLabel "Initiator" .
+
+
+###  https://fixprotocol.io/vocabulary#InstitutionsOnly
+:InstitutionsOnly rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  skos:definition "Broker is restricted to dealing with other buy side firms." ;
+                  skos:prefLabel "Institutions Only" .
+
+
+###  https://fixprotocol.io/vocabulary#InstrumentDenominator
+:InstrumentDenominator rdf:type owl:NamedIndividual ,
+                                rdf:type ,
+                                skos:Concept ;
+                       skos:definition "Specifies the price denominator of a fractionally quoted instrument such as treasure  note futures or corn futures. Values are whole numbers. Examples are Quarters (4), Eights (8), Sixteenths (16),  Thirty-seconds (32), etc." ;
+                       skos:prefLabel "Instrument Denominator" .
+
+
+###  https://fixprotocol.io/vocabulary#InstrumentNumerator
+:InstrumentNumerator rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     skos:definition "Specifies the denominator for the fractional portion of a numerator for a fractionally  quoted price. For example, a price 5 31/4 / 32 has an Instrument Numerator of 4. Values are whole numbers. " ;
+                     skos:prefLabel "Instrument Numerator" .
+
+
+###  https://fixprotocol.io/vocabulary#InstrumentPricePrecision
+:InstrumentPricePrecision rdf:type owl:NamedIndividual ,
+                                   rdf:type ,
+                                   skos:Concept ;
+                          skos:definition "Specifies the number of decimal places that are provided in order to correctly format a  price. Generally, used for the formatting of fractional prices. Values are whole numbers. " ;
+                          skos:prefLabel "Instrument Price Precision" .
+
+
+###  https://fixprotocol.io/vocabulary#InstrumentStrikePricePrecision
+:InstrumentStrikePricePrecision rdf:type owl:NamedIndividual ,
+                                         rdf:type ,
+                                         skos:Concept ;
+                                skos:definition "Specifies the  number of decimal places that are provided in order to correctly format a strike price. Generally, used for the  formatting of fractional prices. Values are whole numbers. " ;
+                                skos:prefLabel "Instrument Strike Price Precision" .
+
+
+###  https://fixprotocol.io/vocabulary#InterestAccrualDate
+:InterestAccrualDate rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     skos:definition "The start date used for calculating accrued interest on debt instruments which are being  sold between interest payment dates. Often but not always the same as the \"Issue Date\" and the \"Dated Date\"." ;
+                     skos:prefLabel "Interest Accrual Date" .
+
+
+###  https://fixprotocol.io/vocabulary#Intermarketsweep
+:Intermarketsweep rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  skos:definition "An order that is an intermarket sweep as defined by the SEC in Regulation NMS.  This  value is used on Immediate or Cancel limit orders (or other order type and time in force).  It indicates that the party  sending the order has taken responsibility for price protection, and the recipient of the order should execute it, if  possible, without regard to protection of other markets' prices.  While the term \"Intermarket sweep\" is specific to  the United States, the ExecInst value that represents it may be used in other markets, where appropriate, to indicate  an order that should be executed without regard to price protection." ;
+                  skos:prefLabel "Intermarket sweep" .
+
+
+###  https://fixprotocol.io/vocabulary#InternalizedTrade
+:InternalizedTrade rdf:type owl:NamedIndividual ,
+                            rdf:type ,
+                            skos:Concept ;
+                   skos:definition "A trade done internally at a marketplace member. Often restricted to the inside of the  current spread. In cases where the trade must be offered to the market for price improvement it is often called Cross  Trade." ;
+                   skos:prefLabel "Internalized Trade" .
+
+
+###  https://fixprotocol.io/vocabulary#IntroducingFirm
+:IntroducingFirm rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "The broker or other intermediary with the closest association with the investor. " ;
+                 skos:prefLabel "Introducing Firm" .
+
+
+###  https://fixprotocol.io/vocabulary#InverseFloaterBondYield
+:InverseFloaterBondYield rdf:type owl:NamedIndividual ,
+                                  rdf:type ,
+                                  skos:Concept ;
+                         skos:definition "Inverse floater semi-annual bond equivalent rate." ;
+                         skos:prefLabel "Inverse Floater Bond Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#InvestorIDCIV
+:InvestorIDCIV rdf:type owl:NamedIndividual ;
+               skos:definition """An Investor identifier such as a taxpayer reference (NINO, NPN, DSS, SSN number etc) for an individual investor or a registration number (EIN, etc.) for a company.
+May contain alphanumeric and dashes.""" ;
+               skos:prefLabel "Investor ID" ;
+               skos:scopeNote "For CIV" .
+
+
+###  https://fixprotocol.io/vocabulary#InvestorIDEquities
+:InvestorIDEquities rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    skos:definition "Identifies beneficiary or broker acting on behalf of beneficiary. This field is mandatory for various exchanges either  pre or post trade. Numerical entry containing no dashes." ;
+                    skos:prefLabel "Investor ID" ;
+                    skos:scopeNote "For Equities" .
+
+
+###  https://fixprotocol.io/vocabulary#IssueDate
+:IssueDate rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "The date on which a bond or stock offering is issued.  It may or may not be the same as  the effective date (\"Dated Date\") or the date on which interest begins to accrue (\"Interest Accrual Date\")" ;
+           skos:prefLabel "Issue Date" .
+
+
+###  https://fixprotocol.io/vocabulary#IssuePriceStabilization
+:IssuePriceStabilization rdf:type owl:NamedIndividual ,
+                                  rdf:type ,
+                                  skos:Concept ;
+                         skos:definition "This indication must, according to certain regulation, be used when a broker is  contracted by the issuer to stabilize the price before an issue of new stock of a security that is already traded (or a  buy-back/buy-out)." ;
+                         skos:prefLabel "Issue Price Stabilization" .
+
+
+###  https://fixprotocol.io/vocabulary#IssuerHolding
+:IssuerHolding rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "Certain regulation requires this indicator to be attached when an issuer is buying back  its own stock (or units of other instruments). It can also be used in cases when a new issue is auctioned out over the  exchange." ;
+               skos:prefLabel "Issuer Holding" .
+
+
+###  https://fixprotocol.io/vocabulary#IssuingBuy-backAuction
+:IssuingBuy-backAuction rdf:type owl:NamedIndividual ,
+                                 rdf:type ,
+                                 skos:Concept ;
+                        skos:definition "A call auction with the purpose of issuing new or buying back stock, bonds or other  security." ;
+                        skos:prefLabel "Issuing/Buy-back Auction" .
+
+
+###  https://fixprotocol.io/vocabulary#LastDeliveryDate
+:LastDeliveryDate rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  skos:definition "Specifies the last delivery date of the delivery period for a physically delivered  instrument." ;
+                  skos:prefLabel "Last Delivery Date" .
+
+
+###  https://fixprotocol.io/vocabulary#LastIntentDate
+:LastIntentDate rdf:type owl:NamedIndividual ,
+                         rdf:type ,
+                         skos:Concept ;
+                skos:definition "Specifies the last date of the delivery period on which intents may be submitted for a  physically delivered instrument." ;
+                skos:prefLabel "Last Intent Date" .
+
+
+###  https://fixprotocol.io/vocabulary#LastPeg
+:LastPeg rdf:type owl:NamedIndividual ,
+                  rdf:type ,
+                  skos:Concept ;
+         skos:definition "A pegged order specifying that the order should be priced relative to the last sale price. " ;
+         skos:prefLabel "Last Peg" .
+
+
+###  https://fixprotocol.io/vocabulary#Limit
+:Limit rdf:type owl:NamedIndividual ,
+                rdf:type ,
+                skos:Concept ;
+       skos:definition "An order to buy a security at or below a stated price, or to sell a security at or above a  stated price." ;
+       skos:prefLabel "Limit" .
+
+
+###  https://fixprotocol.io/vocabulary#LimitWithorWithout
+:LimitWithorWithout rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    skos:definition "An order to be executed at a limit price, with or without round-lot sales; valid only for  odd lot orders. " ;
+                    skos:prefLabel "Limit With or Without" .
+
+
+###  https://fixprotocol.io/vocabulary#LimitorBetter
+:LimitorBetter rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition """Indicates an order to  
+- buy a security at the indicated limit price or lower, or to 
+- sell a security at the indicated limit price or higher.""" ;
+               skos:prefLabel "Limit or Better" .
+
+
+###  https://fixprotocol.io/vocabulary#LiquidityProvider
+:LiquidityProvider rdf:type owl:NamedIndividual ,
+                            rdf:type ,
+                            skos:Concept ;
+                   skos:definition "Identifies the individual that provided liquidity, e.g. was the market maker (specialist)  involved in a trade. Used to identify the liquidity provider involved in a block of EFP trade for listed futures  markets." ;
+                   skos:prefLabel "Liquidity Provider" .
+
+
+###  https://fixprotocol.io/vocabulary#LocateLendingFirm
+:LocateLendingFirm rdf:type owl:NamedIndividual ,
+                            rdf:type ,
+                            skos:Concept ;
+                   skos:definition "Identity of the firm  which is loaning the security in a short sale.  " ;
+                   skos:prefLabel "Locate/Lending Firm" .
+
+
+###  https://fixprotocol.io/vocabulary#Locked
+:Locked rdf:type owl:NamedIndividual ,
+                 rdf:type ,
+                 skos:Concept ;
+        skos:definition "Generally indicates that the current bid and offer prices are the same, a situation where  a trade normally should have occurred. The rules for locked book situations are bilaterally agreed between  counterparties. Also see Crossed. " ;
+        skos:prefLabel "Locked" .
+
+
+###  https://fixprotocol.io/vocabulary#Look-backOption
+:Look-backOption rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 dct:isPartOf "EP92" ;
+                 skos:definition "The underlying price is set to the optimal value of the daily settlement prices over a  specified period." ;
+                 skos:prefLabel "Look-back Option" .
+
+
+###  https://fixprotocol.io/vocabulary#MarkedToMarketYield
+:MarkedToMarketYield rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     skos:definition "An adjustment in the valuation of a securities portfolio to reflect the current market  values of the respective securities in the portfolio." ;
+                     skos:prefLabel "Marked To Market Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#Market
+:Market rdf:type owl:NamedIndividual ,
+                 rdf:type ,
+                 skos:Concept ;
+        skos:definition "Indicates an order to buy or sell a stated amount of a security at the most advantageous  price obtainable after the order is represented in the Trading Crowd." ;
+        skos:prefLabel "Market" .
+
+
+###  https://fixprotocol.io/vocabulary#MarketIfTouched
+:MarketIfTouched rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "Indicates an order to buy or sell a stated amount of a security or commodity as soon as  a preset market price is reached, at which point it becomes a Market order. " ;
+                 skos:prefLabel "Market If Touched" .
+
+
+###  https://fixprotocol.io/vocabulary#MarketOnClose
+:MarketOnClose rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "Indicated price is held to the closing price (\"firm\" instruction)." ;
+               skos:prefLabel "Market On Close" .
+
+
+###  https://fixprotocol.io/vocabulary#MarketOrBetter
+:MarketOrBetter rdf:type owl:NamedIndividual ,
+                         rdf:type ,
+                         skos:Concept ;
+                skos:definition "Indicates an order to buy or sell a stated amount of a security at the quoted market or  better. " ;
+                skos:prefLabel "Market Or Better" .
+
+
+###  https://fixprotocol.io/vocabulary#MarketPeg
+:MarketPeg rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "A pegged order specifying that the order should be priced relative to the offer price if  buying or bid price if selling." ;
+           skos:prefLabel "Market Peg" .
+
+
+###  https://fixprotocol.io/vocabulary#MarketSegment
+:MarketSegment rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition """A subdivision of a market or marketplace that is setup and operates within that market.  A market  segment may be setup for a variety of reasons including (examples): 
+- regulatory - e.g. separate derivatives trading from stock trading 
+- membership - e.g. requiring separate membership or trading authorization 
+- geographical - e.g. separate segments for various countries 
+- separate venues - e.g. floor/pit trading vs. electronic 
+- trading rules - e.g. different rules and behaviours that a market needs to support for the entities it offers to trade""" ;
+               skos:prefLabel "Market Segment" .
+
+
+###  https://fixprotocol.io/vocabulary#MarketoperationsEnteredTrade
+:MarketoperationsEnteredTrade rdf:type owl:NamedIndividual ,
+                                       rdf:type ,
+                                       skos:Concept ;
+                              skos:definition "Identifies an  OTC (privately negotiated) trade is entered by a marketplace official on behalf of the reporting party. " ;
+                              skos:prefLabel "Market operations Entered Trade" .
+
+
+###  https://fixprotocol.io/vocabulary#MarketwithLeftoverasLimit
+:MarketwithLeftoverasLimit rdf:type owl:NamedIndividual ,
+                                    rdf:type ,
+                                    skos:Concept ;
+                           skos:definition "Indicates an  order to buy or sell a stated amount of a security at the prevailing market price with any unexecuted (leftover)  quantity becoming a Limit order at the last executed price." ;
+                           skos:prefLabel "Market with Leftover as Limit" .
+
+
+###  https://fixprotocol.io/vocabulary#MedianPrice
+:MedianPrice rdf:type owl:NamedIndividual ,
+                      rdf:type ,
+                      skos:Concept ;
+             dct:source "http://www.investorwords.com" ;
+             skos:definition "One type of average, found by arranging the values in order and then selecting the one  in the middle. If the total number of values in the sample is even, then the median is the mean of the two middle  numbers. The median is a useful number in cases where the distribution has very large extreme values which would  " ;
+             skos:prefLabel "Median Price" .
+
+
+###  https://fixprotocol.io/vocabulary#Mid-PricePeg
+:Mid-PricePeg rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              skos:altLabel "Midprice of inside quote" ;
+              skos:definition "A pegged order  specifying that the order should be priced relative to the mid-price of the inside quotes." ;
+              skos:prefLabel "Mid-Price Peg" .
+
+
+###  https://fixprotocol.io/vocabulary#MidPrice
+:MidPrice rdf:type owl:NamedIndividual ,
+                   rdf:type ,
+                   skos:Concept ;
+          skos:definition "The average of a set of prices (not taking quantity into account). Also see \"Trading  Session VWAP Price\"" ;
+          skos:prefLabel "Mid Price" .
+
+
+###  https://fixprotocol.io/vocabulary#MostRecentClosingYield
+:MostRecentClosingYield rdf:type owl:NamedIndividual ,
+                                 rdf:type ,
+                                 skos:Concept ;
+                        skos:definition "The last available yield stored in history, computed using price." ;
+                        skos:prefLabel "Most Recent Closing Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#MultiassetclassMultilegTrade
+:MultiassetclassMultilegTrade rdf:type owl:NamedIndividual ,
+                                       rdf:type ,
+                                       skos:Concept ;
+                              skos:definition "Identifies that  the trade occurred due to an equity / derivatives (or other multi asset class) combination, either in the legs or in a  multileg order book." ;
+                              skos:prefLabel "Multi asset class Multileg Trade" .
+
+
+###  https://fixprotocol.io/vocabulary#Multileg-to-MultilegTrade
+:Multileg-to-MultilegTrade rdf:type owl:NamedIndividual ,
+                                    rdf:type ,
+                                    skos:Concept ;
+                           skos:definition "Identifies that a multileg order has executed against another multileg order in a  multileg order book (i.e. the legs were not involved). " ;
+                           skos:prefLabel "Multileg-to-Multileg Trade" .
+
+
+###  https://fixprotocol.io/vocabulary#NetPrice
+:NetPrice rdf:type owl:NamedIndividual ,
+                   rdf:type ,
+                   skos:Concept ;
+          skos:definition """Relevant for multileg orders. The price is given as the sum of the Price * Ratio for all legs. 
+•	If buying the strategy, the price of a bought leg (which is a buy-leg in the multileg definition) is added, and the price of a sold leg is subtracted.
+•	If selling the strategy, the price of a bought leg (which is a sell-leg in the multileg definition) is subtracted, and the price of a sold leg is added.""" ;
+          skos:prefLabel "Net Price" .
+
+
+###  https://fixprotocol.io/vocabulary#New
+:New rdf:type owl:NamedIndividual ,
+              rdf:type ,
+              skos:Concept ;
+     skos:definition "A reserve order instruction to refresh using a quantity defined separately from the  initial display quantity." ;
+     skos:prefLabel "New" .
+
+
+###  https://fixprotocol.io/vocabulary#NextFundValuationPoint
+:NextFundValuationPoint rdf:type owl:NamedIndividual ,
+                                 rdf:type ,
+                                 skos:Concept ;
+                        skos:definition "For CIV orders - indicates that the Investor wishes the order to be dealt at the unit price  determined at the next Valuation Point, a.k.a. a Forward price." ;
+                        skos:prefLabel "Next Fund Valuation Point" .
+
+
+###  https://fixprotocol.io/vocabulary#NextRollDate
+:NextRollDate rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              skos:definition "Next roll date for a swap " ;
+              skos:prefLabel "Next Roll Date" .
+
+
+###  https://fixprotocol.io/vocabulary#NoCross
+:NoCross rdf:type owl:NamedIndividual ,
+                  rdf:type ,
+                  skos:Concept ;
+         skos:definition "The broker executing this trade is forbidden from taking the other side of the trade.   Opposite of OK to Cross." ;
+         skos:prefLabel "No Cross" .
+
+
+###  https://fixprotocol.io/vocabulary#Non-standardsettlement
+:Non-standardsettlement rdf:type owl:NamedIndividual ,
+                                 rdf:type ,
+                                 skos:Concept ;
+                        skos:definition "A Trade that deviates from the standard settlement and delivery period. " ;
+                        skos:prefLabel "Non-standard settlement" .
+
+
+###  https://fixprotocol.io/vocabulary#NotHeld
+:NotHeld rdf:type owl:NamedIndividual ,
+                  rdf:type ,
+                  skos:Concept ;
+         skos:definition "The firm executing the order is not held to best execution requirements, and may be  able to make some discretionary decisions.  Opposite of Held." ;
+         skos:prefLabel "Not Held" .
+
+
+###  https://fixprotocol.io/vocabulary#OKtoCross
+:OKtoCross rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "The broker executing this trade is allowed to take the other side of the trade.  Opposite  of No Cross." ;
+           skos:prefLabel "OK to Cross" .
+
+
+###  https://fixprotocol.io/vocabulary#OTC
+:OTC rdf:type owl:NamedIndividual ,
+              rdf:type ,
+              skos:Concept ;
+     skos:definition "Used to report into an exchange trades or prices that were agreed directly, outside of  the exchange rules, between the counterparties (\"over the counter\")" ;
+     skos:prefLabel "OTC" .
+
+
+###  https://fixprotocol.io/vocabulary#OTCPrivatelyNegotiated
+:OTCPrivatelyNegotiated rdf:type owl:NamedIndividual ,
+                                 rdf:type ,
+                                 skos:Concept ;
+                        dct:isPartOf "EP84" ;
+                        skos:definition "A privately negotiated trade in a non-regulated product." ;
+                        skos:prefLabel "OTC Privately Negotiated" .
+
+
+###  https://fixprotocol.io/vocabulary#OTCQuote
+:OTCQuote rdf:type owl:NamedIndividual ,
+                   rdf:type ,
+                   skos:Concept ;
+          skos:definition "A OTC trade that occurs as the result of a Quote Negotiation. Used to qualify privately  negotiated trades (subject to regulations)" ;
+          skos:prefLabel "OTC Quote" .
+
+
+###  https://fixprotocol.io/vocabulary#OddLot
+:OddLot rdf:type owl:NamedIndividual ,
+                 rdf:type ,
+                 skos:Concept ;
+        skos:definition "An amount of a security that is less than the normal unit of trading for that particular  security. For stocks, any transaction less than 100 shares is usually considered to be an odd lot. (Source:  Investopedia)" ;
+        skos:prefLabel "Odd Lot" .
+
+
+###  https://fixprotocol.io/vocabulary#OffHoursTrade
+:OffHoursTrade rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "A trade that occurs outside normal trading hours. Used to qualify privately negotiated  trades (subject to regulations)" ;
+               skos:prefLabel "Off Hours Trade" .
+
+
+###  https://fixprotocol.io/vocabulary#OmnibusAccount
+:OmnibusAccount rdf:type owl:NamedIndividual ,
+                         rdf:type ,
+                         skos:Concept ;
+                skos:definition "An account where the positions for multiple entities (usually customers) are  maintained. The omnibus accounting is usually done on a gross basis where long and short positions are not netted  together." ;
+                skos:prefLabel "Omnibus Account" .
+
+
+###  https://fixprotocol.io/vocabulary#OnBasis
+:OnBasis rdf:type owl:NamedIndividual ,
+                  rdf:type ,
+                  skos:Concept ;
+         skos:definition "An order to buy or sell at the basis price. The basis price is established by joint  agreement of odd lot dealers in 100 share unit stocks when no round lot sale has occurred during the trading session,  the spread between the closing bid and offer is two points or more, and an odd lot dealer has been given a basis price  order. " ;
+         skos:prefLabel "On Basis" .
+
+
+###  https://fixprotocol.io/vocabulary#OnHoursTrade
+:OnHoursTrade rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              skos:definition "A trade that occurs during normal trading hours. Used to qualify privately negotiated  trades (subject to regulations)" ;
+              skos:prefLabel "On Hours Trade" .
+
+
+###  https://fixprotocol.io/vocabulary#One-PartyReportforMatching
+:One-PartyReportforMatching rdf:type owl:NamedIndividual ,
+                                     rdf:type ,
+                                     skos:Concept ;
+                            skos:definition "A trade report  for one side of a privately negotiated trade. When both sides are reported the receiver matches and confirms the  trade." ;
+                            skos:prefLabel "One-Party Report for Matching" .
+
+
+###  https://fixprotocol.io/vocabulary#One-PartyReportforPassThru
+:One-PartyReportforPassThru rdf:type owl:NamedIndividual ,
+                                     rdf:type ,
+                                     skos:Concept ;
+                            skos:definition "A trade report  for one side of a privately negotiated trade. The receiver forwards a request to the counterparty who declines or  accepts the trade." ;
+                            skos:prefLabel "One-Party Report for Pass Thru" .
+
+
+###  https://fixprotocol.io/vocabulary#OneCancelstheOther
+:OneCancelstheOther rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    skos:altLabel "OCO" ;
+                    skos:definition "An OCO order  is an order whose execution results in the immediate cancellation of another order linked to it. Cancellation of the  Contingent Order happens on a best efforts basis. In an OCO order, both orders are live in the marketplace at the  same time. The execution of either order triggers an attempt to cancel the unexecuted order. Partial executions will  also trigger an attempt to cancel the other order." ;
+                    skos:prefLabel "One Cancels the Other" .
+
+
+###  https://fixprotocol.io/vocabulary#OneTouchOption
+:OneTouchOption rdf:type owl:NamedIndividual ,
+                         rdf:type ,
+                         skos:Concept ;
+                dct:isPartOf "EP92" ;
+                skos:definition "One Touch further defines the terms, usually specific dates and times, for when the  option will pay out in the context of a trigger price." ;
+                skos:prefLabel "One Touch Option" .
+
+
+###  https://fixprotocol.io/vocabulary#OneTriggerstheOther
+:OneTriggerstheOther rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     skos:altLabel "OTO" ;
+                     skos:definition "An OTO orders  involves two orders-a primary order and a secondary order. The primary order is a live marketplace order. The  secondary order, held in a separate order file, is not. If the primary order executes in full, the secondary order is  released to the marketplace and becomes live. An OTO order can be made up of stock orders, option orders, or a  combination of both." ;
+                     skos:prefLabel "One Triggers the Other" .
+
+
+###  https://fixprotocol.io/vocabulary#OneUpdatestheOther
+:OneUpdatestheOther rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    skos:altLabel "OUO" ;
+                    skos:definition """An OUO order is an order whose execution results in the immediate reduction of  quantity in another order linked to it. The quantity reduction happens on a best effort basis. In an OUO order both  orders are live in the marketplace at the same time. The execution of either order triggers an attempt to reduce the  remaining quantity of the other order, partial executions included. There are two sub-types of OUO orders:
+1.	In the Proportional Quantity Reduction model, the quantity of the unfilled order is reduced proportionally to size of the order that got filled. Example:
+•	Order A is for 100; Order B is for 50.
+•	When order B is partially filled for 25 (50 %), order A is restated to a quantity of 50 (50 %).
+2.	In the Absolute Quantity Reduction model, the quantity of the unfilled order is reduced with the fill size of the order that got filled. Example:
+•	Order A is for 100; Order B is for 50.
+•	When order B is partially filled for 25, order A is restated to a quantity of 75.""" ;
+                    skos:prefLabel "One Updates the Other" .
+
+
+###  https://fixprotocol.io/vocabulary#Open
+:Open rdf:type owl:NamedIndividual ,
+               rdf:type ,
+               skos:Concept ;
+      skos:definition "An instruction to position keeping that the trade should open a new position. " ;
+      skos:prefLabel "Open" .
+
+
+###  https://fixprotocol.io/vocabulary#OpenAverageYield
+:OpenAverageYield rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  skos:definition "The average yield of the respective securities in the portfolio." ;
+                  skos:prefLabel "Open Average Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#OpeningPeg
+:OpeningPeg rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            skos:definition "A pegged order specifying that the order should be priced relative to the opening price. " ;
+            skos:prefLabel "Opening Peg" .
+
+
+###  https://fixprotocol.io/vocabulary#Opposite
+:Opposite rdf:type owl:NamedIndividual ,
+                   rdf:type ,
+                   skos:Concept ;
+          skos:definition "Sides of the legs are the opposite of their definition in the multileg instrument." ;
+          skos:prefLabel "Opposite" .
+
+
+###  https://fixprotocol.io/vocabulary#OrderOriginationFirm
+:OrderOriginationFirm rdf:type owl:NamedIndividual ,
+                               rdf:type ,
+                               skos:Concept ;
+                      skos:definition "Buyside firm associated with Order Origination Firm which originates/submits the  order." ;
+                      skos:prefLabel "Order Origination Firm" .
+
+
+###  https://fixprotocol.io/vocabulary#OrderOriginationTrader
+:OrderOriginationTrader rdf:type owl:NamedIndividual ,
+                                 rdf:type ,
+                                 skos:Concept ;
+                        skos:definition "Buyside trader id associated with Order Origination Firm which originates/submits the  order." ;
+                        skos:prefLabel "Order Origination Trader" .
+
+
+###  https://fixprotocol.io/vocabulary#OrderOriginator
+:OrderOriginator rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "ID of the party entering the trade into the system (data entry, userid, buy side trader,  etc.)." ;
+                 skos:prefLabel "Order Originator" .
+
+
+###  https://fixprotocol.io/vocabulary#OrderimbalanceCauctionisextended
+:OrderimbalanceCauctionisextended rdf:type owl:NamedIndividual ,
+                                           rdf:type ,
+                                           skos:Concept ;
+                                  skos:definition "Used when a  call auction (e.g. opening or closing a market) is extended due to an imbalance at the auction clearing price." ;
+                                  skos:prefLabel "Order imbalance, auction is extended" .
+
+
+###  https://fixprotocol.io/vocabulary#OutsideSpread
+:OutsideSpread rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "A trade done outside the current spread of the book. Often allowed due to special  considerations only." ;
+               skos:prefLabel "Outside Spread" .
+
+
+###  https://fixprotocol.io/vocabulary#Par
+:Par rdf:type owl:NamedIndividual ,
+              rdf:type ,
+              skos:Concept ;
+     skos:definition "Equal to the face value (nominal) of a security, e.g. A bond selling at par is worth an  equivalent to its original issue value, typically $1000/bond." ;
+     skos:prefLabel "Par" .
+
+
+###  https://fixprotocol.io/vocabulary#ParticipateDontInitiate
+:ParticipateDontInitiate rdf:type owl:NamedIndividual ,
+                                  rdf:type ,
+                                  skos:Concept ;
+                         skos:definition "An order that may participate in a transaction initiated by another party, but may not  initiate a transaction.  For example, on US ECNs / Exchanges, this may represent an order that will be quoted to the  marketplace and will trade if another party initiates a trade (i.e. hits the posted quote), but cannot be routed to initiate  a trade with another market or market maker." ;
+                         skos:prefLabel "Participate Don't Initiate" .
+
+
+###  https://fixprotocol.io/vocabulary#PegRefresh
+:PegRefresh rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            skos:definition "An execution restatement reason indicating that the order is restated only because the  pegged price was refreshed." ;
+            skos:prefLabel "Peg Refresh" .
+
+
+###  https://fixprotocol.io/vocabulary#PeggedOrder
+:PeggedOrder rdf:type owl:NamedIndividual ,
+                      rdf:type ,
+                      skos:Concept ;
+             skos:definition "An order that acts like a limit order except that the limit price is set relativeto another  price, such as the last sale price, midpoint price, opening price, bid, offer or VWAP (Volume Weighted Average  Price)." ;
+             skos:prefLabel "Pegged Order" .
+
+
+###  https://fixprotocol.io/vocabulary#PegtoVWAP
+:PegtoVWAP rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "A pegged order specifying that the order should be priced relative to the VWAP price. " ;
+           skos:prefLabel "Peg to VWAP" .
+
+
+###  https://fixprotocol.io/vocabulary#PerUnit
+:PerUnit rdf:type owl:NamedIndividual ,
+                  rdf:type ,
+                  skos:Concept ;
+         skos:definition "The currency price per unit, e.g. per equity share or per contract." ;
+         skos:prefLabel "Per Unit" .
+
+
+###  https://fixprotocol.io/vocabulary#PercentofPar
+:PercentofPar rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              skos:altLabel "Dollar Price" ;
+              skos:definition "The ratio between the current price of a bond and its par value adjusted for  amortization or indexing and expressed as a percent.  For example if a EUR1,000 bond is trading at EUR1032.50 its  price is expressed as 103.25 or 1031/4.  In the US this is usually referred to as the \"dollar price\" even in scholarly  material and handbooks." ;
+              skos:prefLabel "Percent of Par" .
+
+
+###  https://fixprotocol.io/vocabulary#PercentofVolume
+:PercentofVolume rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "The sender does not want to be all of the volume on the floor." ;
+                 skos:prefLabel "Percent of Volume" .
+
+
+###  https://fixprotocol.io/vocabulary#PortfolioTrade
+:PortfolioTrade rdf:type owl:NamedIndividual ,
+                         rdf:type ,
+                         skos:Concept ;
+                skos:definition "The reporting of the portfolio trade should be executed when the final leg of the  transaction is completed.  Used for trading an index vs. a cash basket.  Certain market regulations require that  participants repot a portfolio trade when the final leg of the transaction is completed." ;
+                skos:prefLabel "Portfolio Trade" .
+
+
+###  https://fixprotocol.io/vocabulary#PositionAccount
+:PositionAccount rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "Account for positions resulting from derivatives trades. Each position account has a  long and short quantity. Position quantities stored in the long and short quantity fields can be kept net or gross.  Accounts that are kept gross are usually omnibus accounts." ;
+                 skos:prefLabel "Position Account" .
+
+
+###  https://fixprotocol.io/vocabulary#PositionRemovalDate
+:PositionRemovalDate rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     skos:definition "Specifies the date the firm positions will be removed for a financially (cash settled)  delivered instrument." ;
+                     skos:prefLabel "Position Removal Date" .
+
+
+###  https://fixprotocol.io/vocabulary#Post-Close
+:Post-Close rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            skos:definition "Trading status which denotes trading outside of normal hours for the security." ;
+            skos:prefLabel "Post-Close " .
+
+
+###  https://fixprotocol.io/vocabulary#Pre-listedonly
+:Pre-listedonly rdf:type owl:NamedIndividual ,
+                         rdf:type ,
+                         skos:Concept ;
+                skos:definition "Instruments must be pre-listed" ;
+                skos:prefLabel "Pre-listed only" .
+
+
+###  https://fixprotocol.io/vocabulary#PredefinedMultilegSecurity
+:PredefinedMultilegSecurity rdf:type owl:NamedIndividual ,
+                                     rdf:type ,
+                                     skos:Concept ;
+                            skos:definition "An order for a multileg security that is already defined at the marketplace or  with the receiver of the order." ;
+                            skos:prefLabel "Predefined Multileg Security" ;
+                            skos:scopeNote "See Vol. 4's Multileg Order section on predefined multileg security models." .
+
+
+###  https://fixprotocol.io/vocabulary#Premium
+:Premium rdf:type owl:NamedIndividual ,
+                  rdf:type ,
+                  skos:Concept ;
+         skos:definition "When a bond sells above its par value, it is said to be selling at a premium.  A price  with a PriceType of \"premium\" is the difference between the bond's percent-of-par price and 100." ;
+         skos:prefLabel "Premium" .
+
+
+###  https://fixprotocol.io/vocabulary#PreviousCloseYield
+:PreviousCloseYield rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    skos:definition "The yield of a bond based on the closing price 1 day ago." ;
+                    skos:prefLabel "Previous Close Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#PreviousFundValuationPoint
+:PreviousFundValuationPoint rdf:type owl:NamedIndividual ,
+                                     rdf:type ,
+                                     skos:Concept ;
+                            skos:definition "For CIV orders  - indicates that the Investor prefers that the order be dealt at the unit price determined at the immediately preceding  Valuation Point, a.k.a. a Historic price. (This can be overridden by the constitution of the fund or, in certain  circumstances, by the Fund Manager.)" ;
+                            skos:prefLabel "Previous Fund Valuation Point" .
+
+
+###  https://fixprotocol.io/vocabulary#Previouslyindicated
+:Previouslyindicated rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     skos:definition "An order sent in response to an Indication of Interest message." ;
+                     skos:prefLabel "Previously indicated" .
+
+
+###  https://fixprotocol.io/vocabulary#Previouslyquoted
+:Previouslyquoted rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  skos:definition "An order sent in response to a Quote message." ;
+                  skos:prefLabel "Previously quoted" .
+
+
+###  https://fixprotocol.io/vocabulary#PriceBand
+:PriceBand rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "Range (from-to or high-low) within which a valid price needs to be specified." ;
+           skos:prefLabel "Price Band" .
+
+
+###  https://fixprotocol.io/vocabulary#PriceVolatilityInterruption
+:PriceVolatilityInterruption rdf:type owl:NamedIndividual ,
+                                      rdf:type ,
+                                      skos:Concept ;
+                             skos:definition "To ensure price continuity, continuous trading is interrupted by a volatility interruption  whenever the potential execution price of an order lies outside the dynamic and/or static price range around a  reference price. A volatility interruption triggers a change of trading form: e.g. continuous trading is interrupted and  an auction is initiated." ;
+                             skos:prefLabel "Price Volatility Interruption" .
+
+
+###  https://fixprotocol.io/vocabulary#PrimaryPeg
+:PrimaryPeg rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            skos:definition "A pegged order specifying that the order should be priced relative to the bid price if  buying or offer price if selling." ;
+            skos:prefLabel "Primary Peg" .
+
+
+###  https://fixprotocol.io/vocabulary#ProceedsYield
+:ProceedsYield rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "The CD equivalent yield when the remaining time to maturity is less than two years. " ;
+               skos:prefLabel "Proceeds Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#PutDate
+:PutDate rdf:type owl:NamedIndividual ,
+                  rdf:type ,
+                  skos:Concept ;
+         skos:definition "The date on which the buyer of a security has the right but not the obligation to sell the  security back to the issuer at a predetermined price." ;
+         skos:prefLabel "Put Date" .
+
+
+###  https://fixprotocol.io/vocabulary#Random
+:Random rdf:type owl:NamedIndividual ,
+                 rdf:type ,
+                 skos:Concept ;
+        skos:definition "A reserve order instruction to refresh using a randomized display quantity. " ;
+        skos:prefLabel "Random" .
+
+
+###  https://fixprotocol.io/vocabulary#RecoveryRate
+:RecoveryRate rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              dct:isPartOf "EP83" ;
+              skos:definition "The recovery rate for the underlying bond on a CDS in the case of a credit event." ;
+              skos:prefLabel "Recovery Rate" .
+
+
+###  https://fixprotocol.io/vocabulary#RecoveryRateLong
+:RecoveryRateLong rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  dct:isPartOf "EP83" ;
+                  skos:definition "In the case of a credit event the recovery rate on a long position for the bond underlying a  CDS ." ;
+                  skos:prefLabel "Recovery Rate Long" .
+
+
+###  https://fixprotocol.io/vocabulary#RecoveryRateShort
+:RecoveryRateShort rdf:type owl:NamedIndividual ,
+                            rdf:type ,
+                            skos:Concept ;
+                   dct:isPartOf "EP83" ;
+                   skos:definition "In the case of a credit event the recovery rate on a short position for the underlying bond  on a CDS." ;
+                   skos:prefLabel "Recovery Rate Short" .
+
+
+###  https://fixprotocol.io/vocabulary#Redeem
+:Redeem rdf:type owl:NamedIndividual ,
+                 rdf:type ,
+                 skos:Concept ;
+        skos:definition "For CIV: A \"sell\" order for CIV units which must be forwarded to the fund manager (or their transfer agent) rather than being  matched / crossed with a \"buy\" order, e.g. by an intermediary, funds supermarket, broker/dealer etc. This would be  used in markets where the originator requires specific tax treatment and/or dealing charges." ;
+        skos:prefLabel "Redeem" .
+
+
+###  https://fixprotocol.io/vocabulary#ReinstateonSystemFailure
+:ReinstateonSystemFailure rdf:type owl:NamedIndividual ,
+                                   rdf:type ,
+                                   skos:Concept ;
+                          skos:definition "If a system failure interrupts trading or order routing, attempt to reinstate this order,  subject to time in force limitations. Note that depending on the type and severity of the failure, this might not be  possible." ;
+                          skos:prefLabel "Reinstate on System Failure" .
+
+
+###  https://fixprotocol.io/vocabulary#ReinstateonTradingHalt
+:ReinstateonTradingHalt rdf:type owl:NamedIndividual ,
+                                 rdf:type ,
+                                 skos:Concept ;
+                        skos:definition "If trading in this instrument is halted, reinstate this order when/if trading resumes,  subject to time in force limitations." ;
+                        skos:prefLabel "Reinstate on Trading Halt" .
+
+
+###  https://fixprotocol.io/vocabulary#RepurchaseAgreement
+:RepurchaseAgreement rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     skos:definition "Used to report both the initial deal and the repurchase. Allows regulators to connect the  two. Note that this \"definition\" is not for the standard business term.  See online resources below." ;
+                     skos:prefLabel "Repurchase Agreement" .
+
+
+###  https://fixprotocol.io/vocabulary#RequesttoIntermediary
+:RequesttoIntermediary rdf:type owl:NamedIndividual ,
+                                rdf:type ,
+                                skos:Concept ;
+                       skos:definition "Used in a model where an intermediary, e.g. clearing house, is involved in  communicating allocation details and actions between two parties" ;
+                       skos:prefLabel "Request to Intermediary" .
+
+
+###  https://fixprotocol.io/vocabulary#ResetBarrierOption
+:ResetBarrierOption rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    dct:isPartOf "EP92" ;
+                    skos:definition "After hitting the barrier the next specified barrier goes into effect. The payoff depends on  the maximum or minimum of the underlying price over the look-back period. The option becomes active (knock-in)  or inactive (knock-out) based on a predetermined price level." ;
+                    skos:prefLabel "Reset Barrier Option" .
+
+
+###  https://fixprotocol.io/vocabulary#Respondent
+:Respondent rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            skos:definition """A \"respondent\" may be one of the following:
+•	a broker/dealer
+•	an inter-dealer broker (or broker’s broker)
+•	an electronic service
+•	bid or offer prices provided by one or more market makers
+•	bid or offer prices provided by an inter-dealer broker
+•	matching system with limit orders entered by customers (dealers or institutions)
+•	an issuer""" ;
+            skos:prefLabel "Respondent" .
+
+
+###  https://fixprotocol.io/vocabulary#ReversedNetPrice
+:ReversedNetPrice rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  skos:definition """Relevant for multileg orders. This pricing convention is often used at commodities  markets. The price is given as the sum of the Price * Ratio for all legs.
+•	If buying the strategy, the price of a bought leg (which is a buy-leg in the multileg definition) is subtracted, and the price of a sold leg is added.
+•	If selling the stategy, the price of a bought leg (which is a sell-leg in the multileg definition) is added, and the price of a sold leg is subtracted.""" ;
+                  skos:prefLabel "Reversed Net Price" .
+
+
+###  https://fixprotocol.io/vocabulary#RisklessPrincipal
+:RisklessPrincipal rdf:type owl:NamedIndividual ,
+                            rdf:type ,
+                            skos:Concept ;
+                   dct:source "Above from the SEC web-site  http://www.sec.gov/rules/final/34-44291.htm See Exchange Act Rule 10b-10(a)(2)(ii)(A) [17 CFR 240. 10b-10(a)(2)(ii)(A)]; Exchange Act Rel. No. 33743 (Mar.  9, 1994) at n.11." ;
+                   skos:definition "\"Riskless\" principal transactions are generally described as trades in which, after receiving an  order to buy (or sell) from a customer, the broker-dealer purchases (or sells) the security from (or to) another person  in a contemporaneous offsetting transaction.\"" ;
+                   skos:prefLabel "Riskless Principal" .
+
+
+###  https://fixprotocol.io/vocabulary#RollingRatchetBarrierOption
+:RollingRatchetBarrierOption rdf:type owl:NamedIndividual ,
+                                      rdf:type ,
+                                      skos:Concept ;
+                             dct:isPartOf "EP92" ;
+                             skos:definition "The option is issued with a sequence of barriers either all below (roll-down  calls) or all above (roll-up puts) the current underlying price. Upon reaching each barrier the options strike is  lowered for calls or raised for puts. The option is knocked-out at the last barrier." ;
+                             skos:prefLabel "Rolling/Ratchet Barrier Option" .
+
+
+###  https://fixprotocol.io/vocabulary#RoundLot
+:RoundLot rdf:type owl:NamedIndividual ,
+                   rdf:type ,
+                   skos:Concept ;
+          dct:source "www.investopedia.com" ;
+          skos:definition "Also known as as \"Board Lot\" or \"Trade Lot\". A standardized number of shares defined by a stock  exchange as a trading unit. In most cases, this means 100 shares." ;
+          skos:prefLabel "Round Lot" .
+
+
+###  https://fixprotocol.io/vocabulary#SEA
+:SEA rdf:type owl:NamedIndividual ,
+              rdf:type ,
+              skos:Concept ;
+     dct:isPartOf "EP83" ;
+     skos:definition "Succession Event Adjustment quantity (SEA) is used to represent the position transferred from the source  CDS position to the target CDS position due to a succession event on processing date." ;
+     skos:prefLabel "SEA" .
+
+
+###  https://fixprotocol.io/vocabulary#SellPlus
+:SellPlus rdf:type owl:NamedIndividual ,
+                   rdf:type ,
+                   skos:Concept ;
+          skos:definition """A round-lot market order to sell \"plus\" is an order to sell a  stated amount of a stock provided that its price  is:
+- not lower than the last sale if the last sale was a \"plus\" or \"zero plus\" tick and 
+- not lower than the last sale minus the minimum fractional change in the stock if the last sale was a \"minus\" or  \"zero minus\" tick. 
+A limit-price order to sell \"plus\" also states the lowest price at which it can be executed.""" ;
+          skos:prefLabel "Sell Plus" .
+
+
+###  https://fixprotocol.io/vocabulary#SellShort
+:SellShort rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "An order to sell a security that the seller does not own; a sale effected by delivering a  security borrowed by, or for the account of, the seller.  Can only be executed on a \"plus\" or \"zero plus\" tick. " ;
+           skos:prefLabel "Sell Short" .
+
+
+###  https://fixprotocol.io/vocabulary#SellShortExempt
+:SellShortExempt rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "Short sale exempt from short-sale rules." ;
+                 skos:prefLabel "Sell Short Exempt" .
+
+
+###  https://fixprotocol.io/vocabulary#Semi-annualYield
+:Semi-annualYield rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  skos:definition "The yield of a bond whose coupon payments are reinvested semi-annually. " ;
+                  skos:prefLabel "Semi-annual Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#SettlementLocation
+:SettlementLocation rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    skos:definition "Identifies Settlement Depository or, if local settlement, the ISO Country Code.    " ;
+                    skos:prefLabel "Settlement Location" .
+
+
+###  https://fixprotocol.io/vocabulary#Settlementcurrency
+:Settlementcurrency rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    skos:definition """Commonly referred to as \"counter currency\" in FX nomenclature. 
+For non-NDF deals (FX swaps, spot and forward) the term \"settlement currency\" can only mean one thing:  the  currency that is on the opposite from the dealt currency (expressed in FIX using Currency field (tag 15)).  For  example:  Symbol is EUR/USD, and the dealt is EUR then SettlCurrency is USD. 
+For NDF deals the term \"settlement currency\" could be either the dealt currency or the \"counter currency\" or a third  currency.  For example:  In a USD/KRW NDF deal where the dealt currency is KRW, the settlement currency is  USD, if the dealt currency is USD then the settlement currency can also be USD.  In a GBP/KRW NDF deal where  the deal typically settles in a third currency, USD in this case, then the settlement currency is USD.  (NDFs will be  discussed in detail in Phase 2 gap analysis). 
+For FX OTC Spot Options, the settlement currency can refer to either the counter currency or the currency of the  option premium (or premia).  However, for the purposes of FIX usage, it will refer to the currency of the option  premium.""" ;
+                    skos:prefLabel "Settlement currency" .
+
+
+###  https://fixprotocol.io/vocabulary#SimpleYield
+:SimpleYield rdf:type owl:NamedIndividual ,
+                      rdf:type ,
+                      skos:Concept ;
+             skos:definition "The yield of a bond assuming no reinvestment of coupon payments. (Act/360 day  count)" ;
+             skos:prefLabel "Simple Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#SponsoringFirm
+:SponsoringFirm rdf:type owl:NamedIndividual ,
+                         rdf:type ,
+                         skos:Concept ;
+                skos:definition "A member of the exchange that is sponsoring an Entering Entity to send orders to the  exchange. The Sponsoring Member Firm permits sponsorees (e.g. Entering Entities) to trade thereby allowing them  to enter orders directly to the exchange via automated means.  (e.g. NYSE allowing direct access via Anonymous  DOT service)." ;
+                skos:prefLabel "Sponsoring Firm" .
+
+
+###  https://fixprotocol.io/vocabulary#Spread
+:Spread rdf:type owl:NamedIndividual ,
+                 rdf:type ,
+                 skos:Concept ;
+        skos:definition """A \"spread\" price is one of four things all denominated in basis points:  
+1)	For an outright security trade, the \"spread\" price is the difference in yield between the object security and its benchmark - implied or explicit.  
+2)	For a swap (or switch) of two issued securities the \"spread\" price is the difference in yield between the security being sold and the one being bought.  
+3)	For a roll of a futures contract with a contract in the same commodity but having a different contract settlement month the \"spread\" price is the price difference between the contract being sold and the one being bought.  
+4)	For a floating-rate Financing transaction the “spread” is the difference in yield extended above or below the yield of the stated benchmark.
+All four types are expressed in basis points (the price or yield difference times 100) and may be negative.""" ;
+        skos:prefLabel "Spread" .
+
+
+###  https://fixprotocol.io/vocabulary#Stop
+:Stop rdf:type owl:NamedIndividual ,
+               rdf:type ,
+               skos:Concept ;
+      skos:definition "A stop order to buy which becomes a market order when the security trades at - or  above - the stop price after the order is represented in the Trading Crowd.  A stop order to sell which becomes a  market order when the security trades at - or below - the stop price after the order is represented in the Trading  Crowd." ;
+      skos:prefLabel "Stop" .
+
+
+###  https://fixprotocol.io/vocabulary#StopLimit
+:StopLimit rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "A stop order to buy which becomes a limit order at the limit price when the security  trades at - or above - the stop price after the order is represented in the Trading Crowd.  A stop order to sell which  becomes a limit order at the limit price when the security trades at - or below- the stop price after the order is  represented in the Trading Crowd." ;
+           skos:prefLabel "Stop Limit" .
+
+
+###  https://fixprotocol.io/vocabulary#Stopped
+:Stopped rdf:type owl:NamedIndividual ,
+                  rdf:type ,
+                  skos:Concept ;
+         skos:definition "A trade is guaranteed for the order, usually at a stated price or better, but has not yet  occurred. For example, a specialist on an exchange may \"stop\" an order while searching for a better price. " ;
+         skos:prefLabel "Stopped" .
+
+
+###  https://fixprotocol.io/vocabulary#StreetsideTradeCaptureReporting
+:StreetsideTradeCaptureReporting rdf:type owl:NamedIndividual ,
+                                          rdf:type ,
+                                          skos:Concept ;
+                                 skos:definition "Reporting of  completed trades for clearance and settlement or compliance purposes. Reports may be originated by Exchanges or  by clearing firms and sent to clearing firms directly or via a clearing corporation or central counterparty such as DTCC in the US." ;
+                                 skos:prefLabel "Streetside Trade Capture Reporting" .
+
+
+###  https://fixprotocol.io/vocabulary#StrictLimit
+:StrictLimit rdf:type owl:NamedIndividual ,
+                      rdf:type ,
+                      skos:Concept ;
+             skos:altLabel "No Price Improvement" ;
+             skos:definition "A limit order  that must be traded at the exact limit price specified without any price improvement.  Requires OrdType=Limit. " ;
+             skos:prefLabel "Strict Limit" .
+
+
+###  https://fixprotocol.io/vocabulary#SubmissiontoClearing
+:SubmissiontoClearing rdf:type owl:NamedIndividual ,
+                               rdf:type ,
+                               skos:Concept ;
+                      dct:isPartOf "EP77" ;
+                      skos:definition "The timestamp when the trade was officially acknowledged by the Clearing House" ;
+                      skos:prefLabel "Submission to Clearing" .
+
+
+###  https://fixprotocol.io/vocabulary#Subscribe
+:Subscribe rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "For CIV: A \"buy\" order for CIV units which must be forwarded to the fund manager (or their transfer agent) rather than being  matched / crossed with a \"sell\" order, e.g. by an intermediary  funds supermarket, broker/dealer etc. This would be  used in markets where the originator requires specific tax treatment and/or dealing charges." ;
+           skos:prefLabel "Subscribe" .
+
+
+###  https://fixprotocol.io/vocabulary#Substitutionoffuturesforforwards
+:Substitutionoffuturesforforwards rdf:type owl:NamedIndividual ,
+                                           rdf:type ,
+                                           skos:Concept ;
+                                  dct:isPartOf "EP84" ;
+                                  skos:definition "An OTC deal where the participants have agreed that the OTC deal will  immediately be extinguished and replaced with a transaction in a regulated future." ;
+                                  skos:prefLabel "Substitution of futures for forwards" .
+
+
+###  https://fixprotocol.io/vocabulary#SuccessionEvent
+:SuccessionEvent rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "An event in which one entity succeeds to the obligations of another entity due to a  corporate action (as a result of operation or law or pursuant to any agreement), which may include events such as a  merger, consolidation, an amalgamation, a transfer of assets or liabilities, a de-merger, a spin-off. " ;
+                 skos:prefLabel "Succession Event" .
+
+
+###  https://fixprotocol.io/vocabulary#Suspended
+:Suspended rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "The order is not eligible for trading. This usually happens as a result of a verbal or  otherwise out of band request to suspend the order, or because the order was submitted, or modified via a  Cancel/Replace Request, with ExecInst=Suspended." ;
+           skos:prefLabel "Suspended" .
+
+
+###  https://fixprotocol.io/vocabulary#SwapEndDate
+:SwapEndDate rdf:type owl:NamedIndividual ,
+                      rdf:type ,
+                      skos:Concept ;
+             skos:definition "End date of an interest rate swap. Corresponds to the termination date " ;
+             skos:prefLabel "Swap End Date" .
+
+
+###  https://fixprotocol.io/vocabulary#SwapNextStartDate
+:SwapNextStartDate rdf:type owl:NamedIndividual ,
+                            rdf:type ,
+                            skos:Concept ;
+                   skos:definition "Next starting date of an interest rate swap subsequent to the roll date" ;
+                   skos:prefLabel "Swap Next Start Date" .
+
+
+###  https://fixprotocol.io/vocabulary#SwapRolldate
+:SwapRolldate rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              skos:definition "Date on which a swap contract is rolled to the next period or start date. Corresponds to  the Fixing Date on which the floating rate of the swap is set." ;
+              skos:prefLabel "Swap Roll date" .
+
+
+###  https://fixprotocol.io/vocabulary#SwapStartDate
+:SwapStartDate rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "Starting date of an interest rate swap. Corresponds to the roll date date. " ;
+               skos:prefLabel "Swap Start Date" .
+
+
+###  https://fixprotocol.io/vocabulary#SwapValueFactor
+:SwapValueFactor rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "The daily change in Net Present Value of a swap trade or position.  Used in calculating  the mark-to-market amount." ;
+                 skos:prefLabel "Swap Value Factor" .
+
+
+###  https://fixprotocol.io/vocabulary#TEDPrice
+:TEDPrice rdf:type owl:NamedIndividual ,
+                   rdf:type ,
+                   skos:Concept ;
+          skos:definition "The price spread between the active 3 month treasury bill futures contract and the 3  month Eurodollar futures contract. Used as an indicator of investor confidence in the U.S. markets." ;
+          skos:prefLabel "TED Price" .
+
+
+###  https://fixprotocol.io/vocabulary#TEDYield
+:TEDYield rdf:type owl:NamedIndividual ,
+                   rdf:type ,
+                   skos:Concept ;
+          skos:definition "The difference in basis points between the yield-to-maturity of the bond / note and the  yield-to-maturity of a Hypothetical Euromarket bond with identical coupon and maturity." ;
+          skos:prefLabel "TED Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#TaxEquivalentYield
+:TaxEquivalentYield rdf:type owl:NamedIndividual ,
+                             rdf:type ,
+                             skos:Concept ;
+                    skos:definition "The after tax yield grossed up by the maximum federal tax rate of 39.6%.  For  comparison to taxable yields." ;
+                    skos:prefLabel "Tax Equivalent Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#TimeIn
+:TimeIn rdf:type owl:NamedIndividual ,
+                 rdf:type ,
+                 skos:Concept ;
+        skos:definition "According to US futures markets (CFTC): Timestamp of when order was received on the trading floor (booth). " ;
+        skos:prefLabel "Time In" .
+
+
+###  https://fixprotocol.io/vocabulary#TimeOut
+:TimeOut rdf:type owl:NamedIndividual ,
+                  rdf:type ,
+                  skos:Concept ;
+         skos:definition "According to US futures markets (CFTC): Timestamp when the trade was received from the pit. " ;
+         skos:prefLabel "Time Out" .
+
+
+###  https://fixprotocol.io/vocabulary#TradableIndicator
+:TradableIndicator rdf:type owl:NamedIndividual ,
+                            rdf:type ,
+                            skos:Concept ;
+                   skos:definition "Specifies whether an instrument can be traded or not. " ;
+                   skos:prefLabel "Tradable Indicator" .
+
+
+###  https://fixprotocol.io/vocabulary#TradeAlong
+:TradeAlong rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            skos:definition "Clients who specify \"Trade Along\" give brokers permission to handle and place their  order in the market even if  the broker already has its own proprietary orders for the same security placed in the  market." ;
+            skos:prefLabel "Trade Along" .
+
+
+###  https://fixprotocol.io/vocabulary#TradeConfirmation
+:TradeConfirmation rdf:type owl:NamedIndividual ,
+                            rdf:type ,
+                            skos:Concept ;
+                   skos:definition "A trade report confirming that a trade has been made. " ;
+                   skos:prefLabel "Trade Confirmation" .
+
+
+###  https://fixprotocol.io/vocabulary#TradingSessionVWAPPrice
+:TradingSessionVWAPPrice rdf:type owl:NamedIndividual ,
+                                  rdf:type ,
+                                  skos:Concept ;
+                         skos:definition "The volume  weighted average price for a trading session. " ;
+                         skos:prefLabel "Trading Session VWAP Price" .
+
+
+###  https://fixprotocol.io/vocabulary#TrailingStopPeg
+:TrailingStopPeg rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "A pegged order representing a stop order with a stop price pegged to trail a specified  distance behind the last sale price. The price of a trailing stop to buy can never increase, and the price of a trailing  stop to sell can never decrease." ;
+                 skos:prefLabel "Trailing Stop Peg" .
+
+
+###  https://fixprotocol.io/vocabulary#TriggeredorActivatedbySystem
+:TriggeredorActivatedbySystem rdf:type owl:NamedIndividual ,
+                                       rdf:type ,
+                                       skos:Concept ;
+                              skos:definition "An execution  instruction that indicates that the sending system activated or updated the order. The triggering or activation is  normally based on instructions provided in the original order - e.g. Stop order instructions." ;
+                              skos:prefLabel "Triggered or Activated by System" .
+
+
+###  https://fixprotocol.io/vocabulary#TrueGrossYield
+:TrueGrossYield rdf:type owl:NamedIndividual ,
+                         rdf:type ,
+                         skos:Concept ;
+                skos:definition "Yield calculated using the price including accrued interest, where coupon dates are  moved from holidays and weekends to the next trading day." ;
+                skos:prefLabel "True Gross Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#TrueYield
+:TrueYield rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "The yield calculated with coupon dates moved from a weekend or holiday to the next  valid settlement date." ;
+           skos:prefLabel "True Yield" .
+
+
+###  https://fixprotocol.io/vocabulary#TrytoStop
+:TrytoStop rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "Used in specialist-driven markets to direct the specialist to try and stop the order. " ;
+           skos:prefLabel "Try to Stop" .
+
+
+###  https://fixprotocol.io/vocabulary#Two-PartyReport
+:Two-PartyReport rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "A trade report requesting the receiver to register both sides of a privately negotiated  trade." ;
+                 skos:prefLabel "Two-Party Report" .
+
+
+###  https://fixprotocol.io/vocabulary#Two-PartyTradeReport
+:Two-PartyTradeReport rdf:type owl:NamedIndividual ,
+                               rdf:type ,
+                               skos:Concept ;
+                      skos:altLabel "privately negotiated trade" ;
+                      skos:definition "Specifies that  the source for a trade report is a privately negotiated Two-Party Trade Report." ;
+                      skos:prefLabel "Two-Party Trade Report" .
+
+
+###  https://fixprotocol.io/vocabulary#UnacceptableCounterparty
+:UnacceptableCounterparty rdf:type owl:NamedIndividual ,
+                                   rdf:type ,
+                                   skos:Concept ;
+                          skos:definition "A counterparty not eligible for trading with the order or quote Initiatior. " ;
+                          skos:prefLabel "Unacceptable Counterparty" .
+
+
+###  https://fixprotocol.io/vocabulary#UnderlyingContraFirm
+:UnderlyingContraFirm rdf:type owl:NamedIndividual ,
+                               rdf:type ,
+                               skos:Concept ;
+                      skos:definition "The broker or other firm which is the contra side of the trade for the underlying  security." ;
+                      skos:prefLabel "Underlying Contra Firm" .
+
+
+###  https://fixprotocol.io/vocabulary#Unevenswap
+:Unevenswap rdf:type owl:NamedIndividual ,
+                     rdf:type ,
+                     skos:Concept ;
+            skos:definition "An FX Swap where the given amount to be bought and sold is different on the near and  far legs." ;
+            skos:prefLabel "Uneven swap" .
+
+
+###  https://fixprotocol.io/vocabulary#UpandInOption
+:UpandInOption rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               dct:isPartOf "EP92" ;
+               skos:definition "The option becomes active if the underlying price exceeds the specified barrier." ;
+               skos:prefLabel "Up and In Option" .
+
+
+###  https://fixprotocol.io/vocabulary#UpandOutOption
+:UpandOutOption rdf:type owl:NamedIndividual ,
+                         rdf:type ,
+                         skos:Concept ;
+                dct:isPartOf "EP92" ;
+                skos:definition "the option becomes inactive if the underlying price exceeds the specified barrier." ;
+                skos:prefLabel "Up and Out Option" .
+
+
+###  https://fixprotocol.io/vocabulary#User-definedMultilegSecurity
+:User-definedMultilegSecurity rdf:type owl:NamedIndividual ,
+                                       rdf:type ,
+                                       skos:Concept ;
+                              skos:definition "An order for a multileg security where the user defines the security together with  the order and that multileg security is made available to other actors. The lifetime of the multileg is bilaterally  agreed between parties." ;
+                              skos:prefLabel "User-defined Multileg Security" ;
+                              skos:scopeNote "See Vol. 4's Multileg Order section on predefined multileg security models" .
+
+
+###  https://fixprotocol.io/vocabulary#User-definedNon-SecuritizedMultileg
+:User-definedNon-SecuritizedMultileg rdf:type owl:NamedIndividual ,
+                                              rdf:type ,
+                                              skos:Concept ;
+                                     skos:definition "A multileg order that does not involve securitization. The multileg is  not made available to other parties and the order is represented only as implied-out prices. The multileg expires with  the order." ;
+                                     skos:prefLabel "User-defined, Non-Securitized, Multileg" ;
+                                     skos:scopeNote "See Vol. 4's Multileg Order section on predefined multileg security models" .
+
+
+###  https://fixprotocol.io/vocabulary#Userrequested
+:Userrequested rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "Instruments can be user requested as well as pre-listed." ;
+               skos:prefLabel "User requested" .
+
+
+###  https://fixprotocol.io/vocabulary#Valuedate
+:Valuedate rdf:type owl:NamedIndividual ,
+                    rdf:type ,
+                    skos:Concept ;
+           skos:definition "The delivery or settlement date of a foreign exchange trade transaction." ;
+           skos:prefLabel "Value date" .
+
+
+###  https://fixprotocol.io/vocabulary#VanillaPayoutOption
+:VanillaPayoutOption rdf:type owl:NamedIndividual ,
+                              rdf:type ,
+                              skos:Concept ;
+                     dct:isPartOf "EP92" ;
+                     skos:definition "The payout amount is determined by the difference between the strike and the underlying." ;
+                     skos:prefLabel "Vanilla Payout Option" .
+
+
+###  https://fixprotocol.io/vocabulary#VariableTickRule
+:VariableTickRule rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  skos:definition "A cabinet order can trade in even increments that can be significantly different than a  conventional tick increment." ;
+                  skos:prefLabel "Variable Tick Rule" .
+
+
+###  https://fixprotocol.io/vocabulary#VolumeWeightedAveragePrice
+:VolumeWeightedAveragePrice rdf:type owl:NamedIndividual ,
+                                     rdf:type ,
+                                     skos:Concept ;
+                            skos:definition "Volume  Weighted Average Price is used for trades in which the price is set at a guaranteed VWAP." ;
+                            skos:prefLabel "Volume Weighted Average Price" .
+
+
+###  https://fixprotocol.io/vocabulary#WithorWithout
+:WithorWithout rdf:type owl:NamedIndividual ,
+                        rdf:type ,
+                        skos:Concept ;
+               skos:definition "An odd lot order filled on an effective round lot transaction, or on an effective bid or  offer, whichever occurs first after the specialist receives the order. (e.g. NYSE order type)" ;
+               skos:prefLabel "With or Without" .
+
+
+###  https://fixprotocol.io/vocabulary#YieldAtIssue
+:YieldAtIssue rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              skos:definition "Municipals.  The yield of the bond offered on the issue date." ;
+              skos:prefLabel "Yield At Issue" .
+
+
+###  https://fixprotocol.io/vocabulary#YieldChangeSinceClose
+:YieldChangeSinceClose rdf:type owl:NamedIndividual ,
+                                rdf:type ,
+                                skos:Concept ;
+                       skos:definition "The change in the yield since the previous day's closing yield." ;
+                       skos:prefLabel "Yield Change Since Close" .
+
+
+###  https://fixprotocol.io/vocabulary#YieldDifference
+:YieldDifference rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "The price of a strategy (multileg) order is given as a spread between the two legs. " ;
+                 skos:prefLabel "Yield Difference" .
+
+
+###  https://fixprotocol.io/vocabulary#YieldToAverageMaturity
+:YieldToAverageMaturity rdf:type owl:NamedIndividual ,
+                                 rdf:type ,
+                                 skos:Concept ;
+                        skos:definition "The yield achieved by substituting a bond's average maturity for the issue's final  maturity date." ;
+                        skos:prefLabel "Yield To Average Maturity" .
+
+
+###  https://fixprotocol.io/vocabulary#YieldToLongestAverageLife
+:YieldToLongestAverageLife rdf:type owl:NamedIndividual ,
+                                    rdf:type ,
+                                    skos:Concept ;
+                           skos:definition "The yield  assuming only mandatory sinks are taken.  This results in a lower paydown of debt; the yield is then calculated to  the final payment date." ;
+                           skos:prefLabel "Yield To Longest Average Life" .
+
+
+###  https://fixprotocol.io/vocabulary#YieldToMaturity
+:YieldToMaturity rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "The yield of a bond to its maturity date." ;
+                 skos:prefLabel "Yield To Maturity" .
+
+
+###  https://fixprotocol.io/vocabulary#YieldToNextCall
+:YieldToNextCall rdf:type owl:NamedIndividual ,
+                          rdf:type ,
+                          skos:Concept ;
+                 skos:definition "The yield of a bond to the next possible call date." ;
+                 skos:prefLabel "Yield To Next Call" .
+
+
+###  https://fixprotocol.io/vocabulary#YieldToNextPut
+:YieldToNextPut rdf:type owl:NamedIndividual ,
+                         rdf:type ,
+                         skos:Concept ;
+                skos:definition "The yield to the date at which the bond holder can next put the bond to the issuer. " ;
+                skos:prefLabel "Yield To Next Put" .
+
+
+###  https://fixprotocol.io/vocabulary#YieldToNextRefund
+:YieldToNextRefund rdf:type owl:NamedIndividual ,
+                            rdf:type ,
+                            skos:Concept ;
+                   skos:definition "Sinking Fund Bonds. Yield assuming all bonds are redeemed at the next refund date at  the redemption price." ;
+                   skos:prefLabel "Yield To Next Refund" .
+
+
+###  https://fixprotocol.io/vocabulary#YieldToShortestAverageLife
+:YieldToShortestAverageLife rdf:type owl:NamedIndividual ,
+                                     rdf:type ,
+                                     skos:Concept ;
+                            skos:definition "The yield  assuming that all sinks (mandatory and voluntary) are taken at par. This results in a faster paydown of debt; the yield  is then calculated to the final payment date." ;
+                            skos:prefLabel "Yield To Shortest Average Life" .
+
+
+###  https://fixprotocol.io/vocabulary#YieldToTenderDate
+:YieldToTenderDate rdf:type owl:NamedIndividual ,
+                            rdf:type ,
+                            skos:Concept ;
+                   skos:definition "The yield on a Municipal bond to its mandatory tender date." ;
+                   skos:prefLabel "Yield To Tender Date" .
+
+
+###  https://fixprotocol.io/vocabulary#YieldToWorst
+:YieldToWorst rdf:type owl:NamedIndividual ,
+                       rdf:type ,
+                       skos:Concept ;
+              skos:definition "The lowest yield to all possible redemption date scenarios." ;
+              skos:prefLabel "Yield To Worst" .
+
+
+###  https://fixprotocol.io/vocabulary#YieldValueof1-32
+:YieldValueof1-32 rdf:type owl:NamedIndividual ,
+                           rdf:type ,
+                           skos:Concept ;
+                  skos:definition "The amount that the yield will change for a 1/32PndP change in price." ;
+                  skos:prefLabel "Yield Value of 1/32" .
+
+
+###  https://fixprotocol.io/vocabulary#YieldwithInflationAssumption
+:YieldwithInflationAssumption rdf:type owl:NamedIndividual ,
+                                       rdf:type ,
+                                       skos:Concept ;
+                              skos:definition "Based on price,  the return an investor would require on a normal bond that would make the real return equal to that of the inflation- indexed bond, assuming a constant inflation rate. " ;
+                              skos:prefLabel "Yield with Inflation Assumption" .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
