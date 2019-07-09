@@ -1,7 +1,6 @@
 package io.fixprotocol.text;
 
 import java.io.IOException;
-import java.io.Writer;
 
 /**
  * Formats the structure of text for markdown
@@ -18,58 +17,64 @@ class MarkdownFormatter implements TextFormatter {
   private int columns = 0;
 
   @Override
-  public void startTable(Writer writer) throws IOException {
-
+  public void endCell(Appendable appendable) throws IOException {
+    appendable.append(' ');
   }
 
   @Override
-  public void endTable(Writer writer) throws IOException {
-
+  public void endColumnHeading(Appendable appendable) throws IOException {
+    appendable.append(' ');
   }
 
   @Override
-  public void startRow(Writer writer) throws IOException {
-
-  }
-
-  @Override
-  public void endRow(Writer writer) throws IOException {
-    writer.write(" |");
-    writer.write(NEWLINE);
+  public void endRow(Appendable appendable) throws IOException {
+    appendable.append(" |");
+    appendable.append(NEWLINE);
     if (columns > 0) {
       for (int c = columns; c > 0; c--) {
-        writer.write("| - ");
+        appendable.append("| - ");
       }
-      writer.write("|");
-      writer.write(NEWLINE);
+      appendable.append("|");
+      appendable.append(NEWLINE);
       columns = 0;
     }
   }
 
   @Override
-  public void startColumnHeading(Writer writer) throws IOException {
-    writer.write("| ");
+  public void endTable(Appendable appendable) throws IOException {
+
+  }
+
+  @Override
+  public void lineBreak(Appendable appendable) throws IOException {
+    appendable.append(NEWLINE);
+    appendable.append(NEWLINE);
+  }
+
+  @Override
+  public void startCell(Appendable appendable) throws IOException {
+    appendable.append("| ");
+  }
+
+  @Override
+  public void startColumnHeading(Appendable appendable) throws IOException {
+    appendable.append("| ");
     columns++;
   }
 
   @Override
-  public void endColumnHeading(Writer writer) throws IOException {
-    writer.write(' ');
+  public void startRow(Appendable appendable) throws IOException {
+
   }
 
   @Override
-  public void startCell(Writer writer) throws IOException {
-    writer.write("| ");
+  public void startTable(Appendable appendable) throws IOException {
+
   }
 
   @Override
-  public void endCell(Writer writer) throws IOException {
-    writer.write(' ');
-  }
-
-  @Override
-  public void writeLink(Writer writer, String url, String text) throws IOException {
-    writer.write(String.format("[%s](%s)", text, url));
+  public void link(Appendable appendable, String url, String text) throws IOException {
+    appendable.append(String.format("[%s](%s)", text, url));
   }
 
 }

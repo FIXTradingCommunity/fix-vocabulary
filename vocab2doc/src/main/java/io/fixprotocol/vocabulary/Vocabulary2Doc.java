@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
-import org.apache.jena.query.Dataset;
-import org.apache.jena.query.DatasetFactory;
 import io.fixprotocol.sparql.Query2Doc;
 import io.fixprotocol.text.TextFormatter;
 import io.fixprotocol.text.TextFormatterFactory;
@@ -20,23 +18,6 @@ import io.fixprotocol.text.TextFormatterFactory;
  */
 public class Vocabulary2Doc {
 
-  /**
-   * Generates a document from a controlled vocabulary
-   * 
-   * @param sourceUri vocabulary URI
-   * @param targetFilename name of document file to write
-   * @param format code for text format. See {@link io.fixprotocol.TextFormatterFactory} for valid
-   *        codes.
-   * @throws IOException If an I/O error occurs
-   */
-  public static void generate(String sourceUri, String targetFilename, String format)
-      throws IOException {
-    try (Writer writer = new FileWriter(targetFilename, StandardCharsets.UTF_8)) {
-      Dataset dataset = DatasetFactory.create(sourceUri);
-      Vocabulary2Doc processor = new Vocabulary2Doc();
-      processor.generate(dataset, writer, format);
-    }
-  }
 
   /**
    * Generates a document from a controlled vocabulary
@@ -61,7 +42,8 @@ public class Vocabulary2Doc {
       if (args.length > 2) {
         format = args[2];
       }
-      generate(uri, fileName, format);
+      Vocabulary2Doc vocabulary2Doc = new Vocabulary2Doc();
+      vocabulary2Doc.generate(uri, fileName, format);
     }
   }
 
@@ -73,22 +55,26 @@ public class Vocabulary2Doc {
   /**
    * Generates a document from a controlled vocabulary
    * 
-   * @param dataset a Jena dataset
-   * @param writer output stream writer
+   * @param sourceUri vocabulary URI
+   * @param targetFilename name of document file to write
    * @param format code for text format. See {@link io.fixprotocol.TextFormatterFactory} for valid
    *        codes.
    * @throws IOException If an I/O error occurs
    */
-  void generate(Dataset dataset, Writer writer, String format) throws IOException {
-    InputStream querySource = this.getClass().getClassLoader().getResourceAsStream("allterms.rq");
-    if (querySource == null) {
-      throw new IOException("Query resource not found");
-    }
-    try (ByteArrayOutputStream queryTarget = new ByteArrayOutputStream(2048)) {
-      querySource.transferTo(queryTarget);
-      String queryString = queryTarget.toString(StandardCharsets.UTF_8);
-      TextFormatter textFormatter = TextFormatterFactory.create(format);
-      Query2Doc.executeSelect(queryString, dataset, writer, textFormatter);
+  public void generate(String sourceUri, String targetFilename, String format) throws IOException {
+    try (Writer writer = new FileWriter(targetFilename, StandardCharsets.UTF_8)) {
+
+      InputStream querySource = this.getClass().getClassLoader().getResourceAsStream("allterms.rq");
+      if (querySource == null) {
+        throw new IOException("Query resource not found");
+      }
+      try (ByteArrayOutputStream queryTarget = new ByteArrayOutputStream(2048)) {
+        querySource.transferTo(queryTarget);
+        String queryString = queryTarget.toString(StandardCharsets.UTF_8);
+        TextFormatter textFormatter = TextFormatterFactory.create(format);
+        Query2Doc query2Doc = new Query2Doc();
+        query2Doc.executeSelect(sourceUri, queryString, writer, textFormatter);
+      }
     }
   }
 

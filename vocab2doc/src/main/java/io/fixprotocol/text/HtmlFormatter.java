@@ -1,7 +1,6 @@
 package io.fixprotocol.text;
 
 import java.io.IOException;
-import java.io.Writer;
 
 /**
  * Formats the structure of text for HTML
@@ -14,49 +13,55 @@ class HtmlFormatter implements TextFormatter {
   private static final String NEWLINE = System.lineSeparator();
 
   @Override
-  public void startTable(Writer writer) throws IOException {
-    writer.write("<table>");
+  public void endCell(Appendable appendable) throws IOException {
+    appendable.append("</td>");
   }
 
   @Override
-  public void endTable(Writer writer) throws IOException {
-    writer.write("</table>");
+  public void endColumnHeading(Appendable appendable) throws IOException {
+    appendable.append("</th>");
   }
 
   @Override
-  public void startRow(Writer writer) throws IOException {
-    writer.write("<tr>");
+  public void endRow(Appendable appendable) throws IOException {
+    appendable.append("</tr>");
+    appendable.append(NEWLINE);
   }
 
   @Override
-  public void endRow(Writer writer) throws IOException {
-    writer.write("</tr>");
-    writer.write(NEWLINE);
+  public void endTable(Appendable appendable) throws IOException {
+    appendable.append("</table>");
   }
 
   @Override
-  public void startColumnHeading(Writer writer) throws IOException {
-    writer.write("<th>");
+  public void lineBreak(Appendable appendable) throws IOException {
+    appendable.append("<br/>");
+    appendable.append(NEWLINE);
   }
 
   @Override
-  public void endColumnHeading(Writer writer) throws IOException {
-    writer.write("</th>");
+  public void startCell(Appendable appendable) throws IOException {
+    appendable.append("<td>");
   }
 
   @Override
-  public void startCell(Writer writer) throws IOException {
-    writer.write("<td>");
+  public void startColumnHeading(Appendable appendable) throws IOException {
+    appendable.append("<th>");
   }
 
   @Override
-  public void endCell(Writer writer) throws IOException {
-    writer.write("</td>");
+  public void startRow(Appendable appendable) throws IOException {
+    appendable.append("<tr>");
   }
 
   @Override
-  public void writeLink(Writer writer, String url, String text) throws IOException {
-    writer.write(String.format("<a href=\"%s\">%s</a>", url, text));
+  public void startTable(Appendable appendable) throws IOException {
+    appendable.append("<table>");
+  }
+
+  @Override
+  public void link(Appendable appendable, String url, String text) throws IOException {
+    appendable.append(String.format("<a href=\"%s\">%s</a>", url, text));
   }
 
 }
