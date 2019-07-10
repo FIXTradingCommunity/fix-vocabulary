@@ -13,7 +13,25 @@
  *
  */
 
-/**
- * @author Don Mendelson
- */
 package io.fixprotocol.sparql;
+
+import java.util.Iterator;
+
+public interface QueryResultRecord {
+  
+  /**
+   * Returns the value of a variable as a String
+   * @param variableName name of the variable to retrieve
+   * @return variable value as a String
+   */
+  public String getValue(String variableName);
+  
+  /** Return true if the named variable is in this QueryResultRecord */
+  public boolean contains(String variableName);
+
+  /** Iterate over the variable names (strings) in this QueryResultRecord.
+   * @return Iterator of strings
+   */ 
+  public Iterator<String> variableNames() ;
+
+}

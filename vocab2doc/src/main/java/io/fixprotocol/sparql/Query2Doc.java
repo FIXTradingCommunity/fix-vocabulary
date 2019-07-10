@@ -1,7 +1,22 @@
+/*
+ * Copyright 2019 FIX Protocol Ltd
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ *
+ */
+
 package io.fixprotocol.sparql;
 
 import java.io.IOException;
-import java.io.Writer;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.apache.jena.graph.Node_Variable;
@@ -14,118 +29,111 @@ import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Literal;
-import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.sparql.core.Var;
-import io.fixprotocol.text.TextFormatter;
-import io.fixprotocol.text.TextUtils;
 
 /**
- * Writes the result of a SPARQL query to a document
+ * Executes a SPARQL query
  * 
  * @author Don Mendelson
  *
  */
 public final class Query2Doc {
 
-  private static void writeCellEnd(Writer writer, TextFormatter formatter) throws IOException {
-    formatter.endCell(writer);
-  }
 
-  private static void writeCellStart(Writer writer, TextFormatter formatter) throws IOException {
-    formatter.startCell(writer);
-  }
+  private class QueryResultRecordImpl implements QueryResultRecord {
 
-  private static void writeRowEnd(Writer writer, TextFormatter formatter) throws IOException {
-    formatter.endRow(writer);
-  }
+    private final QuerySolution solution;
 
-  private static void writeRowStart(Writer writer, TextFormatter formatter) throws IOException {
-    formatter.startRow(writer);
-  }
-
-  private static void writeTableEnd(Writer writer, TextFormatter formatter) throws IOException {
-    formatter.endTable(writer);
-  }
-
-  private static void writeTableStart(Writer writer, TextFormatter formatter) throws IOException {
-    formatter.startTable(writer);
-  }
-
-  static void writeCell(Writer writer, TextFormatter formatter, String value) throws IOException {
-    writeCellStart(writer, formatter);
-    writer.write(value);
-    writeCellEnd(writer, formatter);
-  }
-
-  static void writeColumnTitles(List<String> colTitles, Writer writer, TextFormatter formatter)
-      throws IOException {
-    formatter.startRow(writer);
-
-    for (String colTitle : colTitles) {
-      formatter.startColumnHeading(writer);
-      writer.write(colTitle);
-      formatter.endColumnHeading(writer);
+    QueryResultRecordImpl(QuerySolution solution) {
+      this.solution = solution;
     }
 
-    formatter.endRow(writer);
+    @Override
+    public boolean contains(String varName) {
+      return solution.contains(varName);
+    }
+
+    @Override
+    public String getValue(String variableName) {
+      final RDFNode node = solution.get(variableName);
+      String value = "";
+      if (node == null) {
+        // empty cell
+      } else if (node.isLiteral()) {
+        Literal literal = (Literal) node;
+        value = literal.getLexicalForm();
+      } else if (node.isResource()) {
+        Resource resource = (Resource) node;
+        value = resource.toString();
+      }
+      return value;
+    }
+
+    @Override
+    public Iterator<String> variableNames() {
+      return solution.varNames();
+    }
+
   }
 
-  
+  private class QueryResultSetImpl implements QueryResultSet {
+
+    private final ResultSet results;
+    private final List<String> variableNames;
+    private final QueryExecution qexec;
+
+    QueryResultSetImpl(QueryExecution qexec, ResultSet results, List<String> variableNames) {
+      this.qexec = qexec;
+      this.results = results;
+      this.variableNames = variableNames;
+    }
+
+    @Override
+    public List<String> getVariableNames() {
+      return variableNames;
+    }
+
+    @Override
+    public boolean hasNext() {
+      return results.hasNext();
+    }
+
+    @Override
+    public QueryResultRecord next() {
+      QuerySolution solution = results.next();
+      return new QueryResultRecordImpl(solution);
+    }
+
+    @Override
+    public void close() {
+      qexec.close();
+    }
+
+  }
 
   /**
-   * Writes the result of a SPARQL select query to a document
+   * Returns the result of a SPARQL select query
    * 
    * @param sourceUri identifier of source
    * @param queryString a SPARQL select query
-   * @param writer
-   * @param formatter
+   * @return a result set
    * @throws IOException If an I/O error occurs
    */
-  public void executeSelect(String sourceUri, String queryString, Writer writer, TextFormatter formatter)
-      throws IOException {
+  public QueryResultSet executeSelect(String sourceUri, String queryString) throws IOException {
 
     final Query query = QueryFactory.create(queryString);
 
     final List<Var> queryVars = query.getProjectVars();
     final List<String> varNames =
         queryVars.stream().map(Node_Variable::getName).collect(Collectors.toList());
-    final List<String> colTitles = queryVars.stream().map(Node_Variable::getName)
-        .map(TextUtils::convertToTitleCase).collect(Collectors.toList());
 
-    writeTableStart(writer, formatter);
-    writeColumnTitles(colTitles, writer, formatter);
 
     final Dataset dataset = DatasetFactory.create(sourceUri);
-    
-    try (QueryExecution qexec = QueryExecutionFactory.create(query, dataset)) {
+
+    QueryExecution qexec = QueryExecutionFactory.create(query, dataset);
       final ResultSet results = qexec.execSelect();
-
-      while (results.hasNext()) {
-        final QuerySolution solution = results.nextSolution();
-        writeRowStart(writer, formatter);
-
-        for (String varName : varNames) {
-          final RDFNode node = solution.get(varName);
-          String value = "";
-          if (node == null) {
-            // empty cell
-          } else if (node.isLiteral()) {
-            Literal literal = (Literal) node;
-            value = literal.getLexicalForm();
-          } else if (node.isResource()) {
-            Resource resource = (Resource) node;
-            writer.write(resource.toString());
-          }
-          writeCell(writer, formatter, value);
-        }
-
-        writeRowEnd(writer, formatter);
-      }
-
-    }
-    writeTableEnd(writer, formatter);
+      return new QueryResultSetImpl(qexec, results, varNames);
   }
-
 }

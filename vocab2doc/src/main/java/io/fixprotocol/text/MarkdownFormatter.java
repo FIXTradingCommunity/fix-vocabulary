@@ -1,3 +1,18 @@
+/*
+ * Copyright 2019 FIX Protocol Ltd
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ *
+ */
+
 package io.fixprotocol.text;
 
 import java.io.IOException;
@@ -15,6 +30,11 @@ class MarkdownFormatter implements TextFormatter {
   private static final String NEWLINE = System.lineSeparator();
 
   private int columns = 0;
+
+  @Override
+  public void endBold(Appendable appendable) throws IOException {
+    appendable.append("**");
+  }
 
   @Override
   public void endCell(Appendable appendable) throws IOException {
@@ -52,6 +72,16 @@ class MarkdownFormatter implements TextFormatter {
   }
 
   @Override
+  public void link(Appendable appendable, String url, String text) throws IOException {
+    appendable.append(String.format("[%s](%s)", text, url));
+  }
+
+  @Override
+  public void startBold(Appendable appendable) throws IOException {
+    appendable.append("**");
+  }
+
+  @Override
   public void startCell(Appendable appendable) throws IOException {
     appendable.append("| ");
   }
@@ -66,15 +96,15 @@ class MarkdownFormatter implements TextFormatter {
   public void startRow(Appendable appendable) throws IOException {
 
   }
-
+  
   @Override
   public void startTable(Appendable appendable) throws IOException {
 
   }
 
   @Override
-  public void link(Appendable appendable, String url, String text) throws IOException {
-    appendable.append(String.format("[%s](%s)", text, url));
+  public void render(Appendable appendable, String text) throws IOException {
+    appendable.append(text);
   }
 
 }

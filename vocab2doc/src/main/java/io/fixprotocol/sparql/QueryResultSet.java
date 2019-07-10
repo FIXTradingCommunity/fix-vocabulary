@@ -13,7 +13,14 @@
  *
  */
 
-/**
- * @author Don Mendelson
- */
 package io.fixprotocol.sparql;
+
+import java.util.Iterator;
+import java.util.List;
+
+public interface QueryResultSet extends Iterator<QueryResultRecord> {
+
+  List<String> getVariableNames();
+  
+  void close();
+}
